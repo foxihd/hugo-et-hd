@@ -1,0 +1,27 @@
+.loading:after {
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-animation: ellipsis steps(4,end) 4000ms infinite;
+	animation: ellipsis steps(4,end) 4000ms infinite;
+	content: "\2026";
+	width: 0px;
+}
+.fade-out {
+	animation: fade-out 7s forwards;
+	-webkit-animation: fade-out 7s forwards;
+}
+@keyframes fade-out {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
+@-webkit-keyframes fade-out {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
+@keyframes ellipsis {
+	to {width: 1.2em;}
+}
+@-webkit-keyframes ellipsis {
+	to {width: 1.2em;}
+}

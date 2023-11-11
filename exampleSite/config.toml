@@ -1,0 +1,194 @@
+baseURL = 'https://ethd.foxx.ink/'
+title = 'Hugo ET-HD'
+theme = 'hugo-et-hd'
+lastmod = ["lastmod", ":fileModTime", ":default"]
+canonifyURLs = true
+defaultContentLanguage = 'id'
+defaultContentLanguageInSubdir = true
+
+[params]
+	author = 'John Doe'
+	description = 'Hugo ET-HD exampleSite'
+	sidebar = false
+	# localfonts = false
+	# OptInSocialMeta = false
+
+	[params.post]
+		justify = false
+		authorcard = true
+		noIndent = false
+
+	[params.home]
+		# banner = '<img src="" />'
+		# bannercentering = true
+		# authorCard = false
+		# DisableBypassBlock = false
+		slider = true
+		layoutSplit = true
+
+	[params.feed]
+		summary = false
+		grid = true
+		cover = true
+		FlowlinesLimit = 21
+		headline = true
+
+	[params.profile]
+		bio = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+		email = 'johndoe@example.com'
+		# avatar = ''
+
+[markup]
+
+	[markup.highlight]
+		codeFences = true
+		hl_Lines = ""
+		lineNoStart = 1
+		lineNos = false
+		lineNumbersInTable = true
+		noClasses = false
+		tabWidth = 4
+
+[languages]
+	[languages.id]
+		contentDir = 'content/id'
+		disabled = false
+		languageCode = 'id-ID'
+		languageDirection = 'ltr'
+		languageName = 'Bahasa Indonesia'
+		# title = 'Hugo ET-HD'
+		weight = 1
+		[languages.id.params]
+			footnote = '<i>Joni &copy; 2023</i>'
+			imprint = 'Didukung oleh Hugo dengan tema Hugo Et-HD.'
+
+		[languages.id.params.home]
+			tagline = 'Sebuah exampleSite'
+
+	[[languages.id.taxonomies]]
+		category = 'kategori'
+		tag = 'label'
+
+	[[languages.id.menu.foot]]
+		identifier = 'en'
+		pre = 'en 🇺🇸'
+		url = '/en'
+		weight = 1
+		title = 'Switch to English'
+		[[languages.id.menu.foot.params]]
+			class = 'button ssc sf scriptsize'
+
+	[[languages.id.menu.main]]
+		pre = '<i class="icon ethd"></i>'
+		identifier = 'ethd'
+		weight = 1
+		title = 'etxhd' # please set if name not defined
+		[[languages.id.menu.main.params]]
+			isBanner = true # please set the banner once
+
+	[[languages.id.menu.main]]
+		name = 'arsip'
+		pre = '<i class="icon archive scriptsize"></i> '
+		identifier = 'archive'
+		url = '/id/pos'
+		weight = 2
+		[[languages.id.menu.main.params]]
+			class = 'lfill' # Positional class: < lfill | hfill | rfill >
+
+	[[languages.id.menu.main]]
+		name = 'garap'
+		identifier = 'fork'
+		pre = '<i class="icon git scriptsize"></i> '
+		url = 'https://github.com/foxihd/hugo-et-hd/'
+		weight = 3
+
+	[[languages.id.menu.author]]
+		identifier = 'Karyakarsa'
+		pre = '<i class="icon karyakarsa"></i> '
+		url = '#uh-oh'
+		weight = 1
+		title = 'Karyakarsa'
+
+	[[languages.id.menu.author]]
+		identifier = 'Hashnode'
+		pre = '<i class="icon hashnode"></i> '
+		url = '#uh-oh'
+		weight = 2
+		title = 'Hashnode'
+
+	[[languages.id.menu.author]]
+		identifier = 'Tokopedia'
+		pre = '<i class="icon tokopedia"></i>'
+		url = '#uh-oh'
+		weight = 3
+		title = 'Tokopedia'
+
+	[languages.en]
+		contentDir = 'content/en'
+		disabled = false
+		languageCode = 'en-US'
+		languageDirection = 'ltr'
+		languageName = 'English'
+		# title = 'Hugo ET-HD'
+		weight = 2
+		[languages.en.params]
+			footnote = '<i>John &copy; 2023</i>'
+			imprint = 'Powered by Hugo with Hugo Et-HD Theme.'
+
+		[languages.en.params.home]
+			tagline = 'Just another exampleSite'
+
+
+	[[languages.en.menu.foot]]
+		identifier = 'id'
+		pre = 'id 🇮🇩'
+		url = '/id'
+		weight = 1
+		title = 'Beralih ke Bahasa Indonesia'
+		[[languages.en.menu.foot.params]]
+			class = 'button ssc sf scriptsize'
+
+	[[languages.en.menu.main]]
+		pre = '<i class="icon ethd"></i>'
+		identifier = 'ethd'
+		weight = 1
+		title = 'etxhd' # please set if name not defined
+		[[languages.en.menu.main.params]]
+			isBanner = true # please set the banner once
+
+	[[languages.en.menu.main]]
+		name = 'archive'
+		pre = '<i class="icon archive scriptsize"></i> '
+		identifier = 'archive'
+		url = '/en/post'
+		weight = 2
+		[[languages.en.menu.main.params]]
+			class = 'lfill' # Positional class: < lfill | hfill | rfill >
+
+	[[languages.en.menu.main]]
+		name = 'fork'
+		identifier = 'fork'
+		pre = '<i class="icon git scriptsize"></i> '
+		url = 'https://github.com/foxihd/hugo-et-hd/'
+		weight = 3
+
+	[[languages.en.menu.author]]
+		identifier = 'Substack'
+		pre = '<i class="icon substack"></i> '
+		url = '#uh-oh'
+		weight = 1
+		title = 'Substack'
+
+	[[languages.en.menu.author]]
+		identifier = 'Hashnode'
+		pre = '<i class="icon hashnode"></i> '
+		url = '#uh-oh'
+		weight = 2
+		title = 'Hashnode'
+
+	[[languages.en.menu.author]]
+		identifier = 'Creativefabrica'
+		pre = '<i class="icon creativefabrica"></i>'
+		url = '#uh-oh'
+		weight = 3
+		title = 'Creative Fabrica'

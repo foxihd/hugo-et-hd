@@ -1,0 +1,37 @@
+{{- $nosidebar := not .Site.Params.Sidebar }}
+{{- $nopinned := not .Site.Menus.foot }}
+{{- $nofootnote := not .Site.Params.Footnote }}
+<footer class="footnotesize {{ if and $nosidebar $nopinned $nofootnote }}clear{{ end }}">
+
+	{{- if .Site.Params.sidebar }}
+	{{ partial "ins/sidebar.html" . }}
+	{{- end }}
+
+	{{- with .Site.Menus.foot }}
+	<details open class="unmark">
+	<summary class="hide" id="pinnednav">{{ i18n "pinned" }}</summary>
+	<nav aria-labelledby="pinnednav">
+		<ul class="unmark">
+			{{- range . }}
+			<li><a href="{{ .URL }}" class="no-underline {{ .Params.Class }}" 
+				{{- if .Title }} aria-label="{{ .Title }}" title="{{ .Title }}" {{ end }}>
+				{{- .Pre }}{{ .Name }}{{ .Post -}}
+				</a>
+			</li>
+			{{- end }}
+		</ul>
+	</nav>
+	</details>
+	{{- end }}
+
+	{{- with .Site.Params.Footnote }}
+	<div id="footinfo" role="contentinfo" class="{{ if and $nosidebar $nopinned }}lfill{{ else }}hfill{{ end }} ldots">
+		<hr class="hide" style="border-style:dotted;">
+		<center>{{ . | safeHTML }}</center>
+		<hr class="hide" style="border-style:dotted;">
+	</div>
+	{{- end }}
+
+	{{ partial "ins/toolbar.html" . }}
+
+</footer>

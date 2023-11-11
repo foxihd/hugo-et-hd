@@ -1,0 +1,34 @@
+{{- $aac := .Resources.GetMatch "audio.aac" }}
+{{- $flac := .Resources.GetMatch "audio.flac" }}
+{{- $mp3 := .Resources.GetMatch "audio.mp3" }}
+{{- $oga := .Resources.GetMatch "audio.oga" }}
+{{- $ogg := .Resources.GetMatch "audio.ogg" }}
+{{- $opus := .Resources.GetMatch "audio.opus" }}
+{{- $wav := .Resources.GetMatch "audio.wav" }}
+{{- $weba := .Resources.GetMatch "audio.weba" }}
+{{- $audio := .Params.Audio }}
+{{- $audioExt := index ( split $audio "." ) ( sub ( len ( split $audio "." ) ) 1 ) }}
+{{- if or $audio $aac $flac $mp3 $oga $ogg $opus $wav $weba }}
+<audio controls aria-label="{{ i18n "audio" }} : {{ .Title }}">
+    {{- with $aac }}<source src="{{ .Permalink }}" type="audio/aac">{{ end }}
+    {{- with $flac }}<source src="{{ .Permalink }}" type="audio/flac">{{ end }}
+    {{- with $mp3 }}<source src="{{ .Permalink }}" type="audio/mpeg">{{ end }}
+    {{- with $ogg }}<source src="{{ .Permalink }}" type="audio/ogg">{{ end }}
+    {{- with $oga }}<source src="{{ .Permalink }}" type="audio/ogg">{{ end }}
+    {{- with $opus }}<source src="{{ .Permalink }}" type="audio/opus">{{ end }}
+    {{- with $wav }}<source src="{{ .Permalink }}" type="audio/wav">{{ end }}
+    {{- with $weba }}<source src="{{ .Permalink }}" type="audio/webm">{{ end }}
+    {{- with $audio }}<source src="{{ . }}" 
+        {{- if eq $audioExt "aac" }}type="audio/aac"
+        {{- else if eq $audioExt "flac" }}type="audio/flac"
+        {{- else if eq $audioExt "mp3" }}type="audio/mpeg"
+        {{- else if eq $audioExt "oga" }}type="audio/ogg"
+        {{- else if eq $audioExt "ogg" }}type="audio/ogg"
+        {{- else if eq $audioExt "opus" }}type="audio/opus"
+        {{- else if eq $audioExt "wav" }}type="audio/wav"
+        {{- else if eq $audioExt "weba" }}type="audio/webm"
+        {{- end -}}>
+    {{ end }}
+    {{ i18n "iFNoAudioSupport" }}
+</audio>
+{{- end }}

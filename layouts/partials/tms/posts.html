@@ -1,0 +1,24 @@
+<div role="list" id="list-Post">
+	{{- range .Data.Pages.GroupByDate "2006" }}
+	<div role="listitem" class="list-year nopadding" id="{{ .Key }}">
+		<h3 class="normalfont normalsize ssc">{{ .Key }}</h3>
+		<div role="list" style="padding-left:0.612rem;">
+			{{- range .Pages.GroupByDate "January" }}
+			<div role="listitem">
+			<details open aria-expanded="true" class="list-month" id="{{ .Key }}">
+			<summary class="normalsize ssc" >{{ .Key }} ({{ len .Pages }})</summary>
+				{{- with .Pages }}
+				<ul class="unmark list-day">
+					{{- range . }}
+					<li><span class="list-item ssc sf">{{ .Date.Format ( i18n "date_list" ) }}</span>
+						<a class="plain small it" href="{{ .RelPermalink }}">{{.Title}}</a></li>
+					{{- end }}
+				</ul>
+				{{- end }}
+			</details>
+			</div>
+			{{- end }}
+		</div>
+	</div>
+	{{- end }}
+</div>

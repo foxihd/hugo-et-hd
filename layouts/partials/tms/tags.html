@@ -1,0 +1,5 @@
+<ul id="list-tags" class="unmark scriptsize ssc sf">
+	{{- range sort .Site.Taxonomies.tags }}
+	<li><a class="no-underline inverse" href="{{ .Page.Permalink }}"> #{{ .Page.Title }}({{ .Count }})</a></li>
+	{{- end }}
+</ul>

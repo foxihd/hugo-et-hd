@@ -1,0 +1,137 @@
+# index.html
+[skiplanding]
+	other = "Jump to Article"
+[post_on]
+	other = "Post on"
+[recent]
+	other = "Recent Post"
+[draft]
+	other = "Draft"
+[next]
+	other = "Next"
+[prev]
+	other = "Prev"
+[readOn]
+	other = "Read more"
+[readingTime]
+	one = "Read more for one minute"
+	other = "Read more for ±{{.Count}} minutes"
+[minRead]
+	other = "{{.Count}} min read"
+[noSummary]
+	other = "No summary written."
+[about]
+	other = "About"
+# list.html
+[archive]
+	other = "Archives"
+[categories]
+	other = "Categories"
+[tags]
+	other = "Tags"
+[post]
+	other = "Posts"
+[home]
+	other = "Home"
+# single.html
+[published]
+	other = "Published on"
+[modified]
+	other = "modified on"
+[featuredImg]
+	other = "Featured image for"
+[audio]
+	other = "Audio for"
+[titletoc]
+	other = "Contents at a glance"
+[tagged]
+	other = "Tags"
+[sharePage]
+	other = "Share this page!"
+[shareArticle]
+	other = "Share this post!"
+[shareTo]
+	other = 'Share to'
+[inNewTab]
+	other = 'Open in new tab'
+[emailIt]
+	other = 'Send as e-mail'
+[printIt]
+	other = 'Print this page'
+[imprint]
+	other = 'Imprint'
+[imprintLink]
+	other = 'This article is accessed from'
+[readDiscussion]
+	other = 'Read Discussion Here'
+[readNext]
+	other = "Read Next"
+[colophone]
+	other = 'Colophone'
+[colophonetext]
+	other = 'Powered by Hugo with Hugo Et-HD Theme'
+[date_iso]
+	other = "2006-01-02"
+[date_post]
+	other = "2 January 2006"
+[date_list]
+	other = "Jan 2"
+# timeformat fallback
+[date_full]
+	other = "Monday, January 2, 2006"
+[date_long]
+	other = "January 2, 2006"
+[date_medium]
+	other = "Jan 2, 2006"
+[date_short]
+	other = "1/2/06"
+[time_full]
+	other = "15:04:05 MST"
+[time_long]
+	other = "3:04:05 PM MST"
+[time_medium]
+	other = "3:04:05 PM"
+[time_short]
+	other = "3:04 PM"
+# 404
+[pageNotFound]
+	other = "Page Not Found!"
+[redirectHome]
+	other = "This page intentionally redirect"
+[backHome]
+	other = "back to homepage"
+# a11y
+[ifNoAudioSupport]
+	other = "Your browser does not support the audio element."
+[noScript]
+	other = "Javascript is disabled"
+[legibility]
+	other = "Legibility"
+[typeface]
+	other = "Typeface"
+[color]
+	other = "Color Scheme"
+[bionRead]
+	other = "Toggle BionRead mode"
+[openDyslexic]
+	other = "Use OpenDyslexic font"
+[fontScaling]
+	other = "Font scaling"
+[baselineStretch]
+	other = "Line stretch"
+[darkMode]
+	other = "Dark Mode"
+[contrast]
+	other = "Contrast"
+[less]
+	other = "less"
+[default]
+	other = "default"
+[more]
+	other = "more"
+[close]
+	other = "Close"
+[otherLink]
+	other = "Other link"
+[pinned]
+	other = "Pinned"

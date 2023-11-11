@@ -1,0 +1,55 @@
+.slider {
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+	padding: 0;
+}
+.slider section {
+	padding: 0;
+}
+.slides {
+	display: flex;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+}
+.slides::-webkit-scrollbar {
+	width: 0.7rem;
+	height: 0.7rem;
+}
+.slides::-webkit-scrollbar-thumb {
+	background: var(--ink);
+	border-radius: 1rem;
+}
+.slides::-webkit-scrollbar-track {
+	background: transparent;
+}
+.slides > div,
+.slides > section {
+	scroll-snap-align: start;
+	flex-shrink: 0;
+	width: 100%;
+	height: calc(100vh - 1rem);
+	transform-origin: center center;
+	transform: scale(1);
+	transition: transform 0.5s;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+img.slides {
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+@supports (scroll-snap-type) {
+	.slider > a {
+		display: none;
+	}
+}

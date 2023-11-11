@@ -1,0 +1,4 @@
+{{- $sidenoteID := print "sidenote-" .Page.File.UniqueID "-" .Ordinal }}
+<label for="{{ $sidenoteID }}" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="{{ $sidenoteID }}" class="margin-toggle">
+<span role="doc-footnote" class="sidenote">{{ .Inner | markdownify }}</span>

@@ -1,0 +1,5 @@
+<ul id="list-categories">
+	{{- range sort .Site.Taxonomies.categories }}
+	<li><a class="plain" href="{{ .Page.Permalink }}">{{ .Page.Title | title }}</a></li>
+	{{- end }}
+</ul>

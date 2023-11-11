@@ -1,0 +1,110 @@
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-roman-webfont.woff2) format('woff2');
+	size-adjust: 96%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-italic-webfont.woff2) format('woff2');
+	size-adjust: 96%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-bold-webfont.woff2) format('woff2');
+	size-adjust: 96%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/skosch/Crimson/master/Web%20Fonts/crimson-bolditalic-webfont.woff2) format('woff2');
+	size-adjust: 96%;
+}
+@font-face {
+	font-family: 'Rosario';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/Omnibus-Type/Rosario/master/fonts/webfonts/Rosario-Regular.woff2) format('woff2');
+	size-adjust: 90%;
+}
+@font-face {
+	font-family: 'Rosario';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/Omnibus-Type/Rosario/master/fonts/webfonts/Rosario-Italic.woff2) format('woff2');
+	size-adjust: 90%;
+}
+@font-face {
+	font-family: 'Rosario';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/Omnibus-Type/Rosario/master/fonts/webfonts/Rosario-Bold.woff2) format('woff2');
+	size-adjust: 90%;
+}
+@font-face {
+	font-family: 'Rosario';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/Omnibus-Type/Rosario/master/fonts/webfonts/Rosario-BoldItalic.woff2) format('woff2');
+	size-adjust: 90%;
+}
+@font-face {
+	font-family: 'Inconsolata';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/googlefonts/Inconsolata/main/fonts/webfonts/Inconsolata-Regular.woff2) format('woff2');
+}
+@font-face {
+	font-family: 'Inconsolata';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/googlefonts/Inconsolata/main/fonts/webfonts/Inconsolata-Bold.woff2) format('woff2');
+}
+@font-face {
+	font-family: 'OpenDyslexic';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/antijingoist/OpenDyslexic/master/compiled/OpenDyslexic-Regular.woff2) format('woff2');
+	size-adjust: 83%;
+}
+@font-face {
+	font-family: 'OpenDyslexic';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/antijingoist/OpenDyslexic/master/compiled/OpenDyslexic-Italic.woff2) format('woff2');
+	size-adjust: 83%;
+}
+@font-face {
+	font-family: 'OpenDyslexic';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/antijingoist/OpenDyslexic/master/compiled/OpenDyslexic-Bold.woff2) format('woff2');
+	size-adjust: 83%;
+}
+@font-face {
+	font-family: 'OpenDyslexic';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(https://raw.githubusercontent.com/antijingoist/OpenDyslexic/master/compiled/OpenDyslexic-Bold-Italic.woff2) format('woff2');
+	size-adjust: 83%;
+}

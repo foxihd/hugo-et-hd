@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+	{{ partial "meta.html" . }}
+	<meta http-equiv="refresh" content="30;url=/">
+	<link rel="stylesheet" type="text/css" href="/css/ethd-style.min.css">
+	{{- $404Sty := resources.Get "css/ethd--go-404.css" -}}
+	{{- $404Min := $404Sty | resources.Minify }}
+	<link rel="stylesheet" type="text/css" href="{{ $404Sty.Permalink }}">
+	<title>404 — {{ i18n "pageNotFound" }}</title>
+</head>
+<body>
+	<main class="noprint">
+		<section style="display:flex;flex-direction:column;min-height:100vh;justify-content:center;">
+		<h1 class="nomargin sf ssc fade-out">N/A 404<br>
+			<span class="fade sf">{{ i18n "pageNotFound" }}</span></h1>
+		<p class="small">{{ i18n "redirectHome" }} <a href="/" class="plain loading">{{ i18n "backHome" }}</a></p>
+		</section>
+	</main>
+</body>
+</html>

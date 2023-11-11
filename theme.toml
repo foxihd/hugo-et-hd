@@ -1,0 +1,22 @@
+name = "ET-HD"
+description = "Hugo ETHD is an accessibility-enhanced, micro-typography-focused, minimalist Hugo theme for enabling wider audience."
+homepage = "https://github.com/foxihd/hugo-et-hd/"
+demosite = "https://ethd.foxx.ink"
+min_version = "0.79"
+tags = [
+	"accessibility",
+	"blog",
+	"dark",
+	"landing",
+	"light",
+	"minimal",
+	"personal",
+	"responsive",
+]
+[authors]
+	name = "Foxx"
+	homepage = "https://foxx.brewm.co"
+[original]
+	name = "Tufte"
+	homepage = "https://slashformotion.github.io/hugo-tufte/"
+	repo = "https://github.com/slashformotion/hugo-tufte"

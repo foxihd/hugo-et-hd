@@ -1,0 +1,75 @@
+
+
+<article class="nopadding" aria-labelledby="Title" id="main-article" role="document">
+	<header aria-labelledby="Title" data-bionRead-safe>
+		<h1 id="Title">{{ .Title }}</h1>
+		{{- if .Params.subtitle }}
+		<p class="subtitle smallskip">{{ .Params.subtitle }}</p>
+		{{- end }}
+		<p class="it footnotesize">
+			{{- if ne .PublishDate .Lastmod }}
+				{{- i18n "published" }} <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ if lt hugo.Version 0.87 }}{{ .PublishDate.Format ( i18n "date_post" ) }}{{ else }}{{ .PublishDate | time.Format ":date_long" }}{{ end }}</time>,&nbsp;
+				{{- i18n "modified" }} <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ if lt hugo.Version 0.87 }}{{ .Lastmod.Format ( i18n "date_post" ) }}{{ else }}{{ .Lastmod | time.Format ":date_long" }}{{ end }}</time>.
+			{{- else }}
+				<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ if lt hugo.Version 0.87 }}{{ .PublishDate.Format ( i18n "date_post" ) }}{{ else }}{{ .PublishDate | time.Format ":date_long" }}{{ end }}</time>
+			{{- end -}}
+		</p>
+		{{- if .Params.author }}
+		<p class="it footnotesize">{{ .Params.author }}</p>
+		{{- else if .Site.Params.author}}
+		<p class="it footnotesize">{{ .Site.Params.author }}</p>
+		{{- end }}
+		{{- $cover := .Params.Cover }}
+		{{- $getcover := .Resources.GetMatch "cover.*" }}
+		{{- if or $getcover $cover }}
+		<img role="doc-cover" alt="{{ i18n "featuredImg" }} : {{ .Title }}"
+			src="{{ if $cover }}{{ $cover }}{{ else }}{{ $getcover.Permalink }}{{ end }}">
+		{{- end }}
+	</header>
+	{{ partial "ins/audio.html" . }}
+	{{- if .Params.toc }}
+	<br class="smallskip">
+	<div role="doc-toc" class="noprint normalsize" aria-labelledby="toc">
+		<details open aria-expanded="true" class="it">
+		<summary class="normalfont ssc" id="toc">{{ i18n "titletoc" }}</summary>
+		{{ .TableOfContents }}
+		</details>
+	</div>
+	{{- end }}
+	<section aria-labelledby="Title" id="content" data-bionRead-safe>
+	{{ if or .Params.task .Site.Params.Post.enableCheckbox }}
+	{{ replace .Content "disabled=" "" | safeHTML }}
+	{{- else }}
+	{{ .Content }}
+	{{- end }}
+	</section>
+	{{- with .Params.Tags }}
+	<span class="small nopadding">{{ i18n "tagged" }}: 
+		<ul class="unmark" id="article-tags">
+		{{- range . }}
+			<li><a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}' class="plain">{{ . }}</a></li>
+		{{- end }}
+		</ul>
+	</span>
+	{{- end }}
+</article>
+
+{{ partial "ins/social.html" . -}}
+
+{{- if .Params.Discussion }}
+<a href="{{ .Params.Discussion }}" class="plain bottomline" title="{{ .Title }}">
+	<div class="reverse">{{ i18n "readDiscussion" }}  &#187;</div>
+	<div class="ldots">{{ with .Params.AskReader }}{{ . }}{{ else }}{{ .Params.Discussion }}{{ end }}</div>
+</a>
+{{- end }}
+
+{{- with .NextInSection }}
+<a href="{{ .RelPermalink }}" class="plain bottomline" title="{{ .Title }}">
+	<div class="reverse">{{ i18n "readNext" }}  &#187;</div>
+	<div class="ldots">{{ .Title }}</div>
+</a>
+{{- end }}
+
+{{- if and ( not .Params.author ) ( .Site.Params.Post.Authorcard ) }}
+{{ partial "ins/author.html" . -}}
+{{- end }}

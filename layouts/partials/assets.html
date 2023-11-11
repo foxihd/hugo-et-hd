@@ -1,0 +1,68 @@
+<!--------------------------------------------------------- Load CSS -->
+{{- $base := resources.Get "css/ethd.css" -}}
+{{- $hugo := resources.Get "css/ethd--go.css" -}}
+{{- $icon := resources.Get "css/ethd-icon.css" -}}
+{{- $fonts := resources.Get "css/ethd-fonts.css" -}}
+{{- if .Site.Params.LocalFonts }}{{ $fonts = resources.Get "css/ethd-fonts-local.css" }}{{ end }}
+{{- $style := slice $base $hugo $fonts $icon | resources.Concat "css/ethd-style.css" | minify }}
+<link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
+<!------------------------------------------------------------- a11y -->
+<script>
+	const scheme = window.matchMedia("(prefers-color-scheme: dark)");
+	console.log(scheme.matches);
+	function closeToolbar() {document.getElementById("toolbar").removeAttribute("open");}
+	function closeSidebar() {document.getElementById("sidebar").removeAttribute("open");}
+</script>
+{{- $bionread := resources.Get "js/bionread.js" -}}
+{{- $brightness := resources.Get "js/override-brightness.js" -}}
+{{- $contrast := resources.Get "js/override-contrast.js" -}}
+{{- $font := resources.Get "js/override-fonts.js" -}}
+{{- $a11y := slice $bionread $brightness $contrast $font | resources.Concat "js/a11y.js" | resources.Fingerprint "sha384" }}
+<script defer src="{{ $a11y.Permalink }}" integrity="{{ $a11y.Data.Integrity }}" crossorigin="anonymous"></script>
+{{/* ------------------------------------------------ Custom Style  */}}
+<style>
+{{- if .Site.Params.Post.NoIndent }}
+* p {
+	text-indent: unset !important;
+}
+{{- end }}
+{{- if and (not .IsHome) (.Site.Params.Post.Justify) }}
+p {
+	text-align: justify;
+}
+{{- end }}
+{{- with .Site.Params.Imprint }}
+@media print {
+	main::after {
+		content: '{{ . }}' !important;
+	}
+}
+{{- end -}}
+</style>
+
+{{ with .Site.Params.Initial }}
+<style>
+:root {
+	{{ if .FontScale }}
+	--fontScale: {{ .FontScale }};
+	{{ end }}
+	{{ if .BaselineStretch }}
+	--baselineStretch: {{ .BaselineStretch }};
+	{{ end }}
+	{{ if .ForceOpenDyslexic }}
+	--rm: 'OpenDyslexic';
+	--sf: OpenDyslexic;
+	{{ end }}
+}
+</style>
+{{ if.FontScale }}
+<script>
+	fontSizeRange.value = {{ .FontScale }} * 10;
+</script>
+{{- end }}
+{{- if .BaselineStretch }}
+<script>
+	baselineStretchRange.value = {{ .BaselineStretch }} * 10;
+</script>
+{{- end }}
+{{ end }}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+{{ partial "meta.html" . -}}
+{{ partial "assets.html" . -}}
+{{ block "head" . -}}
+{{- end }}
+</head>
+
+{{- $split:= and (.IsHome) (.Site.Params.Home.Slider) (.Site.Params.Home.Layoutsplit) }}
+<body {{ if $split }}id="split"{{ end }}>
+{{ block "header" . -}}
+{{ partial "header.html" . -}}
+{{- end }}
+
+<main {{ if .IsHome }} id="main-panel" class="flex" {{ end -}}>
+{{ block "main" . -}}
+{{ end }}
+{{ if $split }}{{ partial "custom/mainfooter.html" . }}{{ end }}
+</main>
+
+{{ if not $split }}{{ partial "custom/mainfooter.html" . -}}{{ end }}
+
+{{ block "footer" . -}}
+{{ partial "footer.html" . -}}
+{{- end }}
+
+</body>
+
+</html>
+
+<div class="hide no-print" id="bionReadSnapshot" aria-hidden="true"></div>

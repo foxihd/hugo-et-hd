@@ -1,0 +1,314 @@
+/* latin, latin-ext */
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/crimson-roman-webfont.woff2) format('woff2');
+	size-adjust: 96%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/crimson-italic-webfont.woff2) format('woff2');
+	size-adjust: 96%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/crimson-bold-webfont.woff2) format('woff2');
+	size-adjust: 96%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/crimson-bolditalic-webfont.woff2) format('woff2');
+	size-adjust: 96%;
+}
+/* arabic */
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/J7aRnpd8CGxBHpUrtLMS7JNKIjk.woff2) format('woff2');
+	unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/J7acnpd8CGxBHp2VkaY6zp5gGDAbnCA.woff2) format('woff2');
+	unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/J7afnpd8CGxBHpUrhLQY67FIEjgjpQ.woff2) format('woff2');
+	unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/J7aanpd8CGxBHpUrjAo9_plqHxIZrCE4KA.woff2) format('woff2');
+	unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+}
+/* greek */
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/SlGUmQSNjdsmc35JDF1K5GR2SDk_YAPIlWk.woff2) format('woff2');
+	unicode-range: U+0370-03FF;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/SlGUmQSNjdsmc35JDF1K5GR2SDk_YAPIlWk.woff2) format('woff2');
+	unicode-range: U+0370-03FF;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/SlGWmQSNjdsmc35JDF1K5GRweDg1ZyHKpWiGIg.woff2) format('woff2');
+	unicode-range: U+0370-03FF;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/SlGWmQSNjdsmc35JDF1K5GRweDg1ZyHKpWiGIg.woff2) format('woff2');
+	unicode-range: U+0370-03FF;
+	size-adjust: 110%;
+}
+/* greek-ext */
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/SlGWmQSNjdsmc35JDF1K5GRweDc1ZyHKpWiGIg.woff2) format('woff2');
+	unicode-range: U+1F00-1FFF;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/SlGWmQSNjdsmc35JDF1K5GRweDc1ZyHKpWiGIg.woff2) format('woff2');
+	unicode-range: U+1F00-1FFF;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/SlGUmQSNjdsmc35JDF1K5GR5SDk_YAPIlWk.woff2) format('woff2');
+	unicode-range: U+1F00-1FFF;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/SlGUmQSNjdsmc35JDF1K5GR5SDk_YAPIlWk.woff2) format('woff2');
+	unicode-range: U+1F00-1FFF;
+	size-adjust: 110%;
+}
+/* cyrillic */
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/SlGUmQSNjdsmc35JDF1K5GRxSDk_YAPIlWk.woff2) format('woff2');
+	unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/SlGUmQSNjdsmc35JDF1K5GRxSDk_YAPIlWk.woff2) format('woff2');
+	unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/SlGWmQSNjdsmc35JDF1K5GRweD81ZyHKpWiGIg.woff2) format('woff2');
+	unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/SlGWmQSNjdsmc35JDF1K5GRweD81ZyHKpWiGIg.woff2) format('woff2');
+	unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+	size-adjust: 110%;
+}
+/* cyrillic-ext */
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/SlGUmQSNjdsmc35JDF1K5GR4SDk_YAPIlWk.woff2) format('woff2');
+	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/SlGUmQSNjdsmc35JDF1K5GR4SDk_YAPIlWk.woff2) format('woff2');
+	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/SlGWmQSNjdsmc35JDF1K5GRweDY1ZyHKpWiGIg.woff2) format('woff2');
+	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+	size-adjust: 110%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/SlGWmQSNjdsmc35JDF1K5GRweDY1ZyHKpWiGIg.woff2) format('woff2');
+	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+	size-adjust: 110%;
+}
+/* sundanese */
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/FwZH7_84xUkosG2xJo2gm7nFwSLQkdymgViMPossZPHXcw.woff2) format('woff2');
+	unicode-range: U+1B80-1BBF, U+1CC0-1CC7, U+200C-200D, U+2010, U+25CC;
+	size-adjust: 86%;
+}
+@font-face {
+	font-family: 'crimson';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/FwZH7_84xUkosG2xJo2gm7nFwSLQkdymgViMPossZPHXcw.woff2) format('woff2');
+	unicode-range: U+1B80-1BBF, U+1CC0-1CC7, U+200C-200D, U+2010, U+25CC;
+	size-adjust: 86%;
+}
+/* latin, latin-ext, greek */
+@font-face {
+	font-family: 'Rosario';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/Rosario-Regular.woff2) format('woff2');
+	size-adjust: 90%;
+}
+@font-face {
+	font-family: 'Rosario';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/Rosario-Italic.woff2) format('woff2');
+	size-adjust: 90%;
+}
+@font-face {
+	font-family: 'Rosario';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/Rosario-Bold.woff2) format('woff2');
+	size-adjust: 90%;
+}
+@font-face {
+	font-family: 'Rosario';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/Rosario-BoldItalic.woff2) format('woff2');
+	size-adjust: 90%;
+}
+/* latin, latin-ext */
+@font-face {
+	font-family: 'Inconsolata';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/Inconsolata-Regular.woff2) format('woff2');
+}
+@font-face {
+	font-family: 'Inconsolata';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/Inconsolata-Bold.woff2) format('woff2');
+}
+/* latin, latin-ext, greek */
+@font-face {
+	font-family: 'OpenDyslexic';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/OpenDyslexic-Regular.woff2) format('woff2');
+	size-adjust: 83%;
+}
+@font-face {
+	font-family: 'OpenDyslexic';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/css/fonts/OpenDyslexic-Italic.woff2) format('woff2');
+	size-adjust: 83%;
+}
+@font-face {
+	font-family: 'OpenDyslexic';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/OpenDyslexic-Bold.woff2) format('woff2');
+	size-adjust: 83%;
+}
+@font-face {
+	font-family: 'OpenDyslexic';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/css/fonts/OpenDyslexic-Bold-Italic.woff2) format('woff2');
+	size-adjust: 83%;
+}

@@ -1,0 +1,28 @@
+{{- define "head" }}
+{{- $listSty := resources.Get "css/ethd--go-list.css" -}}
+{{- $listMin := $listSty | resources.Minify }}
+<link rel="stylesheet" type="text/css" href="{{ $listMin.Permalink }}">
+{{- end }}
+
+{{- define "main" }}
+{{- $term := eq .Kind "term" }}
+<h1>{{ if .IsSection }}{{ i18n "archive" }}{{ else if $term }}{{ .Page.Title }}{{ end }}</h1>
+<hr class="hide" style="border-style:dotted;">
+<aside>
+	<section>
+		<h2 class="rm ssc normalfont Large">{{ i18n "categories" }}</h2>
+		{{- partial "tms/categories.html" . }}
+		<hr class="hide" style="border-style:dotted;">
+	</section>
+	<section>
+	<h2 class="rm ssc normalfont Large">{{ i18n "tags" }}</h2>
+	{{- partial "tms/tags.html" . }}
+	<hr class="hide" style="border-style:dotted;">
+	</section>
+</aside>
+<section id="list-posts">
+<h2 class="rm ssc normalfont Large">{{ i18n "post" }}</h2>
+{{ partial "tms/posts.html" . -}}
+<hr class="hide" style="border-style:dotted;">
+</section>
+{{- end }}

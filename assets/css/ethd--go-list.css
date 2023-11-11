@@ -1,0 +1,43 @@
+.list-year {
+	display:flex;
+	gap: 0;
+	align-items: baseline;
+	width: 62%;
+}
+.list-month {
+	margin-bottom: 2rem;
+}
+.list-day {
+	line-height: 1.414;
+}
+.list-item {
+	display: block;
+	position: relative;
+	width: 5rem;
+	left: -5.65rem;
+	top: 1.618rem;
+	text-align: right;
+	color: var(--i3i);
+}
+#list-posts {
+	min-height: 62vh;
+}
+ul#list-tags {
+	display: inline;
+}
+ul#list-tags a {
+	margin: 0.5ex 0;
+}
+ul#list-categories {
+	font-style: italic;
+	padding-left: 1em;
+}
+ul#list-categories li::marker {
+	font: normal 0.8em;
+	content: '> ';
+}
+@media only screen and (max-width: 640px) {
+	.list-year {
+		width: 100%;
+	}
+}

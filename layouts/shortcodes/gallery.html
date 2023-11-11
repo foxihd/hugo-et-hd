@@ -1,0 +1,13 @@
+{{- $cls := .Get "class" }}
+{{- $dir := string (.Get "dir") }}
+<figure class="grid">
+{{- range (readDir (print "/static" $dir)) }}
+{{- $image := resources.Get (printf "%s/%s" $dir .Name) }}
+{{- $imageurl := printf "%s/%s" $dir .Name }}
+{{- $imagetitle := index (split .Name ".") 0 }}
+<figure class="griditem">
+	<img src="{{ $imageurl }}" alt="{{ $imagetitle }}" title="{{ $imagetitle }}" class="{{ $cls }}" >
+	{{/*  <figcaption>{{ $imagetitle }}</figcaption>  */}}
+</figure>
+{{- end }}
+</figure>

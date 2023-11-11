@@ -1,0 +1,4 @@
+{{- $marginnoteID := print "marginnote-" .Page.File.UniqueID "-" .Ordinal }}
+<label for="{{ $marginnoteID }}" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="{{ $marginnoteID }}" class="margin-toggle" >
+<span role="note" class="marginnote">{{ .Inner | markdownify }}</span>

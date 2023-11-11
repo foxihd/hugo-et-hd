@@ -1,0 +1,4 @@
+{{- with .Parent }}
+{{ partial "ins/breadcrumbs-lt.html" . }}
+<li><a href="{{ .Permalink }}" class="plain">{{ .Title }}</a></li>
+{{- end }}

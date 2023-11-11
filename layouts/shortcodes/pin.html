@@ -1,0 +1,28 @@
+{{- $var := .Get 0 }}
+{{- $pinID :=  print "pin-" .Page.File.UniqueID "-" .Ordinal }}
+{{- $label := .Get "label" }}
+{{- $img := .Get "img" }}
+{{- $alt := .Get "alt" }}
+{{- if .IsNamedParams }}
+{{- if .Get "quote" }}
+<div class="griditem" aria-labelledby="sku-{{ $pinID }}">
+	<a class="plain" href="{{ .Get "url" }}">
+	<p class="nomargin raggedright footnotesize sf ssc " id="{{ $pinID }}" >{{ $label }}</p>
+	<img {{ with $img }}src="{{ . }}"{{ end }} {{ if or $alt $label }}alt="{{ if $alt }}{{ $alt }}{{ else if $label }}{{ $label }}{{ end }}"{{ end }} aria-describedby="{{ $pinID }}">
+	<p class="nomargin raggedleft scriptsize">{{ .Get "quote" | safeHTML }}</p>
+	</a>
+</div>
+{{- else }}
+<figure class="griditem {{ with .Get "class" }}{{ . }}{{ end }}" aria-labelledby="{{ $pinID }}">
+	<img {{ with $img }}src="{{ . }}"{{ end }} {{ if or $alt $label }}alt="{{ if $alt }}{{ $alt }}{{ else if $label }}{{ $label }}{{ end }}"{{ end }} aria-describedby="{{ $pinID }}">
+	<figcaption id="{{ $pinID }}">
+		{{- if and (.Get "url") ($label) }}<a href="{{ .Get "url" }}" class="plain">{{ $label }}</a>
+		{{- else }}{{ with $label }}{{ . }}{{ end }}{{ end }}
+	</figcaption>
+</figure>
+{{- end }}
+{{- else if or (eq $var "") (eq $var "begin") }}
+<div class="pin grid">
+{{- else if eq $var "end" }}
+</div>
+{{- end }}

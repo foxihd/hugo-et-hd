@@ -1,0 +1,137 @@
+# index.html
+[skiplanding]
+	other = "Ke Artikel"
+[post_on]
+	other = "Artikel pada"
+[recent]
+	other = "Artikel Terbaru"
+[draft]
+	other = "Konsep"
+[next]
+	other = "Selanjutnya"
+[prev]
+	other = "Sebelumnya"
+[readOn]
+	other = "Baca Selengkapnya"
+[readingTime]
+	one = "Baca selengkapnya untuk satu menit"
+	other = "Baca selengkapnya untuk ±{{.Count}} menit"
+[minRead]
+	other = "Baca ±{{.Count}} menit"
+[noSummary]
+	other = "Tidak ada ringkasan."
+[about]
+	other = "Tentang"
+# list.html
+[archive]
+	other = "Arsip"
+[categories]
+	other = "Kategori"
+[tags]
+	other = "Label"
+[post]
+	other = "Artikel"
+[home]
+	other = "Beranda"
+# single.html
+[published]
+	other = "Diterbitakan pada"
+[modified]
+	other = "disunting pada"
+[featuredImg]
+	other = "Gambar Sampul"
+[audio]
+	other = "Audio untuk"
+[titletoc]
+	other = "Daftar Isi"
+[tagged]
+	other = "Kata kunci"
+[sharePage]
+	other = "Bagikan halaman!"
+[shareArticle]
+	other = "Bagikan artikel!"
+[shareTo]
+	other = "Bagikan ke"
+[inNewTab]
+	other = "Buka di tab baru"
+[emailIt]
+	other = 'Kirim sebagai surel'
+[printIt]
+	other = 'Cetak halaman ini'
+[imprint]
+	other = 'Imprint'
+[imprintLink]
+	other = "Artikel ini diakses dari"
+[readDiscussion]
+	other = 'Baca Diskusi Disini'
+[readNext]
+	other = "Selanjutnya"
+[colophone]
+	other = 'Kolofon'
+[colophonetext]
+	other = 'Diperesembahkan oleh Hugo dengan tema Hugo Et-HD'
+[date_iso]
+	other = "2006-01-02"
+[date_post]
+	other = "2 January 2006"
+[date_list]
+	other = "2 Jan"
+# timeformat fallback
+[date_full]
+	other = "Monday, 2 January 2006"
+[date_long]
+	other = "2 January 2006"
+[date_medium]
+	other = "2 Jan 2006"
+[date_short]
+	other = "2/1/06"
+[time_full]
+	other = "15:04:05 MST"
+[time_long]
+	other = "3:04:05 PM MST"
+[time_medium]
+	other = "3:04:05 PM"
+[time_short]
+	other = "3:04 PM"
+# 404
+[pageNotFound]
+	other = "Halaman tidak ditemukan"
+[redirectHome]
+	other = "Halaman ini secara otomatis mengalihkan"
+[backHome]
+	other = "kembali ke beranda"
+# a11y
+[ifNoAudioSupport]
+	other = "Peramban tidak mendukung elemen audio."
+[noScript]
+	other = "Javascript nonaktif"
+[legibility]
+	other = "Keterbacaan"
+[typeface]
+	other = "Huruf"
+[color]
+	other = "Skema Warna"
+[bionRead]
+	other = "Beralih ke mode BionRead"
+[openDyslexic]
+	other = "Gunakan fon OpenDyslexic"
+[fontScaling]
+	other = "Skala pembesaran huruf"
+[baselineStretch]
+	other = "Jarak antar baris"
+[darkMode]
+	other = "Mode Gelap"
+[contrast]
+	other = "Kontras"
+[less]
+	other = "kurangi"
+[default]
+	other = "bawaan"
+[more]
+	other = "tambah"
+[close]
+	other = "Tutup"
+[otherLink]
+	other = "tautan lainnya"
+[pinned]
+	other = "Disematkan"

@@ -1,0 +1,11 @@
+{{- $var := .Get 0 }}
+{{- $taskID := print "task-" .Page.File.UniqueID "-" .Ordinal }}
+{{- if .IsNamedParams }}
+{{ with .Get "item" }}<li><input type="checkbox" id="{{ $taskID }}"><label for="{{ $taskID }}">{{ . }}</label></li>{{ end}}
+{{- else if eq $var "begin" }}
+<ul class="task">
+{{- else if eq $var "end" }}
+</ul>
+{{- else }}
+<span class="task"></span>
+{{- end }}

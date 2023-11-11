@@ -1,0 +1,57 @@
+{{- define "head" }}
+{{- $needVerbatimSty := findRE (or `class="chroma"` `hljs`) .Content 1 }}
+{{ if $needVerbatimSty }}
+{{- $verbatimSty := resources.Get "css/ethd--go-verbatim.css" -}}
+{{- $verbatimMin := $verbatimSty | resources.Minify }}
+<link rel="stylesheet" type="text/css" href="{{ $verbatimMin.Permalink }}">
+{{- end }}
+<!------------------------------------------------------- highlighjs -->
+{{- if .Params.Hljs -}}
+	{{/*  <script src="/js/highlight.min.js"></script>  */}}
+	<script crossorigin="anonymous"
+		src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"
+		integrity="sha384-4l+9bhb7rakZ18megzl0/DWczL8ojbDl1jIEzBVffeMho9A6xB/lkqt1K0PC8Jin"></script>
+	<script crossorigin="anonymous"
+		src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"
+		integrity="sha384-+ch8x/dgaV//v6Sa8m4v5+7KScnpCuxHqilN8njQ013CEKg3Fbd8Q3oN9tfpouLh"
+		onload="hljs.highlightAll(); hljs.initLineNumbersOnLoad();"></script>
+	{{- if .Params.Hljslang -}}
+		<script crossorigin="anonymous"
+			src="https://cdn.jsdelivr.net/npm/highlightjs-lang.js@1.1.0/dist/highlightjs-lang.min.js"
+			integrity="sha384-75WGRpKMq3Y83/0jMJ4YeuDd3z48ZvyiFJCYsGoGuE3s8D1P3AiXa6CLxc1wO//W"
+			onload="hljs.initLangOnLoad();"></script>
+	{{- end -}}
+{{- end -}}
+<!----------------------------------------------------- math support -->
+{{- if or .Params.Math .Site.Params.Math -}}
+	<!-------------------------------------------------------- katex -->
+	<link rel="stylesheet" crossorigin="anonymous"
+		href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+		integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0">
+	<script defer crossorigin="anonymous"
+		src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+		integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"></script>
+	<script defer crossorigin="anonymous"
+		src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+		integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+		onload="renderMathInElement(document.body);"></script>
+	<script defer src="/js/katex.js"></script>
+{{- else if or .Params.MathJax .Site.Params.MathJax -}}
+	<!------------------------------------------------------ mathjax -->
+	<script crossorigin="anonymous"
+		src="https://polyfill.io/v3/polyfill.min.js?features=es6"
+		integrity="sha384-WSLBwI+Q8tqRHaC+f1sjS/FVv5cWp7VAfrGB17HLfZlXhbp5F/RPVP7bYVHtiAWE"></script>
+	<script defer src="/js/mathjax.js"></script>
+	<script async crossorigin="anonymous" id="MathJax-script" 
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+		integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei"></script>
+{{- end -}}
+{{- end }}
+
+{{- define "main" }}
+{{- if eq .Params.type "page" }}
+	{{- partial "fmt/page.html" . }}
+{{- else }}
+	{{- partial "fmt/post.html" . }}
+{{- end }}
+{{- end }}
