@@ -20,13 +20,15 @@ The [Hugo Tufte](https://github.com/slashformotion/hugo-tufte) shortcodes is mod
 [Crimson](https://github.com/skosch/Crimson) replaces the primary serif typeface for [Classic Thesis](https://github.com/classicthesis/classicthesis) look and feel.
 The split layout of landing page style is inspired by [Revue Faire](https://revue-faire.eu/)'s homepage.
 While more simple feed options has [LOW←TECH MAGAZINE](https://solar.lowtechmagazine.com/) influence.
-The chromastyle also inspired by Shikiori color palette.
+The chromastyle also inspired by Shikiori color palette, while.
 Yeah, that couldn't be more stealing.
 
-## Features
+## Feature Highlights
 
+- Improved ARIA attribute.
+- No-Script Friendly[^3].
 - Even more printable Edward Tufte Style CSS.
-- Automatic color scheme (light/dark) & preferred contrast (less/high) based on system preferences.
+- Automatic color scheme & contrast based on system preferences.
 - Legibility control:
   - BionRead - Bionic Reading-like JavaScript implementation based on [JS Bionic Reading](https://github.com/markmead/js-bionic-reading).
   - [OpenDyslexic](https://opendyslexic.org) Fonts.
@@ -34,11 +36,10 @@ Yeah, that couldn't be more stealing.
   - Baseline height override.
   - Color scheme override.
   - Contrast override.
-- Automatic feed cover, automatic post cover by `cover.*` filename or customize manually.
-- Include audio version of article (automatic include audio by `audio.*` filename or customize manually.)
+- Automatic attach[^4], manual or use (pseudo)-random internal feed cover.
+- Automatic attach[^5] or manual audio article. 
 - Task list with strike-through input.
 - Slider and split layout landing page option.
-- No-Script Friendly[^3].
 
 # Special Thanks
 
@@ -56,3 +57,5 @@ This project could not be made, without a lot efforts of,—thank to:
 [^1]: `/Humaniora Digital/` is indonesian for *digital humanities*.
 [^2]: Accesibility is not audited/peer reviewed, yet.
 [^3]: Legibility control features require JavaScript.
+[^4]: Automatic attach post cover by `cover.*` filename in the same `index.md` folder.
+[^5]: Automatic attach audio article by `audio.*` filename in the same `index.md` folder.
