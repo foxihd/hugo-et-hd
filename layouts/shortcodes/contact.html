@@ -2,7 +2,7 @@
 	{{- range .Site.Menus.author }}
 		<li><a class="no-underline ssc inverse" href="{{ .URL }}"
 			{{- if .Title }} aria-label="{{ .Title }}" title="{{ .Title }}" {{ end }}>
-			{{- .Pre }}{{ .Name }}{{ .Post -}}
+			{{- .Pre }}{{ .Name }}{{ if .Post }}{{ .Post }}{{ else }}<span class="hide">{{ .Title }}</span>{{ end -}}
 			</a>
 		</li>
 	{{- end }}

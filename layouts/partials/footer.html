@@ -15,7 +15,7 @@
 			{{- range . }}
 			<li><a href="{{ .URL }}" class="no-underline {{ .Params.Class }}" 
 				{{- if .Title }} aria-label="{{ .Title }}" title="{{ .Title }}" {{ end }}>
-				{{- .Pre }}{{ .Name }}{{ .Post -}}
+				{{- .Pre }}{{ .Name }}{{ if .Post }}{{ .Post }}{{ else }}<span class="hide">{{ .Title }}</span>{{ end -}}
 				</a>
 			</li>
 			{{- end }}
