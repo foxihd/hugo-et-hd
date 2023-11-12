@@ -16,15 +16,15 @@
 				<input type="checkbox" id="fontSwitch" aria-label="{{ i18n "openDyslexic" }}" disabled>
 				<label for="fontSwitch"><span class="icon" id="fontState"></span> OpenDyslexic</label>
 			</div>
-			<div aria-label="Override Font Size" aria-orientation="horizontal" class="centering scriptsize">
-				<div class="centering">{{ i18n "fontScaling" }}</div>
+			<div aria-label="Override Font Size" aria-orientation="horizontal" class="centering scriptsize smallskip">
+				<label for="fontSizeRange" class="centering">{{ i18n "fontScaling" }}</label>
 				<br>
 				<span style="font-variant-caps: small-caps;">aA</span>
 				<input type="range" min="8" max="12" id="fontSizeRange" role="slider" aria-orientation="horizontal" disabled>
 				<span><span id="fontSizeState">100</span>%</button>
 			</div>
 			<div aria-label="Override Font Size" aria-orientation="horizontal" class="centering scriptsize">
-				<div class="centering">{{ i18n "baselineStretch" }}</div>
+				<label for="baselineStretchRange" class="centering">{{ i18n "baselineStretch" }}</label>
 				<br>
 				<span style="font-variant-caps: small-caps;">☰</span>
 				<input type="range" min="8" max="12" id="baselineStretchRange" role="slider" aria-orientation="horizontal" disabled>
@@ -44,7 +44,7 @@
 				<label for="lessContrast" class="fade">{{ i18n "less" }}</label>
 				<input type="radio" id="lessContrast" name="contrast" value="less" onclick="setContrast()" disabled>
 				<input type="radio" id="defaultContrast" name="contrast" value="default" onclick="setContrast()">
-				<label for="midContrast" class="hide">{{ i18n "default" }}</label>
+				<label for="defaultContrast" class="hide">{{ i18n "default" }}</label>
 				<input type="radio" id="moreContrast" name="contrast" value="more" onclick="setContrast()" disabled>
 				<label for="moreContrast" style="-webkit-text-stroke: 0.02rem var(--deep);">{{ i18n "more" }}</label>
 			</div>
