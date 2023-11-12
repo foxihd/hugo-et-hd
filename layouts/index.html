@@ -30,7 +30,7 @@
 		{{- $summarized := truncate 256 $desc | plainify }}
 	<article
 		aria-labelledby="article-{{$postCounter}}" 
-		aria-describedby="sum-{{$postCounter}}" 
+		{{ if $withSummary }}aria-describedby="sum-{{$postCounter}}"{{ end }} 
 		aria-posinset="{{ $postCounter }}" 
 		aria-setsize="{{ $postPaginator.NumberOfElements }}"
 		data-hover="{{ i18n "minRead" .ReadingTime }} &#187;" 
