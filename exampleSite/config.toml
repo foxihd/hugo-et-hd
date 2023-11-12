@@ -19,12 +19,12 @@ defaultContentLanguageInSubdir = true
 		noIndent = false
 
 	[params.home]
+		slider = true
+		layoutSplit = true
 		# banner = '<img src="" />'
 		# bannercentering = true
 		# authorCard = false
 		# DisableBypassBlock = false
-		slider = true
-		layoutSplit = true
 
 	[params.feed]
 		summary = false
@@ -38,6 +38,11 @@ defaultContentLanguageInSubdir = true
 		email = 'johndoe@example.com'
 		# avatar = ''
 
+	[params.initial]
+		# FontScale = 1
+		# BaselineStretch = 1
+		# ForceOpenDyslexic = false
+
 [markup]
 
 	[markup.highlight]
@@ -48,6 +53,10 @@ defaultContentLanguageInSubdir = true
 		lineNumbersInTable = true
 		noClasses = false
 		tabWidth = 4
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true # NOT-RECOMMENDED! FOR DEMO PURPOSE ONLY!
 
 [languages]
 	[languages.id]
