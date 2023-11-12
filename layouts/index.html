@@ -89,8 +89,9 @@
 	<br class="hide">
 	{{- end }}
 </section>
+{{- if .Paginator }}
 <details class="unmark noprint pagination" open>
-	<summary class="hide">Pagination</summary>
+	<summary class="hide">{{ i18n "pagination" }}</summary>
 	<nav>
 		<ul class="unmark">
 		{{- if .Paginator.HasPrev }}
@@ -106,4 +107,5 @@
 		</ul>
 	</nav>
 </details>
+{{- end }}
 {{- end }}

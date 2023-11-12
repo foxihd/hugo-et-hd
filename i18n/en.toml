@@ -134,4 +134,8 @@
 [otherLink]
 	other = "Other link"
 [pinned]
-	other = "Pinned"
+	other = "Pinned Menu"
+[breadcrumb]
+	other = "Breadcrumb Navigation"
+[pagination]
+	other = "Page Navigation"

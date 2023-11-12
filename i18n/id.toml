@@ -134,4 +134,8 @@
 [otherLink]
 	other = "tautan lainnya"
 [pinned]
-	other = "Disematkan"
+	other = "Menu Disematkan"
+[breadcrumb]
+	other = "Navigasi Breadcrumb"
+[pagination]
+	other = "Navigasi Halaman"
