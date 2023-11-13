@@ -215,6 +215,10 @@ ul.breadcrumb li+li:before {
 	color: var(--mid);
 	content: "/\00a0";
 }
+#breadcrumb + nav {
+	margin-top: 1rem;
+	font-size: 1.272rem;
+}
 table.lntable {
 	border: unset;
 }
