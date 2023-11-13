@@ -110,6 +110,9 @@ article.addhover {
 	flex-direction: column-reverse;
 	gap: 0.5ex;
 }
+.tag a {
+	padding: 0.5rem;
+}
 @media only screen and (max-width: 640px) {
 	.feed.grid article {
 		border: 0;
