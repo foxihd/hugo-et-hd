@@ -20,12 +20,12 @@ The [Hugo Tufte](https://github.com/slashformotion/hugo-tufte) shortcodes is mod
 [Crimson](https://github.com/skosch/Crimson) replaces the primary serif typeface for [Classic Thesis](https://github.com/classicthesis/classicthesis) look and feel.
 The split layout of landing page style is inspired by [Revue Faire](https://revue-faire.eu/)'s homepage.
 While more simple feed options has [LOW←TECH MAGAZINE](https://solar.lowtechmagazine.com/) influence.
-The chromastyle also inspired by Shikiori color palette, while.
+The chromastyle also inspired by Shikiori color palette.
 Yeah, that couldn't be more stealing.
 
 ## Feature Highlights
 
-- Improved ARIA attribute.
+- Improved HTML structure with ARIA attribute.
 - No-Script Friendly[^3].
 - Even more printable Edward Tufte Style CSS.
 - Automatic color scheme & contrast based on system preferences.
