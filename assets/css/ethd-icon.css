@@ -163,18 +163,35 @@
 	border-bottom: 1px solid var(--ink);
 	flex-direction: row;
 	justify-content: space-between;
+	text-align: center;
 	align-items: center;
 	flex-wrap: wrap;
 	padding: 0;
+	margin: 1.414rem 0;
+}
+#share-to #sh {
+	align-self: end;
+}
+#share-to li {
+	box-sizing: border-box;
+}
+#share-to a {
+	line-height: 1;
+	font-size: 1.414rem;
+	padding: 1.414ex 0;
+}
+#share-to a:hover {
+	font-size: 1.414rem;
+	text-decoration: none !important;
+	text-shadow: none !important;
 }
 .share-to {
 	display: table-cell;
-	vertical-align: middle;
 	padding: 0.42em;
 	margin: 0;
 }
 .share-to:hover {
-	color: var(--paper);
+	color: var(--paper) !important;
 	transition: 250ms ease-out;
 }
 .share-to.facebook {color: #3b5998}
@@ -205,3 +222,14 @@
 .share-to.telegram:hover {background-color: #4B97D1}
 .share-to.print {color: var(--mid)}
 .share-to.print:hover {background-color: var(--ink)}
+@media only screen and (max-width: 640px) {
+	#share-to > * {
+		margin: 0 auto !important;
+	}
+	#share-to #sh {
+		background: inherit;
+		color: inherit;
+		font-style: italic;
+		font-size: 1.272rem;
+	}
+}

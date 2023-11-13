@@ -1,8 +1,8 @@
 <hr class="none" style="border-style:dotted;">
-<div class="small centering medskip" id="share-to">
-<span class="it" id="sh">{{ if eq .Params.Type "page" }}{{ i18n "sharePage" }}{{ else }}{{ i18n "shareArticle" }}{{ end }}</span>
-<nav style="display:inline-flex;" aria-labelledby="sh">
-	<ul class="unmark">
+<div id="share-to">
+<span class="reverse" id="sh">{{ if eq .Params.Type "page" }}{{ i18n "sharePage" }}{{ else }}{{ i18n "shareArticle" }}{{ end }}</span>
+<nav aria-labelledby="sh">
+	<ul class="unmark" role="presentation">
 		<li>
 			<a class="plain noprinturl"
 				href="whatsapp://send?text={{ .Title | htmlEscape }}%20{{ .Permalink }}"
