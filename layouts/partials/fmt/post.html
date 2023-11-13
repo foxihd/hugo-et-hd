@@ -45,7 +45,7 @@
 	</section>
 	{{- with .Params.Tags }}
 	<span class="small nopadding">{{ i18n "tagged" }}: 
-		<ul class="unmark" id="article-tags">
+		<ul class="delimeter" id="article-tags" role="presentation">
 		{{- range . }}
 			<li><a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}' class="plain">{{ . }}</a></li>
 		{{- end }}
