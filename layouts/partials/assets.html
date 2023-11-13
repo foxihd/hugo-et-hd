@@ -10,8 +10,12 @@
 <script>
 	const scheme = window.matchMedia("(prefers-color-scheme: dark)");
 	console.log(scheme.matches);
-	function closeToolbar() {document.getElementById("toolbar").removeAttribute("open");}
-	function closeSidebar() {document.getElementById("sidebar").removeAttribute("open");}
+	function closeToolbar() {document.getElementById("toolbar").removeAttribute("open");};
+	function closeSidebar() {document.getElementById("sidebar").removeAttribute("open");};
+	function setAriaExpanded() {
+		const toolbar = document.getElementById("toolbar");
+		if (toolbar.hasAttribute("open")) {toolbar.setAttribute("aria-expanded", "false");}
+		else {toolbar.setAttribute("aria-expanded", "true");};}
 </script>
 {{- $bionread := resources.Get "js/bionread.js" -}}
 {{- $brightness := resources.Get "js/override-brightness.js" -}}
