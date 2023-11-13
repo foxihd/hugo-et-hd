@@ -185,6 +185,9 @@
 	text-decoration: none !important;
 	text-shadow: none !important;
 }
+#share-to a:focus {
+	padding: 0;
+}
 .share-to {
 	display: table-cell;
 	padding: 0.42em;
