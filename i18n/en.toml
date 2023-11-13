@@ -102,7 +102,7 @@
 	other = "back to homepage"
 # a11y
 [ifNoAudioSupport]
-	other = "Your browser does not support the audio element."
+	other = "Your browser does not support the audio element. Consider downloading the following audio file to listen the article."
 [noScript]
 	other = "Javascript is disabled"
 [legibility]

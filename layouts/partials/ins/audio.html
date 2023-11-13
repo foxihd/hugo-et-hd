@@ -7,28 +7,44 @@
 {{- $wav := .Resources.GetMatch "audio.wav" }}
 {{- $weba := .Resources.GetMatch "audio.weba" }}
 {{- $audio := .Params.Audio }}
-{{- $audioExt := index ( split $audio "." ) ( sub ( len ( split $audio "." ) ) 1 ) }}
 {{- if or $audio $aac $flac $mp3 $oga $ogg $opus $wav $weba }}
 <audio controls aria-label="{{ i18n "audio" }} : {{ .Title }}">
-    {{- with $aac }}<source src="{{ .Permalink }}" type="audio/aac">{{ end }}
-    {{- with $flac }}<source src="{{ .Permalink }}" type="audio/flac">{{ end }}
-    {{- with $mp3 }}<source src="{{ .Permalink }}" type="audio/mpeg">{{ end }}
-    {{- with $ogg }}<source src="{{ .Permalink }}" type="audio/ogg">{{ end }}
-    {{- with $oga }}<source src="{{ .Permalink }}" type="audio/ogg">{{ end }}
-    {{- with $opus }}<source src="{{ .Permalink }}" type="audio/opus">{{ end }}
-    {{- with $wav }}<source src="{{ .Permalink }}" type="audio/wav">{{ end }}
-    {{- with $weba }}<source src="{{ .Permalink }}" type="audio/webm">{{ end }}
-    {{- with $audio }}<source src="{{ . }}" 
-        {{- if eq $audioExt "aac" }}type="audio/aac"
-        {{- else if eq $audioExt "flac" }}type="audio/flac"
-        {{- else if eq $audioExt "mp3" }}type="audio/mpeg"
-        {{- else if eq $audioExt "oga" }}type="audio/ogg"
-        {{- else if eq $audioExt "ogg" }}type="audio/ogg"
-        {{- else if eq $audioExt "opus" }}type="audio/opus"
-        {{- else if eq $audioExt "wav" }}type="audio/wav"
-        {{- else if eq $audioExt "weba" }}type="audio/webm"
-        {{- end -}}>
-    {{ end }}
-    {{ i18n "iFNoAudioSupport" }}
+	{{- with $aac }}<source src="{{ .Permalink }}" type="audio/aac">{{ end }}
+	{{- with $flac }}<source src="{{ .Permalink }}" type="audio/flac">{{ end }}
+	{{- with $mp3 }}<source src="{{ .Permalink }}" type="audio/mpeg">{{ end }}
+	{{- with $ogg }}<source src="{{ .Permalink }}" type="audio/ogg">{{ end }}
+	{{- with $oga }}<source src="{{ .Permalink }}" type="audio/ogg">{{ end }}
+	{{- with $opus }}<source src="{{ .Permalink }}" type="audio/opus">{{ end }}
+	{{- with $wav }}<source src="{{ .Permalink }}" type="audio/wav">{{ end }}
+	{{- with $weba }}<source src="{{ .Permalink }}" type="audio/webm">{{ end }}
+	{{- $audioExt := index ( split $audio "." ) ( sub ( len ( split $audio "." ) ) 1 ) }}
+	{{- with $audio }}<source src="{{ . }}" 
+		{{- if eq $audioExt "aac" }}type="audio/aac"
+		{{- else if eq $audioExt "flac" }}type="audio/flac"
+		{{- else if eq $audioExt "mp3" }}type="audio/mpeg"
+		{{- else if eq $audioExt "oga" }}type="audio/ogg"
+		{{- else if eq $audioExt "ogg" }}type="audio/ogg"
+		{{- else if eq $audioExt "opus" }}type="audio/opus"
+		{{- else if eq $audioExt "wav" }}type="audio/wav"
+		{{- else if eq $audioExt "weba" }}type="audio/webm"
+		{{- end -}}>
+	{{ end }}
+	<center>
+		<div>
+			<p class="footnotesize" role="contentinfo">{{ i18n "ifNoAudioSupport" }}
+			<ul class="unmark" role="presentation">
+				{{- $fileName := print .Site.Title " - " .Title }}
+				{{- with $aac }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.aac">&darr; aac</a> </li>{{ end }}
+				{{- with $flac }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.flac">&darr; flac</a> </li>{{ end }}
+				{{- with $mp3 }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.mp3">&darr; mp3</a> </li>{{ end }}
+				{{- with $ogg }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.ogg">&darr; ogg</a> </li>{{ end }}
+				{{- with $oga }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.oga">&darr; oga</a> </li>{{ end }}
+				{{- with $opus }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.opus">&darr; opus</a> </li>{{ end }}
+				{{- with $wav }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.wav">&darr; wav</a> </li>{{ end }}
+				{{- with $weba }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.webm">&darr; webm</a> </li>{{ end }}
+				{{- with $audio }}<li><a href="{{ . }}" class="reverse" download="{{ $fileName }}.{{ $audioExt }}">&darr; {{ $audioExt }}</a> </li>{{ end }}           
+			</ul>
+		</div>
+	</center>
 </audio>
 {{- end }}

@@ -344,6 +344,14 @@ a.bottomline:focus {
 	width: 62%;
 	max-width: 62%;
 }
+audio > center > div {
+	width: 80%;
+	padding: 1rem;
+	margin: 1rem;
+	border: 1px solid var(--ink);
+	background-color: #ff0;
+	color: var(--ink);
+}
 @media print {
 	img.rounded {
 		height: 20vmin !important;

@@ -102,7 +102,7 @@
 	other = "kembali ke beranda"
 # a11y
 [ifNoAudioSupport]
-	other = "Peramban tidak mendukung elemen audio."
+	other = "Peramban tidak mendukung elemen audio. Pertimbangkan mengunduh berkas audio berikut untuk mendengar article."
 [noScript]
 	other = "Javascript nonaktif"
 [legibility]
