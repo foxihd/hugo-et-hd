@@ -16,23 +16,23 @@
 			<p class="small" data-bionRead-safe>{{ .Profile.Bio | safeHTML }}</p>
 			{{- end }}
 			<nav>
-			<ul class="unmark smallskip" id="social">
-			{{- range .Site.Menus.author }}
-				<li><a class="no-underline ssc inverse" href="{{ .URL }}"
-					{{- if .Title }} aria-label="{{ .Title }}" title="{{ .Title }}" {{ end }}>
-					{{- .Pre }}{{ .Name }}{{ if .Post }}{{ .Post }}{{ else }}<span class="hide">{{ .Title }}</span>{{ end -}}
+				<ul class="unmark smallskip" id="social" role="presentation">
+				{{- range .Site.Menus.author }}
+					<li><a class="no-underline ssc inverse" href="{{ .URL }}"
+						{{- if .Title }} aria-label="{{ .Title }}" title="{{ .Title }}" {{ end }}>
+						{{- .Pre }}{{ .Name }}{{ if .Post }}{{ .Post }}{{ else }}<span class="hide">{{ .Title }}</span>{{ end -}}
+						</a>
+					</li>
+				{{- end }}
+				{{- with .Site.Params.Profile.Email }}
+				<li><a class="no-underline ssc inverse" href="mailto:{{ . }}"
+					aria-label="email" title="email">
+					<i class="icon email"></i>
+					<span class="hide">{{ . }}</span>
 					</a>
 				</li>
-			{{- end }}
-			{{- with .Site.Params.Profile.Email }}
-			<li><a class="no-underline ssc inverse" href="mailto:{{ . }}"
-				aria-label="email" title="email">
-				<i class="icon email"></i>
-				<span class="hide">{{ . }}</span>
-				</a>
-			</li>
-			{{- end }}
-			</ul>
+				{{- end }}
+				</ul>
 			</nav>
 		</center>
 	</section>

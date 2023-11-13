@@ -1,4 +1,5 @@
-<ul class="unmark small smallskip">
+<nav>
+<ul class="unmark small smallskip" role="presentation">
 	{{- range .Site.Menus.author }}
 		<li><a class="no-underline ssc inverse" href="{{ .URL }}"
 			{{- if .Title }} aria-label="{{ .Title }}" title="{{ .Title }}" {{ end }}>
@@ -15,3 +16,4 @@
 	</li>
 	{{- end }}
 </ul>
+</nav>
