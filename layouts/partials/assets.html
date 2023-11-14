@@ -2,10 +2,22 @@
 {{- $base := resources.Get "css/ethd.css" -}}
 {{- $hugo := resources.Get "css/ethd--go.css" -}}
 {{- $icon := resources.Get "css/ethd-icon.css" -}}
+{{- $style := slice $base $hugo $icon | resources.Concat "css/ethd-style.css" | minify }}
+<link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
+{{- if .Site.Params.WebSafeFonts }}
+<style>
+	:root {
+		--rm: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", "Times New Roman", Georgia;
+		--sf: Helvetica, Arial, "Gill Sans", "Gill Sans MT", Calibri;
+		--tt:  Consolas, "Liberation Mono", Menlo, Courier;
+	}
+</style>
+{{- else }}
 {{- $fonts := resources.Get "css/ethd-fonts.css" -}}
 {{- if .Site.Params.LocalFonts }}{{ $fonts = resources.Get "css/ethd-fonts-local.css" }}{{ end }}
-{{- $style := slice $base $hugo $fonts $icon | resources.Concat "css/ethd-style.css" | minify }}
-<link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
+{{- $fontsMin := $fonts | resources.Minify }}
+<link rel="stylesheet" type="text/css" href="{{ $fontsMin.Permalink }}">
+{{- end }}
 <!------------------------------------------------------------- a11y -->
 <script defer>
 	const scheme = window.matchMedia("(prefers-color-scheme: dark)");
