@@ -60,7 +60,7 @@ footer.clear > #toolbar {
 	display: block;
 	padding: 1rem 1ex !important;
 	margin-top: 7rem;
-	border-top: 1pt solid var(--ink);
+	border-top: 1px solid var(--ink);
 	column-gap: 2rem;
 	min-height: unset;
 	max-height: unset;
@@ -102,7 +102,7 @@ footer.clear > #toolbar {
 	width: 240px;
 	height: calc(100vh - 7.1rem);
 	background-color: var(--paper);
-	border: 1pt solid var(--ink);
+	border: 1px solid var(--ink);
 	overflow-y: auto;
 	line-height: 0.9;
 }
@@ -135,12 +135,12 @@ details[open] summary#a11y,
 	top: -26em;
 	width: 21em;
 	background-color: var(--paper);
-	border: 1pt solid var(--ink);
+	border: 1px solid var(--ink);
 	overflow-y: auto;
 	line-height: 0.9;
 }
 #a11ypanel fieldset {
-	border: 1pt solid var(--ink);
+	border: 1px solid var(--ink);
 	margin: 0.5em;
 }
 #a11ypanel fieldset div {
@@ -246,7 +246,7 @@ table.lntable {
 .footnotes > hr {
 	width: 16.18rem;
 	margin: 3rem 0 0;
-	border-top: 1pt solid ;	
+	border-top: 1px solid ;	
 }
 /* task */
 ul.task,
@@ -375,7 +375,7 @@ audio > center > div {
 		display: none !important;
 	}
 	#about {
-		border-top: 1pt dotted black;
+		border-top: 1px dotted black;
 	}
 	.footnote-ref:link::after,
 	.footnote-backref:link::after,
