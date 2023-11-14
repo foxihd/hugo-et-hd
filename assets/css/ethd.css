@@ -970,6 +970,9 @@ hr.none {
 	article {
 		width: 100%;
 	}
+	body h1:first-of-type {
+		margin-top: 0;
+	}
 	pre > code,
 	pre.fullwidth > code {
 		min-width: 62%;
@@ -1012,8 +1015,8 @@ hr.none {
 	.marginnote {
 		page-break-inside: avoid;
 	}
-	nav *,
-	footer *,
+	nav,
+	footer,
 	.noprint,
 	.no-print,
 	.noprint *,

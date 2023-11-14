@@ -1,12 +1,10 @@
 {{- $nosidebar := not .Site.Params.Sidebar }}
 {{- $nopinned := not .Site.Menus.foot }}
 {{- $nofootnote := not .Site.Params.Footnote }}
-<footer class="footnotesize {{ if and $nosidebar $nopinned $nofootnote }}clear{{ end }}">
-
+<footer {{ if and $nosidebar $nopinned $nofootnote }}class="clear"{{ end }}>
 	{{- if .Site.Params.sidebar }}
 	{{ partial "ins/sidebar.html" . }}
 	{{- end }}
-
 	{{- with .Site.Menus.foot }}
 	<details open class="unmark">
 	<summary class="hide" id="pinnednav">{{ i18n "pinned" }}</summary>
@@ -23,7 +21,6 @@
 	</nav>
 	</details>
 	{{- end }}
-
 	{{- with .Site.Params.Footnote }}
 	<div id="footinfo" role="contentinfo" class="{{ if and $nosidebar $nopinned }}lfill{{ else }}hfill{{ end }} ldots">
 		<hr class="hide" style="border-style:dotted;">
@@ -31,7 +28,5 @@
 		<hr class="hide" style="border-style:dotted;">
 	</div>
 	{{- end }}
-
 	{{ partial "ins/toolbar.html" . }}
-
 </footer>
