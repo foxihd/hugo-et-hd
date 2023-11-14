@@ -18,9 +18,8 @@
 <section role="feed"
 	aria-busy="false"
 	aria-labelledby="feed"
-	class="feed {{ if $grid }}grid{{ end }}">
+	class="feed {{ if $grid }}grid{{ if not $withCover }} no-cover{{ end }}{{ end }}">
 	{{- range $index, $page := $postPaginator.Pages }}
-	{{/* {{ if $index }}{{ end }} */}}
 	{{- $postCounter :=add $index 1 }}
 	{{- $tag := .Params.Tags }}
 	{{- $date := .PublishDate.Format ( i18n "date_post" ) }}
@@ -37,7 +36,7 @@
 		class="{{- if $grid }} griditem {{ else if $withSummary }} feeditem {{ end -}}
 			{{- if not $withSummary }} addhover {{ end -}}"
 			{{- if and $headline $firstPage (eq $postCounter 1) }}id="headline"{{ end -}}>
-		<a href="{{ .RelPermalink }}" class="{{ if $grid }}plain {{ if $withSummary }} no-focus {{ end }} {{ else }} no-color{{ end }}"
+		<a href="{{ .RelPermalink }}" class="{{ if $grid }}inverse{{ else }}no-color{{ end }} {{ if $withSummary }}no-focus{{ end }}"
 			{{ if and  $firstPage $withCover $withSummary }}tabindex="-1"{{ end }}>
 			{{- if and $headline $grid (eq $postCounter 1) (not .Site.Params.Home.LayoutSplit ) (not $withSummary) }}
 			<div id="headline-text">
@@ -68,7 +67,7 @@
 				<p class="scriptsize tt"><i class="icon">📅</i>&nbsp;<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ $date }}</time></p>
 				{{- with $tag }}
 				<p class="scriptsize ssc sf" style="line-height: 1.4;">
-					{{ range . }}<a class="plain" href="{{ "tags/" | absURL }}{{ . | urlize }}" tabindex="-1">&#35;{{ . }}</a>{{ end }}</p>
+					{{ range . }}<a class="plain" href="{{ "tags/" | absURL }}{{ . | urlize }}" tabindex="-1">&#35;{{ . }}</a> {{ end }}</p>
 				{{- end }}
 			</aside>
 			{{- end }}
@@ -81,7 +80,7 @@
 			{{- if $tag }}{{ range $tag }}
 				<a class="plain" href="{{ "tags/" | absURL }}{{ . | urlize }}" tabindex="-1">&#35;{{ . }}</a>{{ end }}
 			{{- else }}
-				—<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ $date }}</time>
+				<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ $date }}</time>
 			{{- end }}
 			</div>
 		{{- end }}

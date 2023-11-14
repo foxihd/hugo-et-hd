@@ -20,6 +20,12 @@
 .griditem#headline .tag {
 	display: none;
 }
+.griditem > a.inverse {
+	padding: 0.46rem 0;
+}
+.griditem > a.inverse:hover {
+	padding: 0.46rem;
+}
 .feed h3 {
 	margin: 0;
 }
@@ -46,6 +52,9 @@
 	width: auto;
 	font-size: 1rem;
 }
+.no-cover article {
+	/* tbd */
+}
 .featured-img {
 	height: 11rem;
 	margin: 1rem 1rem 0 0;
@@ -65,6 +74,10 @@
 	height: 14rem;
 	margin: 0;
 	float: unset;
+	width: min-content;
+}
+#split .griditem .featured-img {
+	width: 100%;
 }
 .pagination {
 	margin-top:auto;
@@ -108,10 +121,14 @@
 article.addhover {
 	display: flex;
 	flex-direction: column-reverse;
-	gap: 0.5ex;
 }
-.tag a {
-	padding: 0.5rem;
+.tag a,
+.tag time {
+	padding: 0.46em 0;
+	display: inline-block;
+}
+.tag time::before {
+	content: '—';
 }
 @media only screen and (max-width: 640px) {
 	.feed.grid article {
