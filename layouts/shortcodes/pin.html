@@ -5,7 +5,7 @@
 {{- $alt := .Get "alt" }}
 {{- if .IsNamedParams }}
 {{- if .Get "quote" }}
-<div class="griditem" aria-labelledby="sku-{{ $pinID }}">
+<div class="griditem" aria-labelledby="{{ $pinID }}">
 	<a class="plain" href="{{ .Get "url" }}">
 	<p class="nomargin raggedright footnotesize sf ssc " id="{{ $pinID }}" >{{ $label }}</p>
 	<img {{ with $img }}src="{{ . }}"{{ end }} {{ if or $alt $label }}alt="{{ if $alt }}{{ $alt }}{{ else if $label }}{{ $label }}{{ end }}"{{ end }} aria-describedby="{{ $pinID }}">
