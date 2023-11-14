@@ -10,38 +10,41 @@ defaultContentLanguageInSubdir = true
 	author = 'John Doe'
 	description = 'Hugo ET-HD exampleSite'
 	sidebar = false
-	# localfonts = false
-	# OptInSocialMeta = false
+	# WebSafeFonts = true   # use websafe fonts
+	# localfonts = false   # if fonts hosted on localhost (static/css/fonts)
+	# OptInSocialMeta = false    # add meta data for opengraph and twitter
 
 	[params.post]
-		justify = false
-		authorcard = true
-		noIndent = false
+		justify = false   # justified paragraph
+		noIndent = false    # remove paragraph indent
+		authorcard = true   # only show if site author equal with post author
 
 	[params.home]
-		slider = true
-		layoutSplit = true
-		# banner = '<img src="" />'
-		# bannercentering = true
-		# authorCard = false
-		# DisableBypassBlock = false
+		slider = true   # disable landing page slider, only first page of feed
+		layoutSplit = true    # landing page slider dependent, dual panel style landing page
+		# banner = '<img src="" />'   # use custom landing page banner, use safeHTML
+		# bannercentering = true    # centering landing page banner
+		# authorCard = false    # show site author cards on landing page
+		# DisableBypassBlock = false    # disable bypass block (jump to article), for accessibility purpose please keep this setting enable
 
 	[params.feed]
-		summary = false
-		grid = true
-		cover = true
-		FlowlinesLimit = 21
-		headline = true
+		summary = false   # display summary
+		grid = true    # feed display grid
+		cover = true    # display post cover
+		FlowlinesLimit = 21   # max=42, limit random flow lines used for post cover
+		headline = true    # headline latest post
 
 	[params.profile]
 		bio = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		email = 'johndoe@example.com'
-		# avatar = ''
+		# avatar = ''    # url, used for author card
 
-	[params.initial]
+	[params.initial] # override legibility controls onload
 		# FontScale = 1
 		# BaselineStretch = 1
 		# ForceOpenDyslexic = false
+		# scheme = 'dark' # 'dark' | 'light'
+		# contrast = 'high'# 'low' | 'less' | 'more' | 'high'
 
 [markup]
 
@@ -68,15 +71,23 @@ defaultContentLanguageInSubdir = true
 		# title = 'Hugo ET-HD'
 		weight = 1
 		[languages.id.params]
-			footnote = '<i>Joni &copy; 2023</i>'
-			imprint = 'Didukung oleh Hugo dengan tema Hugo Et-HD.'
+			footnote = '<i>Joni &copy; 2023</i>'    # display on sticky footer
+			imprint = 'Didukung oleh Hugo dengan tema Hugo Et-HD.'    # display on print media
 
 		[languages.id.params.home]
-			tagline = 'Sebuah exampleSite'
+			tagline = 'Sebuah exampleSite'    # landing page tagline
 
 	[[languages.id.taxonomies]]
 		category = 'kategori'
 		tag = 'label'
+
+	[[languages.id.menu.main]]
+		pre = '<i class="icon ethd"></i>'
+		identifier = 'ethd'
+		weight = 1
+		title = 'etxhd' # please set if name not defined
+		[[languages.id.menu.main.params]]
+			isBanner = true # please set the banner once
 
 	[[languages.id.menu.foot]]
 		identifier = 'en'
@@ -86,14 +97,6 @@ defaultContentLanguageInSubdir = true
 		title = 'Switch to English'
 		[[languages.id.menu.foot.params]]
 			class = 'button ssc sf scriptsize'
-
-	[[languages.id.menu.main]]
-		pre = '<i class="icon ethd"></i>'
-		identifier = 'ethd'
-		weight = 1
-		title = 'etxhd' # please set if name not defined
-		[[languages.id.menu.main.params]]
-			isBanner = true # please set the banner once
 
 	[[languages.id.menu.main]]
 		name = 'arsip'
