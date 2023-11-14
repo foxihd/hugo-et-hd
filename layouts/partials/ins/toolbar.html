@@ -1,4 +1,4 @@
-<details class="unmark" id="toolbar" aria-labelledby="a11y" aria-haspopup="true" aria-expanded="false" onclick="setAriaExpanded()">
+<details class="unmark" id="toolbar" aria-labelledby="a11y" aria-haspopup="true" aria-expanded="false">
 	<summary id="a11y" aria-label="{{ i18n "legibility" }}" title="{{ i18n "legibility" }}">
 		<i class="icon accessible"></i><span class="ssc sf scriptsize ifwide">{{ i18n "legibility" }}</span>
 	</summary>
@@ -49,3 +49,9 @@
 		</fieldset>
 	</div>
 </details>
+<script>
+const toolbar = document.getElementById("toolbar");
+toolbar.addEventListener("toggle", function() {
+	if (toolbar.hasAttribute("open")) {toolbar.setAttribute("aria-expanded", "true");}
+	else {toolbar.setAttribute("aria-expanded", "false");};});
+</script>
