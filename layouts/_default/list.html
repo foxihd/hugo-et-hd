@@ -6,23 +6,21 @@
 
 {{- define "main" }}
 {{- $term := eq .Kind "term" }}
-<h1>{{ if .IsSection }}{{ i18n "archive" }}{{ else if $term }}{{ .Page.Title }}{{ end }}</h1>
-<hr class="hide" style="border-style:dotted;">
+{{- $key := index ( split .Permalink "/" ) ( sub ( len ( split .Permalink "/" ) ) 3 ) }}
+<h1>{{ if .IsSection }}{{ i18n "archive" }}{{ else if $term }}{{ if eq $key "tags" }}#{{ else }}> {{ end }}{{ .LinkTitle }}{{ end }}</h1>
 <aside>
 	<section>
 		<h2 class="rm ssc normalfont Large">{{ i18n "categories" }}</h2>
 		{{- partial "tms/categories.html" . }}
-		<hr class="hide" style="border-style:dotted;">
 	</section>
 	<section>
 	<h2 class="rm ssc normalfont Large">{{ i18n "tags" }}</h2>
 	{{- partial "tms/tags.html" . }}
-	<hr class="hide" style="border-style:dotted;">
 	</section>
 </aside>
 <section id="list-posts">
 <h2 class="rm ssc normalfont Large">{{ i18n "post" }}</h2>
 {{ partial "tms/posts.html" . -}}
-<hr class="hide" style="border-style:dotted;">
 </section>
+<hr class="hide" style="border-style:dotted;">
 {{- end }}
