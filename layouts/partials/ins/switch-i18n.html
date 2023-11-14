@@ -1,0 +1,5 @@
+<ul class="unmark" role="presentation">
+	{{- range $.Site.Home.AllTranslations }}
+	<li><a href="{{ .Permalink }}" class="plain">{{ .Language.LanguageName }}</a></li>
+	{{- end }}
+</ul>
