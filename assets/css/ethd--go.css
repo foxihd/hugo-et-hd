@@ -46,6 +46,7 @@ body > footer {
 	flex-direction: row-reverse;
 	gap: 0;
 	border-top: 1px solid var(--ink);
+	font-size: 1.144rem;
 }
 footer.clear {
 	background: none;
