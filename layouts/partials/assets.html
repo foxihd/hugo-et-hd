@@ -41,28 +41,35 @@ p {
 </style>
 
 {{ with .Site.Params.Initial }}
-<style>
-:root {
-	{{ if .FontScale }}
-	--fontScale: {{ .FontScale }};
-	{{ end }}
-	{{ if .BaselineStretch }}
-	--baselineStretch: {{ .BaselineStretch }};
-	{{ end }}
-	{{ if .ForceOpenDyslexic }}
-	--rm: 'OpenDyslexic';
-	--sf: OpenDyslexic;
-	{{ end }}
-}
+<style>:root {
+{{- if .FontScale }}
+	--fontScale: {{ .FontScale }};{{ end -}}
+{{- if .BaselineStretch }}
+	--baselineStretch: {{ .BaselineStretch }};{{ end -}}
+{{- if .ForceOpenDyslexic }}
+	--rm: 'OpenDyslexic'; --sf: 'OpenDyslexic';{{ end -}}
+{{- if eq .Scheme "light" }}
+	{{- if or (eq .Contrast "low") (eq .Contrast "less") }}
+		--deep: #000; --ink: #13253d; --mid: #7d8490; --link: #36c; --paper: #e7e2e2;
+	{{- else if or (eq .Contrast "high") (eq .Contrast "more") }}
+		--deep: #000; --ink: #000; --mid: gray; --link: #36c; --paper: #fff;
+	{{- else }}
+		--deep: #000; --ink: #111; --mid: gray; --link: #36c; --paper: #f0f0f0;
+	{{ end -}}
+{{- else if eq .Scheme "dark" }}
+	{{- if or (eq .Contrast "low") (eq .Contrast "less") }}
+		--deep: #fff; --ink: #e7e2e2; --mid: #7d8490; --link: #ff0; --paper: #13253d;
+	{{- else if or (eq .Contrast "high") (eq .Contrast "more") }}
+		--deep: #fff; --ink: #fff; --mid: gray; --link: #ff0; --paper: #000;
+	{{- else }}
+		--deep: #fff; --ink: #f0f0f0; --mid: gray; --link: #ff0; --paper: #111;
+	{{ end -}}
+{{ end -}}}
 </style>
 {{ if.FontScale }}
-<script>
-	fontSizeRange.value = {{ .FontScale }} * 10;
-</script>
+<script>fontSizeRange.value = {{ .FontScale }} * 10;</script>
 {{- end }}
 {{- if .BaselineStretch }}
-<script>
-	baselineStretchRange.value = {{ .BaselineStretch }} * 10;
-</script>
+<script>baselineStretchRange.value = {{ .BaselineStretch }} * 10;</script>
 {{- end }}
 {{ end }}
