@@ -8,7 +8,7 @@
 {{- $term := eq .Kind "term" }}
 {{- $key := index ( split .Permalink "/" ) ( sub ( len ( split .Permalink "/" ) ) 3 ) }}
 <h1>{{ if .IsSection }}{{ i18n "archive" }}{{ else if $term }}{{ if eq $key "tags" }}#{{ else }}> {{ end }}{{ .LinkTitle }}{{ end }}</h1>
-<aside>
+<aside {{ if $term}}class="ifwide"{{end}}>
 	<section>
 		<h2 class="rm ssc normalfont Large">{{ i18n "categories" }}</h2>
 		{{- partial "tms/categories.html" . }}
