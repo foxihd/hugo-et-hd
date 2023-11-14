@@ -4,7 +4,6 @@ if (window.matchMedia('(prefers-color-scheme: dark)').matches)
 	{lightSwitch.setAttribute('checked', 'checked');}
 lightSwitch.disabled = false;
 lightSwitch.oninput = function useDarkMode() {
-	let ethd = document.documentElement.style;
 	if (lightSwitch.checked == true) {
 		if (contrastSwitch.checked == true ) {
 			setContrast();}

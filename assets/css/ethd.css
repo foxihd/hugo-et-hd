@@ -5,11 +5,9 @@
 /* @import url(fonts-local.css); */
 :root {
 	--rm: 'crimson';
+	--rmosf: 'crimson';
 	--sf: 'Rosario';
 	--tt: 'Inconsolata';
-	--rmfamily: var(--rm), 'Times New Roman', serif;
-	--sffamily: var(--sf), sans-serif;
-	--ttfamily: var(--tt), monospace;
 	--bionic: 0;
 	--shd: #80808008;
 	--vsd: #86a; /* visited */
@@ -137,7 +135,7 @@ b.k {
 	font-style: italic;
 }
 .rm {
-	font-family: var(--rm), serif;
+	font-family: var(--rmosf), serif;
 }
 .tt {
 	font-family: var(--tt), monospace;
@@ -355,21 +353,15 @@ a:visited {
 	text-decoration-color: #86a;
 	-webkit-text-decoration-color: #86a;
 }
-a::before,
-a.file:link::before {
+p > a::before {
 	padding-right: 0.3em;
 	font-size: 0.7em;
 	speak: none;
-}
-p > a::before {
 	content: '🔗';
 	font-family: 'ethdsymb';
 }
 a.plain:link::before {
 	content: none;
-}
-a.file:link::before {
-	content: '\1f4ce';
 }
 a[target="_blank"] {
 	cursor: alias;
@@ -641,14 +633,8 @@ h2 > code,
 h3 > code,
 .marginnote > code,
 .sidenote > code {
-	font-size: 0.9em;
 	background-color: var(--shd);
 	border-radius: 0.25em;
-}
-pre {
-	/* width: fit-content;
-	max-width: 100%;
-	overflow-x: auto; */
 }
 pre > code {
 	display: block;

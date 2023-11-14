@@ -3,7 +3,6 @@ var fontSwitch = document.getElementById("fontSwitch");
 fontSwitch.checked = false;
 fontSwitch.disabled = false;
 fontSwitch.oninput = function useOpenDyslexic() {
-	let ethd = document.documentElement.style;
 	if (fontSwitch.checked == true) {
 		ethd.setProperty('--rm', 'OpenDyslexic');
 		ethd.setProperty('--sf', 'OpenDyslexic');
