@@ -12,7 +12,7 @@
 {{- $grid := .Site.Params.Feed.Grid }}
 {{- $withSummary := .Site.Params.Feed.Summary }}
 {{- $withCover := .Site.Params.Feed.Cover }}
-<h2 id="feed" class="medskip {{ if and $headline (not .Site.Params.Home.Slider) (not $firstPage) }} hide {{ end }}">
+<h2 id="feed" {{ if and $headline (not .Site.Params.Home.Slider) (not $firstPage) }}class="hide"{{ end }}>
 	{{- if $firstPage }}{{ i18n "recent" }}{{ else }}{{ i18n "post_on" }} {{ .Site.Title }}{{ end -}}
 </h2>
 <section role="feed"
@@ -29,10 +29,10 @@
 		{{- $summarized := truncate 256 $desc | plainify }}
 	<article
 		aria-labelledby="article-{{$postCounter}}" 
-		{{ if $withSummary }}aria-describedby="sum-{{$postCounter}}"{{ end }} 
+		{{- if $withSummary }}aria-describedby="sum-{{$postCounter}}" 
+		{{- else}} aria-describedby="alt-{{$postCounter}}" data-hover="{{ i18n "minRead" .ReadingTime }} &#187;" {{ end }} 
 		aria-posinset="{{ $postCounter }}" 
-		aria-setsize="{{ $postPaginator.NumberOfElements }}"
-		data-hover="{{ i18n "minRead" .ReadingTime }} &#187;" 
+		aria-setsize="{{ $postPaginator.NumberOfElements }}"		
 		class="{{- if $grid }} griditem {{ else if $withSummary }} feeditem {{ end -}}
 			{{- if not $withSummary }} addhover {{ end -}}"
 			{{- if and $headline $firstPage (eq $postCounter 1) }}id="headline"{{ end -}}>
@@ -49,7 +49,7 @@
 			{{- if and $withCover (or $grid $withSummary ) }}
 			{{- $getCover := .Resources.GetMatch "cover.*" }}
 			{{- $svgcount := 42 }}
-			{{- if .Params.Feed.FlowlinesLimit }}{{ $svgcount = .Params.Feed.Flowlines }}{{ end }}
+			{{- if .Site.Params.Feed.FlowlinesLimit }}{{ $svgcount = .Site.Params.Feed.FlowlinesLimit }}{{ end }}
 			<img class="featured-img {{ if and (not $grid) (eq $postCounter 1) }}fullwidth{{ end }}"
 				alt="{{ i18n "featuredImg" }} {{ .Title }}"
 				{{- if .Params.Cover }} src="{{ .Params.Cover }}"
@@ -76,7 +76,7 @@
 				<p class="noindent small it"><a class="plain" href="{{ .RelPermalink }}" aria-label="{{ i18n "readOn" }}: {{ .Title }}">{{ i18n "readingTime" .ReadingTime }} &#187;</a></p>
 			</section>
 		{{- else }}
-			<div class="scriptsize ssc sf tag">
+			<div class="ssc sf tag" id="alt-{{$postCounter}}">
 			{{- if $tag }}{{ range $tag }}
 				<a class="plain" href="{{ "tags/" | absURL }}{{ . | urlize }}" tabindex="-1">&#35;{{ . }}</a>{{ end }}
 			{{- else }}

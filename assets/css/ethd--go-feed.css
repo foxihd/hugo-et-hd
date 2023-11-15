@@ -122,8 +122,10 @@ article.addhover {
 	display: flex;
 	flex-direction: column-reverse;
 }
-.tag a,
-.tag time {
+.tag {
+	font-size: 1rem;
+}
+.tag * {
 	padding: 0.46em 0;
 	display: inline-block;
 }
@@ -136,6 +138,9 @@ article.addhover {
 	}
 	.feeditem section > p {
 		width: unset;
+	}
+	.tag {
+		font-size: 1.272rem;
 	}
 	#headline > a {
 		display: block;
