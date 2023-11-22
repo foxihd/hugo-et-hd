@@ -1,18 +1,29 @@
 {{- if not .Site.Params.Home.DisableBypassBlock }}
-<div id="bypassblock">
+<div id="bypassblock" aria-label="{{ i18n "landingPage" }}">
 	<div class="vfill">
 		<div role="banner">
-			<h1 class="nomargin sf">{{ if .Site.Params.Home.Banner }}{{ .Site.Params.Home.Banner | safeHTML }}{{ else if .Site.Title }}{{ .Site.Title }}{{ end }}</h1>
-			<h2 class="smallskip sf normalfont fade">{{ .Site.Params.Home.Tagline | safeHTML }}</h2>
+			<h1 class="nomargin sf">
+				{{- if .Site.Params.Home.Banner }}{{ .Site.Params.Home.Banner | safeHTML }}
+				{{- else if .Site.Title }}{{ .Site.Title }}
+				{{- end -}}
+			</h1>
+			<h2 class="smallskip sf normalfont fade">
+				{{ .Site.Params.Home.Tagline | safeHTML }}
+			</h2>
 		</div>
 		<div class="bigskip">
-			<a href="#feed" class="no-underline noprint">
-			<div role="button" class="LARGE icon floating bigskip" aria-label="{{ i18n "skiplanding" }}" title="{{ i18n "skiplanding" }}">🖋</div>
+			<a href="#feed"
+				class="no-underline noprint"
+				aria-label="{{ i18n "skiplanding" }}"
+				title="{{ i18n "skiplanding" }}"
+				>
+				<div role="presentation" class="LARGE quill icon floating bigskip"></div>
 			</a>
 		</div>
 	</div>
 	{{- if .Site.Params.Home.AuthorCard }}
-	<div class="medskip" style="max-width: 90%;">
+	<div class="medskip"
+		style="max-width: 90%;">
 		{{ partial "ins/author.html" . }}
 	</div>
 	{{- end }}
@@ -20,14 +31,31 @@
 {{- end }}
 {{- range $index, $slide := where .Site.RegularPages "Type" "slide" }}
 {{- $slide_counter :=add $index 1 }}
-<section id="slide-{{ $slide_counter }}" {{ with .Params.Background }}style="background: url({{ . }}) center;background-size:cover"{{ end }}>
-	{{ with .Title }}<h2 class="sf ssc normalfont">{{ . }}</h2>{{ end }}
-	<div style="max-width:{{ with .Params.Width }}{{ . }}{{ else }}90%{{ end }};{{ with .Params.Align }}text-align:{{ . }};{{ end }}">
-	{{- if or .Params.task .Site.Params.Post.enableCheckbox }}
-	{{ replace .Content "disabled=" "" | safeHTML }}
-	{{- else }}
-	{{ .Content }}
+<section
+	id="slide-{{ $slide_counter }}"
+	aria-labelledby="slide-{{ $slide_counter }}-heading"
+	{{- with .Params.Background }}
+		style="background: url({{ . }}) center;background-size:cover"
 	{{- end }}
+	>
+	{{- with .Title }}
+		<h2 id="slide-{{ $slide_counter }}-heading"
+			class="sf ssc normalfont">
+			{{- . -}}
+		</h2>
+	{{- end }}
+	<div style="max-width:
+		{{- with .Params.Width }}{{ . }}
+		{{- else }}90%
+		{{- end -}};
+		{{- with .Params.Align }}text-align:{{ . }};
+		{{- end -}}"
+		>
+		{{- if or .Params.task .Site.Params.Post.enableCheckbox }}
+		{{ replace .Content "disabled=" "" | safeHTML }}
+		{{- else }}
+		{{ .Content }}
+		{{- end }}
 	</div>
 </section>
 {{- end }}

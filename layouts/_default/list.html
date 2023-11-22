@@ -7,20 +7,36 @@
 {{- define "main" }}
 {{- $term := eq .Kind "term" }}
 {{- $key := index ( split .Permalink "/" ) ( sub ( len ( split .Permalink "/" ) ) 3 ) }}
-<h1>{{ if .IsSection }}{{ i18n "archive" }}{{ else if $term }}{{ if eq $key "tags" }}#{{ else }}> {{ end }}{{ .LinkTitle }}{{ end }}</h1>
-<aside {{ if $term}}class="ifwide"{{end}}>
+<h1>
+	{{- if .IsSection }}{{ i18n "archive" }}
+	{{- else if $term }}
+		{{- if eq $key "tags" }}#
+		{{- else }}> 
+		{{- end -}}
+		{{ .LinkTitle }}
+	{{- end }}
+</h1>
+<aside
+	{{- if $term }} class="ifwide" 
+	{{- end -}}>
 	<section>
-		<h2 class="rm ssc normalfont Large">{{ i18n "categories" }}</h2>
+		<h2 class="rm ssc normalfont Large">
+			{{ i18n "category" }}
+		</h2>
 		{{- partial "tms/categories.html" . }}
 	</section>
 	<section>
-	<h2 class="rm ssc normalfont Large">{{ i18n "tags" }}</h2>
-	{{- partial "tms/tags.html" . }}
+		<h2 class="rm ssc normalfont Large">
+			{{ i18n "tag" }}
+		</h2>
+		{{- partial "tms/tags.html" . }}
 	</section>
 </aside>
 <section id="list-posts">
-<h2 class="rm ssc normalfont Large">{{ i18n "post" }}</h2>
-{{ partial "tms/posts.html" . -}}
+	<h2 class="rm ssc normalfont Large">
+		{{ i18n "post" }}
+	</h2>
+	{{ partial "tms/posts.html" . -}}
 </section>
 <hr class="hide" style="border-style:dotted;">
 {{- end }}

@@ -13,7 +13,7 @@
 {{ partial "header.html" . -}}
 {{- end }}
 
-<main {{ if .IsHome }} id="main-panel" class="flex" {{ end -}}>
+<main {{ if .IsHome }} id="main-panel" class="flex" aria-labelledby="feed" {{ end -}}>
 {{ block "main" . -}}
 {{ end }}
 {{ if $split }}{{ partial "custom/mainfooter.html" . }}{{ end }}

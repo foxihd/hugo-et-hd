@@ -1,5 +1,5 @@
-<ul id="list-categories">
+<ul id="list-categories"  aria-label="{{ i18n "categories" 1 }}">
 	{{- range sort .Site.Taxonomies.categories }}
-	<li><a class="plain" href="{{ .Page.Permalink }}">{{ .Page.Title | title }}</a></li>
+	<li><a class="plain" href="{{ .Page.Permalink }}" aria-label="{{ i18n "categories" }}:{{ .Page.Title }}">{{ .Page.Title | title }}</a></li>
 	{{- end }}
 </ul>

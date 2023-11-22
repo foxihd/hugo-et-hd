@@ -1,4 +1,6 @@
 # index.html
+[landingPage]
+	other = "Halaman Landing"
 [skiplanding]
 	other = "Ke Artikel"
 [post_on]
@@ -15,24 +17,39 @@
 	other = "Baca Selengkapnya"
 [readingTime]
 	one = "Baca selengkapnya untuk satu menit"
-	other = "Baca selengkapnya untuk ±{{.Count}} menit"
+	other = "Baca selengkapnya untuk sekitar {{.Count}} menit"
 [minRead]
 	other = "Baca ±{{.Count}} menit"
 [noSummary]
 	other = "Tidak ada ringkasan."
 [about]
 	other = "Tentang"
-# list.html
-[archive]
-	other = "Arsip"
-[categories]
-	other = "Kategori"
-[tags]
-	other = "Label"
-[post]
-	other = "Artikel"
+# Navigasi landmark
+[mainNav]
+	other = "Navigasi Utama"
+[otherNav]
+	other = "Navigasi Lainnya"
+[pinnedNav]
+	other = "Navigasi Disematkan"
+[breadcrumb]
+	other = "Navigasi Breadcrumb"
+[pagination]
+	other = "Navigasi Halaman"
 [home]
 	other = "Beranda"
+# list.html
+[archive]
+	# one = ""
+	other = "Arsip"
+[category]
+	# one = ""
+	other = "Kategori"
+[tag]
+	# one = ""
+	other = "Label"
+[post]
+	# one = ""
+	other = "Artikel"
 # single.html
 [published]
 	other = "Diterbitakan pada"
@@ -124,18 +141,12 @@
 [contrast]
 	other = "Kontras"
 [less]
-	other = "kurangi"
+	other = "Rendah"
 [default]
-	other = "bawaan"
+	other = "Bawaan"
 [more]
-	other = "tambah"
+	other = "Tinggi"
 [close]
 	other = "Tutup"
-[otherLink]
-	other = "tautan lainnya"
-[pinned]
-	other = "Menu Disematkan"
-[breadcrumb]
-	other = "Navigasi Breadcrumb"
-[pagination]
-	other = "Navigasi Halaman"
+[override]
+	other = "Ambil alih"

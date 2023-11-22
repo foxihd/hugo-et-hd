@@ -1,5 +1,7 @@
 .feed article {
 	margin: 1rem 0;
+	display: flex;
+	flex-direction: column;
 }
 #headline > a {
 	display: inherit;
@@ -74,7 +76,6 @@
 	height: 14rem;
 	margin: 0;
 	float: unset;
-	width: min-content;
 }
 #split .griditem .featured-img {
 	width: 100%;
@@ -119,18 +120,18 @@
 	visibility: visible;
 }
 article.addhover {
-	display: flex;
 	flex-direction: column-reverse;
 }
 .tag {
-	font-size: 1rem;
+	line-height: 1;
 }
-.tag * {
+.tag,
+div > time {
 	padding: 0.46em 0;
 	display: inline-block;
 }
-.tag time::before {
-	content: '—';
+.tag a:link::before {
+	content: '#';
 }
 @media only screen and (max-width: 640px) {
 	.feed.grid article {

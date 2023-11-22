@@ -1,5 +1,5 @@
 {{- $home := absLangURL "" -}}
-<nav class="ssc sans normalsize" >
+<nav class="ssc sans normalsize" aria-label="{{ i18n "mainNav" }}">
 	{{- with .Site.Menus.main }}
 	{{- range . }}
 	<a href="{{ if .Params.IsBanner }}{{ $home }}{{ else }}{{ .URL }}{{ end }}" class="no-underline ssc {{ if .Params.IsBanner }}reverse{{ else }}inverse{{ end }} {{ .Params.class }}"

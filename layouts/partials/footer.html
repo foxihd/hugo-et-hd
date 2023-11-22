@@ -9,7 +9,7 @@
 	<details open class="unmark">
 	<summary class="hide" id="pinnednav">{{ i18n "pinned" }}</summary>
 	<nav aria-labelledby="pinnednav">
-		<ul class="unmark">
+		<ul class="unmark" role="presentation">
 			{{- range . }}
 			<li><a href="{{ .URL }}" class="no-underline {{ .Params.Class }}" 
 				{{- if .Title }} aria-label="{{ .Title }}" title="{{ .Title }}" {{ end }}>

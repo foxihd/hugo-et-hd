@@ -1,5 +1,5 @@
-<ul id="list-tags" class="unmark scriptsize ssc sf">
+<ul id="list-tags" class="unmark scriptsize ssc sf" aria-label="{{ i18n "tags" 1 }}">
 	{{- range sort .Site.Taxonomies.tags }}
-	<li><a class="no-underline inverse" href="{{ .Page.Permalink }}"> #{{ .Page.Title }}({{ .Count }})</a></li>
+	<li><a class="no-underline inverse" href="{{ .Page.Permalink }}" aria-label="{{ i18n "tagged" }} {{ .Page.Title }}"> #{{ .Page.Title }}({{ .Count }})</a></li>
 	{{- end }}
 </ul>

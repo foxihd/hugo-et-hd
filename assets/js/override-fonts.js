@@ -16,16 +16,14 @@ fontSwitch.oninput = function useOpenDyslexic() {
 var fontSizeRange = document.getElementById("fontSizeRange");
 var fontSizeState = document.getElementById("fontSizeState");
 fontSizeRange.disabled = false;
-fontSizeState.innerHTML = fontSizeRange.value * 10;
 fontSizeRange.oninput = function setFontSize() {
-		fontSizeState.innerHTML = fontSizeRange.value * 10 ;
-		ethd.setProperty('--fontScale', fontSizeRange.value / 10);
+		fontSizeState.innerHTML = Math.floor(fontSizeRange.value * 100);
+		ethd.setProperty('--fontScale', fontSizeRange.value);
 };
 var baselineStretchRange = document.getElementById("baselineStretchRange");
 var baselineStretchState = document.getElementById("baselineStretchState");
 baselineStretchRange.disabled = false;
-baselineStretchState.innerHTML = baselineStretchRange.value * 10;
 baselineStretchRange.oninput = function setStretch() {
-		baselineStretchState.innerHTML = baselineStretchRange.value * 10;
-		ethd.setProperty('--baselineStretch', baselineStretchRange.value / 10);
+		baselineStretchState.innerHTML = Math.floor(baselineStretchRange.value * 100);
+		ethd.setProperty('--baselineStretch', baselineStretchRange.value);
 };

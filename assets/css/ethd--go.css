@@ -133,11 +133,12 @@ details[open] summary#a11y,
 	color: #36c;
 }
 #a11ypanel {
-	top: -26em;
+	top: -29rem;
 	width: 21em;
 	background-color: var(--paper);
 	border: 1px solid var(--ink);
 	overflow-y: auto;
+	font-size: 1rem;
 	line-height: 0.9;
 }
 #a11ypanel fieldset {
@@ -145,7 +146,12 @@ details[open] summary#a11y,
 	margin: 0.5em;
 }
 #a11ypanel fieldset div {
-	padding: 0.4em 0;
+	padding-top: 0.4em;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+#a11ypanel div.sw {
+	text-align: unset;
 }
 #a11ypanel fieldset input[type=checkbox],
 #a11ypanel fieldset button {
@@ -153,8 +159,7 @@ details[open] summary#a11y,
 	clear: right;
 }
 #a11ypanel legend {
-	font-size: 1em;
-	padding: 0.2em 0.5em 0.3em;
+	padding: 0.3em 0.5em;
 	color: var(--paper);
 	background-color: var(--ink) ;
 }
@@ -162,6 +167,34 @@ details[open] summary#a11y,
 #fontSizeRange {
 	width: 61%;
 	vertical-align: middle;
+}
+#contrast {
+	display: inline-flex;
+	margin-top: 1ex;
+}
+#contrast input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+#contrast label {
+	border: 1pt solid var(--ink);
+	padding: 0.5rem;
+	width: 4.8rem;
+	display: inline-block;
+}
+#contrast input:checked + label {
+	background-color:var(--ink);
+	color: var(--paper);
+}
+#contrast label:first-of-type {
+	border-radius: 1ex 0 0 1ex;
+}
+#contrast label:nth-of-type(2) {
+	border-width: 1pt 0;
+}
+#contrast label:last-of-type {
+	border-radius: 0 1ex 1ex 0;
 }
 .tabhead {
 	padding: 0.3rem 0 0.5rem 0.5rem;
@@ -388,6 +421,9 @@ audio > center > div {
 	}
 }
 @media only screen and (max-width: 640px) {
+	#a11ypanel {
+		top: -30.5em;
+	}
 	#footinfo {
 		max-width: 33%;
 	}

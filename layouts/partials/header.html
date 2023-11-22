@@ -12,8 +12,8 @@
 			{{- partial "nav.html" . }}
 		{{- end }}
 	{{- else -}}
-		<header class="noprint {{ if .Site.Params.Home.Bannercentering }}centering{{ end }}" aria-labelledby="banner">
-			<h1 id="banner" style="margin-bottom:0;"><a class="plain" href="/" title="{{ i18n "home" }}">{{ if .Site.Params.Home.Banner }}{{ .Site.Params.Home.Banner | safeHTML }}{{ else if .Site.Title }}{{ .Site.Title }}{{ end }}</a></h1>
+		<header class="noprint {{ if .Site.Params.Home.Bannercentering }}centering{{ end }}" aria-labelledby="banner" aria-describedby="tagline">
+			<h1 id="banner" style="margin-bottom:0;"><a class="plain" href="/" title="{{ i18n "home" }}" >{{ if .Site.Params.Home.Banner }}{{ .Site.Params.Home.Banner | safeHTML }}{{ else if .Site.Title }}{{ .Site.Title }}{{ end }}</a></h1>
 			<h2 id="tagline">{{ .Site.Params.Home.Tagline | safeHTML }}</h2>
 		</header>
 		{{- partial "nav.html" . }}

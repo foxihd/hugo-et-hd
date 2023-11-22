@@ -12,75 +12,167 @@
 {{- $grid := .Site.Params.Feed.Grid }}
 {{- $withSummary := .Site.Params.Feed.Summary }}
 {{- $withCover := .Site.Params.Feed.Cover }}
-<h2 id="feed" {{ if and $headline (not .Site.Params.Home.Slider) (not $firstPage) }}class="hide"{{ end }}>
-	{{- if $firstPage }}{{ i18n "recent" }}{{ else }}{{ i18n "post_on" }} {{ .Site.Title }}{{ end -}}
+<h2 id="feed"
+	{{- if and $headline (not .Site.Params.Home.Slider) (not $firstPage) }} class="hide" 
+	{{- end -}}
+	>
+	{{- if $firstPage }}{{ i18n "recent" }}
+	{{- else }}{{ i18n "post_on" }} {{ .Site.Title }}
+	{{- end -}}
 </h2>
-<section role="feed"
+<section
+	role="feed"
 	aria-busy="false"
 	aria-labelledby="feed"
-	class="feed {{ if $grid }}grid{{ if not $withCover }} no-cover{{ end }}{{ end }}">
+	class="feed 
+		{{- if $grid }} grid 
+			{{- if not $withCover }} no-cover 
+			{{- end -}}
+		{{- end -}}"
+	>
 	{{- range $index, $page := $postPaginator.Pages }}
 	{{- $postCounter :=add $index 1 }}
 	{{- $tag := .Params.Tags }}
 	{{- $date := .PublishDate.Format ( i18n "date_post" ) }}
-		{{- if gt hugo.Version 0.87 }}{{ $date = .PublishDate | time.Format ":date_long" }}{{ end }}
+		{{- if gt hugo.Version 0.87 }}{{ $date = .PublishDate | time.Format ":date_long" }}
+		{{- end }}
 	{{- $desc := .Description }}
-		{{- if .Summary }}{{ $desc = .Summary }}{{ else if .Params.Subtitle }}{{ $desc = .Params.Subtitle }}{{ end }}
+		{{- if .Summary }}{{ $desc = .Summary }}
+		{{- else if .Params.Subtitle }}{{ $desc = .Params.Subtitle }}
+		{{- end }}
 		{{- $summarized := truncate 256 $desc | plainify }}
 	<article
-		aria-labelledby="article-{{$postCounter}}" 
-		{{- if $withSummary }}aria-describedby="sum-{{$postCounter}}" 
-		{{- else}} aria-describedby="alt-{{$postCounter}}" data-hover="{{ i18n "minRead" .ReadingTime }} &#187;" {{ end }} 
+		{{- if and $headline $firstPage (eq $postCounter 1) }} id="headline" 
+		{{- end }}
+		class="{{- if not $withSummary }} addhover 
+			{{- end -}}
+			{{- if $grid }}	griditem 
+			{{- else if $withSummary }} feeditem 
+			{{- end -}}"
 		aria-posinset="{{ $postCounter }}" 
-		aria-setsize="{{ $postPaginator.NumberOfElements }}"		
-		class="{{- if $grid }} griditem {{ else if $withSummary }} feeditem {{ end -}}
-			{{- if not $withSummary }} addhover {{ end -}}"
-			{{- if and $headline $firstPage (eq $postCounter 1) }}id="headline"{{ end -}}>
-		<a href="{{ .RelPermalink }}" class="{{ if $grid }}inverse{{ else }}no-color{{ end }} {{ if $withSummary }}no-focus{{ end }}"
-			{{ if and  $firstPage $withCover $withSummary }}tabindex="-1"{{ end }}>
+		aria-setsize="{{ $postPaginator.NumberOfElements }}" 
+		aria-labelledby="article-{{ $postCounter }}" 
+		{{- if $withSummary }}
+			aria-describedby="sum-{{ $postCounter }}" 
+		{{- else }}
+			aria-describedby="alt-{{ $postCounter }}" 
+			data-hover="{{ i18n "minRead" .ReadingTime }} &#187;" 
+		{{- end }} 
+		>
+		<a href="{{ .RelPermalink }}" 
+			class="{{ if $grid }} inverse 
+				{{- else }} no-color
+				{{- end }}
+				{{- if $withSummary }} no-focus
+				{{- end }}"
+			{{- if and  $firstPage $withCover $withSummary }} tabindex="-1"
+			{{- end -}}
+			aria-label="{{ i18n "readingTime" .ReadingTime }}: {{ .Title }}." 
+			>
 			{{- if and $headline $grid (eq $postCounter 1) (not .Site.Params.Home.LayoutSplit ) (not $withSummary) }}
 			<div id="headline-text">
-				<h3 id="article-{{$postCounter}}">{{ .Title }}{{ if .Draft }} ({{ i18n "draft" }}) {{end}}</h3>
-				<p id="sum-{{$postCounter}}" class="footnotesize fading">{{ with $summarized }}{{ . }}{{ else }}{{ i18n "noSummary" }}{{ end }}</p>
+				<h3 id="article-{{ $postCounter }}">
+					{{ .Title }}
+					{{- if .Draft }} ({{ i18n "draft" }}) 
+					{{- end -}}.
+				</h3>
+				<p id="sum-{{ $postCounter }}" 
+					class="footnotesize fading">
+					{{- with $summarized }}{{ . }}
+					{{- else }}{{ i18n "noSummary" }}
+					{{- end -}}
+				</p>
 			</div>
 			{{- else }}
-			<h3 id="article-{{$postCounter}}">{{ .Title }}{{ if .Draft }} ({{ i18n "draft" }}) {{end}}</h3>
-			{{ end }}
+			<h3 id="article-{{ $postCounter }}">
+				{{ .Title }}
+				{{- if .Draft }} ({{ i18n "draft" }}) 
+				{{- end -}}
+			</h3>
+			{{- end }}
 			{{- if and $withCover (or $grid $withSummary ) }}
-			{{- $getCover := .Resources.GetMatch "cover.*" }}
-			{{- $svgcount := 42 }}
-			{{- if .Site.Params.Feed.FlowlinesLimit }}{{ $svgcount = .Site.Params.Feed.FlowlinesLimit }}{{ end }}
-			<img class="featured-img {{ if and (not $grid) (eq $postCounter 1) }}fullwidth{{ end }}"
-				alt="{{ i18n "featuredImg" }} {{ .Title }}"
+				{{- $getCover := .Resources.GetMatch "cover.*" }}
+				{{- $svgcount := 42 }}
+					{{- if .Site.Params.Feed.FlowlinesLimit }}{{ $svgcount = .Site.Params.Feed.FlowlinesLimit }}
+					{{- end }}
+				{{- $pseudoRandom := index (seq 80 | shuffle) 12 }}
+			<img
+				alt="{{ i18n "featuredImg" }} {{ .Title }}" 
+				role="presentation" 
+				class="featured-img 
+					{{- if and (not $grid) (eq $postCounter 1) }} fullwidth
+					{{- end }}"
 				{{- if .Params.Cover }} src="{{ .Params.Cover }}"
 				{{- else if $getCover }} src="{{ $getCover.Permalink }}"
 				{{- else }}
 					src='/svg/flowlines/{{ index (seq $svgcount | shuffle) 1 }}.svg'
-					style="object-position:{{ (index (seq 80 | shuffle) 12) }}% {{ (index (seq 80 | shuffle) 12) -}}%;"
+					style="object-position:{{ $pseudoRandom }}% {{ $pseudoRandom -}}%;
+						{{- if and $headline $grid (eq $postCounter 1) $withSummary }}flex-basis:100%;
+						{{- end }}"
 					class="flowlines"
-				{{ end -}} >
+				{{- end -}}
+				>
 			{{- end }}
 		</a>
 		{{- if $withSummary }}
 			{{- if not $grid }}
-			<aside class="nopadding">
-				<p class="scriptsize tt"><i class="icon">📅</i>&nbsp;<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ $date }}</time></p>
+			<aside class="nopadding ssc sf">
+				<p class="footnotesize">
+					<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ $date }}</time>
+				</p>
 				{{- with $tag }}
-				<p class="scriptsize ssc sf" style="line-height: 1.4;">
-					{{ range . }}<a class="plain" href="{{ "tags/" | absURL }}{{ . | urlize }}" tabindex="-1">&#35;{{ . }}</a> {{ end }}</p>
+				<ul class="unmark tag ssc sf"
+					role="presentation">
+					{{- range . }}
+					<li><a href="{{ "tags/" | absURL }}{{ . | urlize }}" 
+							class="plain" 
+							tabindex="-1" 
+							aria-label="{{ i18n "tagged" }}: {{ . }}." 
+							>
+							{{- . -}}
+						</a> 
+					</li>
+					{{- end }}
+				</ul>
 				{{- end }}
 			</aside>
 			{{- end }}
 			<section class="nopadding">
-				<p id="sum-{{$postCounter}}" class="footnotesize fading">{{ with $summarized }}{{ . }}{{ else }}{{ i18n "noSummary" }}{{ end }}</p>
-				<p class="noindent small it"><a class="plain" href="{{ .RelPermalink }}" aria-label="{{ i18n "readOn" }}: {{ .Title }}">{{ i18n "readingTime" .ReadingTime }} &#187;</a></p>
+				<p id="sum-{{ $postCounter }}"
+					class="footnotesize fading">
+					{{- with $summarized }}{{ . }}
+					{{- else }}{{ i18n "noSummary" }}
+					{{- end -}}
+				</p>
+				<p class="noindent small it">
+					<a href="{{ .RelPermalink }}" 
+						class="plain" 
+						aria-label="{{ i18n "readOn" }}: {{ .Title }}."
+						>
+						{{ i18n "readingTime" .ReadingTime }} &#187;
+					</a>
+				</p>
 			</section>
 		{{- else }}
-			<div class="ssc sf tag" id="alt-{{$postCounter}}">
-			{{- if $tag }}{{ range $tag }}
-				<a class="plain" href="{{ "tags/" | absURL }}{{ . | urlize }}" tabindex="-1">&#35;{{ . }}</a>{{ end }}
+			<div class="ssc sf" id="alt-{{ $postCounter }}">
+			{{- if $tag }}
+				<ul class="unmark tag" role="presentation">
+				{{- range $tag }}
+					<li><a href="{{ "tags/" | absURL }}{{ . | urlize }}"
+							class="plain" 
+							tabindex="-1" 
+							aria-label="{{ i18n "tagged" }}: {{ . }}."
+							>
+							{{- . -}}
+						</a> 
+					</li>
+				{{- end }}
+				</ul>
 			{{- else }}
-				<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ $date }}</time>
+				<time datetime="{{ .PublishDate.Format "2006-01-02" }}" 
+					aria-label="{{ i18n "published" }}: {{ $date }}." >
+					{{ $date }}
+				</time>
 			{{- end }}
 			</div>
 		{{- end }}
@@ -95,12 +187,18 @@
 		<ul class="unmark">
 		{{- if .Paginator.HasPrev }}
 			<li class="rfill">
-				<a href="{{ .Paginator.Prev.URL }}" class="no-underline reverse ssc sf">{{ i18n "prev" }}</a>
+				<a href="{{ .Paginator.Prev.URL }}"
+					class="no-underline reverse ssc sf">
+					{{ i18n "prev" }}
+				</a>
 			</li>
 		{{- end }}
 		{{- if .Paginator.HasNext }}
 			<li class="lfill">
-				<a href="{{ .Paginator.Next.URL }}" class="no-underline reverse ssc sf">{{ i18n "next" }}</a>
+				<a href="{{ .Paginator.Next.URL }}"
+					class="no-underline reverse ssc sf">
+					{{ i18n "next" }}
+				</a>
 			</li>
 		{{- end }}
 		</ul>

@@ -1,17 +1,20 @@
-<div role="list" id="list-Post">
+<div role="list" id="list-Post" aria-label="{{ i18n "post" 1 }}">
 	{{- range .Data.Pages.GroupByDate "2006" }}
+	{{- $year := .Key }}
 	<div role="listitem" class="list-year nopadding" aria-labelledby="{{ .Key }}">
-		<h3 id="{{ .Key }}" >{{ .Key }}</h3>
-		<div role="list">
+		<h3 id="{{ $year }}" >{{ $year }}</h3>
+		<div role="list" aria-label="{{ $year }}">
 			{{- range .Pages.GroupByDate "January" }}
-			<div role="listitem" aria-labelledby="{{ .Key }}">
+			{{- $month := .Key }}
+			<div role="listitem" aria-labelledby="{{ print $year "-" $month }}">
 			<details open aria-expanded="true" class="list-month">
-			<summary id="{{ .Key }}">{{ .Key }} ({{ len .Pages }})</summary>
+			<summary id="{{ print $year "-" $month }}" aria-label="{{ print $year "-" $month }}">{{ $month }} ({{ len .Pages }})</summary>
 				{{- with .Pages }}
 				<ul class="unmark list-day" role="presentation">
 					{{- range . }}
-					<li><span class="list-item">{{ .Date.Format ( i18n "date_list" ) }}</span>
-						<a class="plain" href="{{ .RelPermalink }}">{{.Title}}</a></li>
+					{{- $date := .Date.Format ( i18n "date_list" ) }}
+					<li><span class="list-item">{{ $date }}</span>
+						<a class="plain" href="{{ .RelPermalink }}" aria-label="{{ print $date ": " .Title }}">{{.Title}}</a></li>
 					{{- end }}
 				</ul>
 				{{- end }}

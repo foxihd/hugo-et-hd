@@ -1,4 +1,6 @@
 # index.html
+[landingPage]
+	other = "Landing Page"
 [skiplanding]
 	other = "Jump to Article"
 [post_on]
@@ -15,24 +17,39 @@
 	other = "Read more"
 [readingTime]
 	one = "Read more for one minute"
-	other = "Read more for ±{{.Count}} minutes"
+	other = "Read more for about {{.Count}} minutes"
 [minRead]
 	other = "{{.Count}} min read"
 [noSummary]
 	other = "No summary written."
 [about]
 	other = "About"
-# list.html
-[archive]
-	other = "Archives"
-[categories]
-	other = "Categories"
-[tags]
-	other = "Tags"
-[post]
-	other = "Posts"
+# navigation landmark
+[mainNav]
+	other = "Main"
+[otherNav]
+	other = "Other"
+[pinnedNav]
+	other = "Pinned"
+[breadcrumb]
+	other = "Breadcrumb"
+[pagination]
+	other = "Pagination"
 [home]
 	other = "Home"
+# list.html
+[archive]
+	one = "Archive"
+	other = "Archives"
+[category]
+	one = "Category"
+	other = "Categories"
+[tag]
+	one = "Tag"
+	other = "Tags"
+[post]
+	one = "Post"
+	other = "Posts"
 # single.html
 [published]
 	other = "Published on"
@@ -45,7 +62,7 @@
 [titletoc]
 	other = "Contents at a glance"
 [tagged]
-	other = "Tags"
+	other = "Tagged with"
 [sharePage]
 	other = "Share this page!"
 [shareArticle]
@@ -112,9 +129,9 @@
 [color]
 	other = "Color Scheme"
 [bionRead]
-	other = "Toggle BionRead mode"
+	other = "Toggle BionRead mode."
 [openDyslexic]
-	other = "Use OpenDyslexic font"
+	other = "Use OpenDyslexic font."
 [fontScaling]
 	other = "Font scaling"
 [baselineStretch]
@@ -124,18 +141,12 @@
 [contrast]
 	other = "Contrast"
 [less]
-	other = "less"
+	other = "low"
 [default]
 	other = "default"
 [more]
-	other = "more"
+	other = "high"
 [close]
 	other = "Close"
-[otherLink]
-	other = "Other link"
-[pinned]
-	other = "Pinned Menu"
-[breadcrumb]
-	other = "Breadcrumb Navigation"
-[pagination]
-	other = "Page Navigation"
+[override]
+	other = "Override"
