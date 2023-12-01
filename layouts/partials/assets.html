@@ -25,6 +25,7 @@
 	function closeToolbar() {document.getElementById("toolbar").removeAttribute("open");};
 	function closeSidebar() {document.getElementById("sidebar").removeAttribute("open");};
 </script>
+{{- $legibility := resources.Get "js/legibility.js" }}
 {{- $bionread := resources.Get "js/bionread.js" -}}
 {{- $brightness := resources.Get "js/override-brightness.js" -}}
 {{- $contrast := resources.Get "js/override-contrast.js" -}}

@@ -12,7 +12,7 @@ bionReadSwitch.oninput = function bionRead() {
 			document.documentElement.style.setProperty('--ink', '#333');
 		}
 		document.documentElement.style.setProperty('--bionic', '0.02em');
-		bionReadState.innerHTML = "⚓";
+		bionReadState.innerHTML = "";
 		bionReadSnapshot.innerHTML = bionReadRestore.innerHTML;
 		(() => {
 			function i() {
@@ -30,12 +30,12 @@ bionReadSwitch.oninput = function bionRead() {
 				})
 			}
 			document.addEventListener("DOMContentLoaded", i());
-		})();}
-	else {
-		bionReadState.innerHTML = "🛟";
+		})();
+	} else {
+		setContrast();
+		bionReadState.innerHTML = "";
 		bionReadRestore.innerHTML = bionReadSnapshot.innerHTML;
 		document.documentElement.style.setProperty('--bionic', '0');
-		setContrast();
 		bionReadSnapshot.innerHTML = "";
 		localStorage.clear();}
 };

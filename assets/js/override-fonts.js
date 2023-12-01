@@ -6,11 +6,11 @@ fontSwitch.oninput = function useOpenDyslexic() {
 	if (fontSwitch.checked == true) {
 		ethd.setProperty('--rm', 'OpenDyslexic');
 		ethd.setProperty('--sf', 'OpenDyslexic');
-		fontState.innerHTML = "";
+		fontState.innerHTML = "";
 	} else {
 		ethd.setProperty('--rm', 'crimson');
 		ethd.setProperty('--sf', 'Rosario');
-		fontState.innerHTML = "";
+		fontState.innerHTML = "";
 	}
 };
 var fontSizeRange = document.getElementById("fontSizeRange");

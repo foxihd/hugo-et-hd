@@ -1,57 +1,146 @@
-<details class="unmark" id="toolbar" aria-haspopup="true" aria-expanded="false">
-	<summary id="a11y" aria-label="{{ i18n "legibility" }}" title="{{ i18n "legibility" }}">
-		<i class="icon accessible"></i><span class="ssc sf scriptsize ifwide">{{ i18n "legibility" }}</span>
+<details
+	id="toolbar" 
+	class="unmark" 
+	aria-haspopup="true" 
+	aria-expanded="false"
+	>
+	<summary
+		id="a11y"
+		title="{{ i18n "legibility" }}" 
+		aria-label="{{ i18n "legibility" }}"
+		>
+		<i class="icon accessible"></i>
+		<span class="ssc sf scriptsize ifwide">{{ i18n "legibility" }}</span>
 	</summary>
-	<div id="a11ypanel" class="ssc sf">
+	<div id="a11ypanel" 
+		class="ssc sf">
 		<div class="tabhead">
 			<i class="icon accessible" style="margin-right: 1ex;"></i>
 			<span>{{ i18n "legibility" }} <noscript> - {{ i18n "noScript" }}</noscript></span>
-			<button id="close-toolbar" onclick="closeToolbar()" aria-label="{{ i18n "close" }}:{{ i18n "legibility" }}">&#10006;</button>
+			<button
+				id="close-toolbar"
+				onclick="closeToolbar()" 
+				aria-label="{{ i18n "close" }}:{{ i18n "legibility" }}"
+				>
+				&#10006;
+			</button>
 		</div>
 		<fieldset>
-			<legend class="ssc">{{ i18n "typeface" }}</legend>
-			<div>
-				<input type="checkbox" id="bionReadSwitch" aria-label="{{ i18n "bionRead" }}" disabled>
-				<label for="bionReadSwitch"><span class="icon" id="bionReadState">🛟</span> <b>Bion</b>Read</label>
+			<legend class="ssc">
+				{{ i18n "typeface" }}
+			</legend>
+			<div class="sw">
+				<input
+					type="checkbox" 
+					id="bionReadSwitch" 
+					aria-label="{{ i18n "bionRead" }}" 
+					disabled>
+					<label for="bionReadSwitch">
+						<span class="icon" id="bionReadState"></span> 
+						<span aria-label="bionread"><b>Bion</b>Read</span>
+					</label>
 			</div>
-			<div>
-				<input type="checkbox" id="fontSwitch" aria-label="{{ i18n "openDyslexic" }}" disabled>
-				<label for="fontSwitch"><span class="icon" id="fontState"></span> OpenDyslexic</label>
+			<div class="sw">
+				<input
+					type="checkbox" 
+					id="fontSwitch" 
+					aria-label="{{ i18n "openDyslexic" }}"
+					disabled>
+					<label for="fontSwitch">
+						<span class="icon" id="fontState"></span> 
+						OpenDyslexic
+					</label>
 			</div>
-			<div aria-label="Override Font Size" class="centering scriptsize smallskip">
-				<label for="fontSizeRange" class="centering">{{ i18n "fontScaling" }}</label><br>
-				<span style="font-variant-caps: small-caps;">aA</span>
-				<input type="range" min="0.8" max="1.2" step="0.1" id="fontSizeRange" disabled>
-				<span><span id="fontSizeState">100</span>%</button>
+			<div aria-label="{{ i18n "override" }}:{{ i18n "fontScaling" }}">
+				<label for="fontSizeRange">
+					{{ i18n "fontScaling" }}
+				</label>
+				<br>
+				<span class="sc">aA</span>
+				<input
+					type="range"
+					min="0.8"
+					max="1.2"
+					step="0.1"
+					id="fontSizeRange"
+					disabled>
+				<span id="fontSizeState">100</span>%
 			</div>
-			<div aria-label="Override Baseline Stretch" class="centering scriptsize">
-				<label for="baselineStretchRange" class="centering">{{ i18n "baselineStretch" }}</label><br>
-				<span style="font-variant-caps: small-caps;">☰</span>
-				<input type="range" min="0.8" max="1.2" step="0.1" id="baselineStretchRange" disabled>
-				<span><span id="baselineStretchState">100</span>%</button>
+			<div aria-label="{{ i18n "override" }}:{{ i18n "baselineStretch" }}">
+				<label for="baselineStretchRange">
+					{{ i18n "baselineStretch" }}
+				</label>
+				<br>
+				<span>☰</span>
+				<input 
+					type="range" 
+					min="0.8" 
+					max="1.2" 
+					step="0.1" 
+					id="baselineStretchRange"
+					disabled>
+				<span id="baselineStretchState">100</span>%
 			</div>
 		</fieldset>
 		<fieldset>
-			<legend class="ssc">{{ i18n "color" }}</legend>
-			<div>
-				<input type="checkbox" id="lightSwitch" aria-label="{{ i18n "darkMode" }}" disabled>
-				<label for="lightSwitch"><span class="icon" id="lightState">☀</span> {{ i18n "darkMode" }}</label>
+			<legend class="ssc">
+				{{ i18n "color" }}
+			</legend>
+			<div class="sw">
+				<input 
+					type="checkbox" 
+					id="lightSwitch" 
+					aria-label="{{ i18n "darkMode" }}" 
+					disabled>
+					<label for="lightSwitch">
+						<span class="icon" id="lightState">☀</span> 
+						{{ i18n "darkMode" }}
+					</label>
 			</div>
-			<div aria-label="Override Contrast" class="centering scriptsize">
-				<div class="centering" id="contrastState">{{ i18n "contrast" }}</div>
-				<label for="lessContrast" class="fade">{{ i18n "less" }}</label>
-				<input type="radio" id="lessContrast" name="contrast" value="less" onclick="setContrast()" disabled>
-				<input type="radio" id="defaultContrast" name="contrast" value="default" onclick="setContrast()">
-				<label for="defaultContrast" class="hide">{{ i18n "default" }}</label>
-				<input type="radio" id="moreContrast" name="contrast" value="more" onclick="setContrast()" disabled>
-				<label for="moreContrast" style="-webkit-text-stroke: 0.02rem var(--deep);">{{ i18n "more" }}</label>
+			<div aria-label="{{ i18n "override" }}:{{ i18n "contrast" }}">
+				<span id="contrastState">
+					{{ i18n "contrast" }}
+				</span>
+				<span id="contrast"
+					role="slider"
+					aria-orientation="horizontal">
+					<input
+						id="lessContrast"
+						type="radio" 
+						name="contrast" 
+						value="less" 
+						onclick="setContrast()" 
+						disabled>
+						<label for="lessContrast"
+							aria-label="{{ i18n "override" }}:{{ i18n "contrast" }}-{{ i18n "less" }}"
+							>
+							{{ i18n "less" }}
+						</label>
+					<input
+						id="defaultContrast" 
+						type="radio" 
+						name="contrast" 
+						value="default" 
+						onclick="setContrast()">
+						<label for="defaultContrast"
+							aria-label="{{ i18n "override" }}:{{ i18n "contrast" }}-{{ i18n "default" }}"
+							>
+							{{ i18n "default" }}
+						</label>
+					<input 
+						id="moreContrast" 
+						type="radio" 
+						name="contrast" 
+						value="more" 
+						onclick="setContrast()" 
+						disabled>
+						<label for="moreContrast"
+							aria-label="{{ i18n "override" }}:{{ i18n "contrast" }}-{{ i18n "more" }}"
+							>
+							{{ i18n "more" }}
+						</label>
+				</span>
 			</div>
 		</fieldset>
 	</div>
 </details>
-<script>
-const toolbar = document.getElementById("toolbar");
-toolbar.addEventListener("toggle", function() {
-	if (toolbar.hasAttribute("open")) {toolbar.setAttribute("aria-expanded", "true");}
-	else {toolbar.setAttribute("aria-expanded", "false");};});
-</script>
