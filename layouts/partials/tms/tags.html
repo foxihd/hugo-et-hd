@@ -1,5 +1,14 @@
-<ul id="list-tags" class="unmark scriptsize ssc sf" aria-label="{{ i18n "tags" 1 }}">
+<ul id="list-tags"
+	class="unmark scriptsize ssc sf"
+	role="presentation"
+	aria-label="{{ i18n "tag" 1 }}">
 	{{- range sort .Site.Taxonomies.tags }}
-	<li><a class="no-underline inverse" href="{{ .Page.Permalink }}" aria-label="{{ i18n "tagged" }} {{ .Page.Title }}"> #{{ .Page.Title }}({{ .Count }})</a></li>
+	<li><a href="{{ .Page.Permalink }}"
+			class="no-underline inverse"
+			aria-label="{{ i18n "tagged" }} {{ .Page.Title }}"
+			>
+			#{{ .Page.Title }}({{ .Count }})
+		</a>
+	</li>
 	{{- end }}
 </ul>

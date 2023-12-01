@@ -1,23 +1,52 @@
 {{- with .Site.Menus.side }}
-<details class="unmark" id="sidebar" aria-haspopup="true" aria-expanded="false">
-<summary title="{{ i18n "otherLink" }}">☰</summary>
-<div id="sidepanel">
-	<div class="tabhead sf ssc" id="otherlink">
-		<i class="scriptsize icon link" style="padding-right: 1ex;"></i>
-		{{ i18n "otherLink" }}
-		<button id="close-sidebar" onclick="closeSidebar()" aria-label="{{ i18n "close" }}">&#10006;</button>
+<details id="sidebar"
+	class="unmark"
+	aria-haspopup="true"
+	aria-expanded="false"
+	>
+	<summary title="{{ i18n "otherNav" }}"
+		aria-label="{{ i18n "otherNav" }}">
+		☰
+	</summary>
+	<div id="sidepanel">
+		<div id="otherlink"
+			class="tabhead sf ssc">
+			<i class="scriptsize icon link" 
+				style="padding-right: 1ex;"
+				role="presentation"
+				></i>
+			{{ i18n "otherNav" }}
+			<button id="close-sidebar"
+				onclick="closeSidebar()"
+				aria-label="{{ i18n "close" }}"
+				>
+				&#10006;
+			</button>
+		</div>
+		<nav aria-labelledby="otherlink">
+			<ul class="unmark"
+				role="presentation">
+				{{- range . }}
+				<li><a href="{{ .URL }}"
+						class="no-underline {{ .Params.Class }}" 
+						{{- with .Title }}
+							aria-label="{{ . -}}"
+							title="{{ . -}}"
+						{{- end -}}
+						>
+						{{- .Pre }}
+						{{- .Name }}
+						{{- if .Post }}{{ .Post }}
+						{{- else }}
+							<span class="hide">
+								{{ .Title }}
+							</span>
+						{{- end -}}
+					</a>
+				</li>
+				{{- end }}
+			</ul>
+		</nav>
 	</div>
-	<nav aria-labelledby="otherlink">
-		<ul class="unmark ssc sf" role="presentation">
-			{{- range . }}
-			<li><a href="{{ .URL }}" class="plain {{ .Params.class }}"
-				{{- if .Title }} aria-label="{{ .Title }}" title="{{ .Title }}" {{ end }}>
-				{{- .Pre }}{{ .Name }}{{ if .Post }}{{ .Post }}{{ else }}<span class="hide">{{ .Title }}</span>{{ end -}}
-				</a>
-			</li>
-			{{- end }}
-		</ul>
-	</nav>
-</div>
 </details>
 {{- end }}
