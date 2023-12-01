@@ -1,30 +1,43 @@
 {{- $type := .Get "type" }}
 {{- $figID := print "fig-" .Page.File.UniqueID "-" .Ordinal }}
 {{- if not (eq $type "margin") }}
-	{{- if eq $type "full" }}
-	<figure class="fullwidth">
-	{{- else }}
-	<figure {{ with .Get "class" }} class="{{ . }}"{{ end }}>
+	{{- if eq $type "full" }}<figure class="fullwidth">
+	{{- else }}<figure {{ with .Get "class" }} class="{{ . }}"{{ end }}>
 	{{- end }}
 {{- end }}
 {{- if eq $type "full" }}
 	{{- with .Get "link" }}<a href="{{ . }}">{{ end }}
-			<img src="{{ .Get "src" }}" {{ with .Get "alt"}} alt=" {{ . }}" title="{{ . }}" {{ end }} aria-describedby="{{ $figID }}" >
+		<img src="{{ .Get "src" }}"
+			{{ with .Get "alt" }}
+				alt=" {{ . }}"
+				title="{{ . }}"
+			{{ end }}
+			aria-describedby="{{ $figID }}"
+			>
 	{{- if .Get "link" }}</a>{{ end }}
 	<figcaption id="{{ $figID }}">
 {{- else }}
-	<label for="{{ .Get "label" }}" class="margin-toggle">⊕</label>
-	<input type="checkbox" id="{{ .Get "label" }}" class="margin-toggle">
-	<span class="marginnote" id="{{ $figID }}">
+	<label for="{{ .Get "label" }}"
+		class="margin-toggle">
+		⊕
+	</label>
+	<input 
+		id="{{ .Get "label" }}"
+		class="margin-toggle"
+		type="checkbox"
+		>
+	<span id="{{ $figID }}"
+		class="marginnote">
 	{{- if eq $type "margin" }}
-		{{- with .Get "link" }}<a href="{{ . }}">{{ end }}
-			<img src="{{ .Get "src" }}" {{ with .Get "alt"}} alt=" {{ . }}" title="{{ . }}" {{ end }} aria-describedby="{{ $figID }}">
+		{{- with .Get "link" }}<a href="{{ . }}">
+		{{- end }}
+			<img src="{{ .Get "src" }}" {{ with .Get "alt" }} alt=" {{ . }}" title="{{ . }}" {{ end }} aria-describedby="{{ $figID }}">
 		{{- if .Get "link" }}</a>{{ end }}
 	{{- end }}
 {{- end }}
-	{{ with .Get "title"}}<strong>{{ . }} </strong>{{ end }}
-	{{ with .Get "caption"}}{{ . }}{{ end }}
-	{{ with .Get "attrlink"}}<a href="{{ .}}">{{ end }}
+	{{ with .Get "title" }}<strong>{{ . }} </strong>{{ end }}
+	{{ with .Get "caption" }}{{ . }}{{ end }}
+	{{ with .Get "attrlink" }}<a href="{{ .}}">{{ end }}
 	{{- with .Get "attr" }}{{ . }}{{ end }}
 	{{- if .Get "attrlink" }}</a>{{ end }}
 {{- if eq $type "full" }}
@@ -34,7 +47,13 @@
 {{- end }}
 {{- if and (not (eq $type "full")) (not (eq $type "margin")) }}
 	{{ with .Get "link" }}<a href="{{ . }}">{{ end }}
-		<img src="{{ .Get "src" }}" {{ with .Get "alt"}} alt="{{ . }} " title="{{ . }}" {{ end }} aria-describedby="{{ $figID }}" >
+		<img src="{{ .Get "src" }}"
+			{{- with .Get "alt" }}
+				alt="{{ . }}"
+				title="{{ . }}" 
+			{{- end -}}
+			aria-describedby="{{ $figID }}"
+			>
 	{{- if .Get "link" }}</a>{{ end }}
 {{- end }}
 {{- if not (eq $type "margin") }}

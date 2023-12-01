@@ -3,7 +3,6 @@ var contrastState = document.getElementById("contrastState");
 var defaultContrast = document.getElementById("defaultContrast");
 var lessContrast = document.getElementById("lessContrast");
 var moreContrast = document.getElementById("moreContrast");
-let ethd = document.documentElement.style;
 if (window.matchMedia('(prefers-contrast: more)').matches) {
 	moreContrast.setAttribute('checked', 'checked');}
 else if (window.matchMedia('(prefers-contrast: less)').matches) {

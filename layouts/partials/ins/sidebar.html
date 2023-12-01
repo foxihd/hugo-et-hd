@@ -16,7 +16,8 @@
 				role="presentation"
 				></i>
 			{{ i18n "otherNav" }}
-			<button id="close-sidebar"
+			<button 
+				id="close-sidebar"
 				onclick="closeSidebar()"
 				aria-label="{{ i18n "close" }}"
 				>
@@ -38,8 +39,9 @@
 						{{- .Name }}
 						{{- if .Post }}{{ .Post }}
 						{{- else }}
-							<span class="hide">
-								{{ .Title }}
+							<span class="hide"
+								role="presentation">
+								{{- .Title -}}
 							</span>
 						{{- end -}}
 					</a>

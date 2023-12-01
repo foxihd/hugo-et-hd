@@ -251,7 +251,7 @@ h6 {
 /* paragraph */
 p.subtitle {
 	font: italic 1.8rem/1 var(--rm), serif;
-	margin: 1rem 0;
+	margin: 0 0 1rem;
 	display: block;
 }
 p,
@@ -357,7 +357,7 @@ p > a::before {
 	padding-right: 0.3em;
 	font-size: 0.7em;
 	speak: none;
-	content: '🔗';
+	content: '\e914';
 	font-family: 'ethdsymb';
 }
 a.plain:link::before {

@@ -122,16 +122,17 @@
 article.addhover {
 	flex-direction: column-reverse;
 }
-.tag {
-	line-height: 1;
-}
 .tag,
 div > time {
 	padding: 0.46em 0;
 	display: inline-block;
+	box-sizing: border-box;
 }
 .tag a:link::before {
 	content: '#';
+}
+.tag li {
+	padding-right: 1ex;
 }
 @media only screen and (max-width: 640px) {
 	.feed.grid article {
@@ -140,8 +141,6 @@ div > time {
 	.feeditem section > p {
 		width: unset;
 	}
-	.tag {
-		font-size: 1.272rem;
 	}
 	#headline > a {
 		display: block;

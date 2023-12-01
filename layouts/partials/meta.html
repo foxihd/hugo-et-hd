@@ -20,10 +20,10 @@
 <meta name="description" content="{{ $desc }}" >
 <meta name="keywords" content="
 	{{- if .IsHome }}{{ i18n "home" -}}
-	{{- else if .IsSection }}{{ i18n "archive" }}, {{ i18n "categories" }}, {{ i18n "tags" }}, {{ i18n "post" -}}
+	{{- else if .IsSection }}{{ i18n "archive" }}, {{ i18n "category" }}, {{ i18n "tag" }}, {{ i18n "post" -}}
 	{{- else if $term }}{{ .Page.Title -}}
-	{{- else if .Params.keywords }}{{ with .Params.keywords }}{{ delimit . ", "}}{{ end -}}
-	{{- else }}{{ with .Params.tags }}{{ delimit . ", "}}{{ end -}}
+	{{- else if .Params.keywords }}{{ with .Params.keywords }}{{ delimit . ", " }}{{ end -}}
+	{{- else }}{{ with .Params.tags }}{{ delimit . ", " }}{{ end -}}
 	{{- end -}}" >
 <link rel="canonical" href="{{ .Permalink }}" >
 {{- if .Site.Params.OptInSocialMeta }}

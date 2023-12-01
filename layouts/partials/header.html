@@ -3,8 +3,12 @@
 		{{- $home := .Paginate ( where .Site.RegularPages "Type" "post" ) }}
 		{{- if not $home.HasPrev }}
 			{{- partial "nav.html" . }}
-			<header class="noprint slider" aria-labelledby="banner">
-				<section class="slides" id="content" data-bionRead-safe>
+			<header class="noprint slider"
+				aria-labelledby="banner">
+				<section id="content" 
+					class="slides" 
+					data-bionRead-safe
+					>
 					{{ partial "custom/landing.html" . -}}
 				</section>
 			</header>
@@ -12,9 +16,25 @@
 			{{- partial "nav.html" . }}
 		{{- end }}
 	{{- else -}}
-		<header class="noprint {{ if .Site.Params.Home.Bannercentering }}centering{{ end }}" aria-labelledby="banner" aria-describedby="tagline">
-			<h1 id="banner" style="margin-bottom:0;"><a class="plain" href="/" title="{{ i18n "home" }}" >{{ if .Site.Params.Home.Banner }}{{ .Site.Params.Home.Banner | safeHTML }}{{ else if .Site.Title }}{{ .Site.Title }}{{ end }}</a></h1>
-			<h2 id="tagline">{{ .Site.Params.Home.Tagline | safeHTML }}</h2>
+		<header class="noprint 
+			{{- if .Site.Params.Home.Bannercentering }} centering
+			{{- end }}"
+			aria-labelledby="banner"
+			aria-describedby="tagline">
+			<h1 id="banner"
+				style="margin-bottom:0;">
+				<a href="/" 
+					class="plain"
+					title="{{ i18n "home" }}"
+					>
+					{{- if .Site.Params.Home.Banner }}{{ .Site.Params.Home.Banner | safeHTML }}
+					{{- else if .Site.Title }}{{ .Site.Title }}
+					{{- end -}}
+				</a>
+			</h1>
+			<h2 id="tagline">
+				{{ .Site.Params.Home.Tagline | safeHTML }}
+			</h2>
 		</header>
 		{{- partial "nav.html" . }}
 	{{- end }}

@@ -8,7 +8,8 @@
 {{- $weba := .Resources.GetMatch "audio.weba" }}
 {{- $audio := .Params.Audio }}
 {{- if or $audio $aac $flac $mp3 $oga $ogg $opus $wav $weba }}
-<audio controls aria-label="{{ i18n "audio" }} : {{ .Title }}">
+<audio controls
+	aria-label="{{ i18n "audio" }} : {{ .Title }}">
 	{{- with $aac }}<source src="{{ .Permalink }}" type="audio/aac">{{ end }}
 	{{- with $flac }}<source src="{{ .Permalink }}" type="audio/flac">{{ end }}
 	{{- with $mp3 }}<source src="{{ .Permalink }}" type="audio/mpeg">{{ end }}
@@ -31,8 +32,12 @@
 	{{ end }}
 	<center>
 		<div>
-			<p class="footnotesize" role="contentinfo">{{ i18n "ifNoAudioSupport" }}
-			<ul class="unmark" role="presentation">
+			<p class="footnotesize"
+				role="contentinfo">
+				{{ i18n "ifNoAudioSupport" }}
+			</p>
+			<ul class="unmark"
+				role="presentation">
 				{{- $fileName := print .Site.Title " - " .Title }}
 				{{- with $aac }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.aac">&darr; aac</a> </li>{{ end }}
 				{{- with $flac }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.flac">&darr; flac</a> </li>{{ end }}
@@ -42,7 +47,7 @@
 				{{- with $opus }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.opus">&darr; opus</a> </li>{{ end }}
 				{{- with $wav }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.wav">&darr; wav</a> </li>{{ end }}
 				{{- with $weba }}<li><a href="{{ .Permalink }}" class="reverse" download="{{ $fileName }}.webm">&darr; webm</a> </li>{{ end }}
-				{{- with $audio }}<li><a href="{{ . }}" class="reverse" download="{{ $fileName }}.{{ $audioExt }}">&darr; {{ $audioExt }}</a> </li>{{ end }}           
+				{{- with $audio }}<li><a href="{{ . }}" class="reverse" download="{{ $fileName }}.{{ $audioExt }}">&darr; {{ $audioExt }}</a> </li>{{ end }}
 			</ul>
 		</div>
 	</center>

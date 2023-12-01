@@ -13,13 +13,17 @@
 {{ partial "header.html" . -}}
 {{- end }}
 
-<main {{ if .IsHome }} id="main-panel" class="flex" aria-labelledby="feed" {{ end -}}>
+<main 
+	{{- if .IsHome }} id="main-panel" class="flex" aria-labelledby="feed" 
+	{{- end -}}>
 {{ block "main" . -}}
-{{ end }}
-{{ if $split }}{{ partial "custom/mainfooter.html" . }}{{ end }}
+{{- end }}
+{{- if $split }}{{ partial "custom/mainfooter.html" . -}}
+{{- end }}
 </main>
 
-{{ if not $split }}{{ partial "custom/mainfooter.html" . -}}{{ end }}
+{{- if not $split }}{{ partial "custom/mainfooter.html" . -}}
+{{- end }}
 
 {{ block "footer" . -}}
 {{ partial "footer.html" . -}}

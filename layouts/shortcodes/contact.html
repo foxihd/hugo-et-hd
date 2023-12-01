@@ -1,19 +1,39 @@
-<nav>
-<ul class="unmark small smallskip" role="presentation">
-	{{- range .Site.Menus.author }}
-		<li><a class="no-underline ssc inverse" href="{{ .URL }}"
-			{{- if .Title }} aria-label="{{ .Title }}" title="{{ .Title }}" {{ end }}>
-			{{- .Pre }}{{ .Name }}{{ if .Post }}{{ .Post }}{{ else }}<span class="hide">{{ .Title }}</span>{{ end -}}
+<nav aria-label="{{ i18n "contactNav" }}">
+	<ul class="unmark small smallskip"
+		role="presentation">
+		{{- range .Site.Menus.author }}
+		<li><a href="{{ .URL }}"
+				class="no-underline ssc inverse" 
+				{{- if .Title }}
+					aria-label="{{ .Title }}"
+					title="{{ .Title }}"
+				{{ end }}
+				>
+				{{- .Pre }} 
+				{{- .Name }} 
+				{{- if .Post }} {{ .Post }}
+				{{- else }}
+					<span class="hide"
+						role="presentation">
+						{{- .Title -}}
+					</span>
+				{{ end -}}
 			</a>
 		</li>
-	{{- end }}
-	{{- with .Site.Params.Profile.Email }}
-	<li><a class="no-underline ssc inverse" href="mailto:{{ . }}"
-		aria-label="email" title="email">
-		<i class="icon email"></i>
-		<span class="hide">{{ . }}</span>
-		</a>
-	</li>
-	{{- end }}
-</ul>
+		{{- end }}
+		{{- with .Site.Params.Profile.Email }}
+		<li><a href="mailto:{{ . }}"
+				class="no-underline ssc inverse" 
+				aria-label="email"
+				title="email"
+				>
+				<i class="icon email"></i>
+				<span class="hide"
+					role="presentation">
+					{{- . -}}
+				</span>
+			</a>
+		</li>
+		{{- end }}
+	</ul>
 </nav>

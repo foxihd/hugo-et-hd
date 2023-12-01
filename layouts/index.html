@@ -67,7 +67,7 @@
 				{{- end }}"
 			{{- if and  $firstPage $withCover $withSummary }} tabindex="-1"
 			{{- end -}}
-			aria-label="{{ i18n "readingTime" .ReadingTime }}: {{ .Title }}." 
+			aria-labelledby="article-{{ $postCounter }}"
 			>
 			{{- if and $headline $grid (eq $postCounter 1) (not .Site.Params.Home.LayoutSplit ) (not $withSummary) }}
 			<div id="headline-text">
@@ -97,8 +97,8 @@
 					{{- end }}
 				{{- $pseudoRandom := index (seq 80 | shuffle) 12 }}
 			<img
-				alt="{{ i18n "featuredImg" }} {{ .Title }}" 
-				role="presentation" 
+				alt=""
+				aria-hidden="true" 
 				class="featured-img 
 					{{- if and (not $grid) (eq $postCounter 1) }} fullwidth
 					{{- end }}"
@@ -118,7 +118,9 @@
 			{{- if not $grid }}
 			<aside class="nopadding ssc sf">
 				<p class="footnotesize">
-					<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ $date }}</time>
+					<time datetime="{{ .PublishDate.Format "2006-01-02" }}">
+						{{ $date }}
+					</time>
 				</p>
 				{{- with $tag }}
 				<ul class="unmark tag ssc sf"
@@ -131,7 +133,7 @@
 							>
 							{{- . -}}
 						</a> 
-					</li>
+					</li> 
 					{{- end }}
 				</ul>
 				{{- end }}
@@ -154,9 +156,11 @@
 				</p>
 			</section>
 		{{- else }}
-			<div class="ssc sf" id="alt-{{ $postCounter }}">
+			<div id="alt-{{ $postCounter }}"
+				class="ssc sf">
 			{{- if $tag }}
-				<ul class="unmark tag" role="presentation">
+				<ul class="unmark tag"
+					role="presentation">
 				{{- range $tag }}
 					<li><a href="{{ "tags/" | absURL }}{{ . | urlize }}"
 							class="plain" 
@@ -165,7 +169,7 @@
 							>
 							{{- . -}}
 						</a> 
-					</li>
+					</li> 
 				{{- end }}
 				</ul>
 			{{- else }}
@@ -181,8 +185,11 @@
 	{{- end }}
 </section>
 {{- if .Paginator }}
-<details class="unmark noprint pagination" open>
-	<summary class="hide">{{ i18n "pagination" }}</summary>
+<details open
+	class="unmark noprint pagination">
+	<summary class="hide">
+		{{ i18n "pagination" }}
+	</summary>
 	<nav>
 		<ul class="unmark">
 		{{- if .Paginator.HasPrev }}

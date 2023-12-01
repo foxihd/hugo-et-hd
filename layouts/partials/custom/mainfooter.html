@@ -1,13 +1,20 @@
 {{- $mainfooter := where .Site.RegularPages "Type" "footer" }}
 {{- with $mainfooter }}
-<footer role="contentinfo" class="grid no-print" id="mainfooter">
-{{ range . }}
-<div class="griditem {{ if .Params.Span }}span-all{{ end }}" >
-	{{ with .Title }}<div class="nomargin ssc sf small">{{ . }}</div>{{ end }}
-	<div>
-	{{ .Content }}
+<footer id="mainfooter"
+	class="grid no-print" 
+	role="contentinfo"
+	>
+	{{- range . }}
+	<div class="griditem {{ if .Params.Span }}span-all{{ end }}">
+		{{- with .Title }}
+		<div class="ssc sf small">
+			{{ . }}
+		</div>
+		{{- end }}
+		<div>
+		{{ .Content }}
+		</div>
 	</div>
-</div>
-{{- end }}
+	{{- end }}
 </footer>
 {{- end }}

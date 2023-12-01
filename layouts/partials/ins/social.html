@@ -1,116 +1,144 @@
-<hr class="none" style="border-style:dotted;">
+<hr class="none"
+	style="border-style:dotted;">
 <div id="share-to">
-<span class="reverse" id="sh">{{ if eq .Params.Type "page" }}{{ i18n "sharePage" }}{{ else }}{{ i18n "shareArticle" }}{{ end }}</span>
+<span  id="sh"
+	class="reverse">
+	{{- if eq .Params.Type "page" }}{{ i18n "sharePage" }}
+	{{- else }}{{ i18n "shareArticle" }}
+	{{- end }}
+</span>
 <nav aria-labelledby="sh">
-	<ul class="unmark" role="presentation">
-		<li>
-			<a class="plain noprinturl"
-				href="whatsapp://send?text={{ .Title | htmlEscape }}%20{{ .Permalink }}"
+	<ul class="unmark"
+		role="presentation">
+		<li><a href="whatsapp://send?text={{ .Title | htmlEscape }}%20{{ .Permalink }}"
+				class="plain"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="{{ i18n "shareTo" }} Whatsapp ({{ i18n "inNewTab" }})"
-				aria-label="{{ i18n "shareTo" }} Whatsapp ({{ i18n "inNewTab" }})">
-				<i aria-hidden="true" class="centering icon share-to whatsapp"></i>
-				<i class="hide">{{ i18n "shareTo" }} Whatsapp</i>
+				aria-label="{{ i18n "shareTo" }} Whatsapp ({{ i18n "inNewTab" }})"
+				>
+				<i class="centering icon share-to whatsapp"></i>
+				<i class="hide">
+					{{ i18n "shareTo" }} Whatsapp
+				</i>
 			</a>
 		</li>
-		<li>
-			<a 	class="plain noprinturl"
-				href="https://telegram.me/share/url?text={{ .Title | htmlEscape }}&amp;url={{ .Permalink }}"
+		<li><a href="https://telegram.me/share/url?text={{ .Title | htmlEscape }}&amp;url={{ .Permalink }}"
+				class="plain"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="{{ i18n "shareTo" }} Telegram ({{ i18n "inNewTab" }})"
-				aria-label="{{ i18n "shareTo" }} Telegram ({{ i18n "inNewTab" }})">
-				<i aria-hidden="true" class="centering icon share-to telegram"></i>
-				<i class="hide">{{ i18n "shareTo" }} Telegram</i>
+				aria-label="{{ i18n "shareTo" }} Telegram ({{ i18n "inNewTab" }})"
+				>
+				<i class="centering icon share-to telegram"></i>
+				<i class="hide">
+					{{ i18n "shareTo" }} Telegram
+				</i>
 			</a>
 		</li>
-		<li>
-			<a 	class="plain noprinturl"
-				href="https://facebook.com/sharer/sharer.php?u={{ .Permalink }}"
+		<li><a href="https://facebook.com/sharer/sharer.php?u={{ .Permalink }}"
+				class="plain"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="{{ i18n "shareTo" }} Facebook ({{ i18n "inNewTab" }})"
-				aria-label="{{ i18n "shareTo" }} Facebook ({{ i18n "inNewTab" }})">
-				<i aria-hidden="true" class="centering icon share-to facebook"></i>
-				<i class="hide">{{ i18n "shareTo" }} Facebook</i>
+				aria-label="{{ i18n "shareTo" }} Facebook ({{ i18n "inNewTab" }})"
+				>
+				<i class="centering icon share-to facebook"></i>
+				<i class="hide">
+					{{ i18n "shareTo" }} Facebook
+				</i>
 			</a>
 		</li>
-		<li>
-			<a 	class="plain noprinturl"
-				href="https://twitter.com/intent/tweet/?text={{ .Title | htmlEscape }}&amp;url={{ .Permalink }}"
+		<li><a href="https://twitter.com/intent/tweet/?text={{ .Title | htmlEscape }}&amp;url={{ .Permalink }}"
+				class="plain"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="{{ i18n "shareTo" }} Twitter ({{ i18n "inNewTab" }})"
-				aria-label="{{ i18n "shareTo" }} Twitter ({{ i18n "inNewTab" }})">
-				<i aria-hidden="true" class="centering icon share-to twitter"></i>
-				<i class="hide">{{ i18n "shareTo" }} Twitter</i>
+				aria-label="{{ i18n "shareTo" }} Twitter ({{ i18n "inNewTab" }})"
+				>
+				<i class="centering icon share-to twitter"></i>
+				<i class="hide">
+					{{ i18n "shareTo" }} Twitter
+				</i>
 			</a>
 		</li>
-		<li>
-			<a 	class="plain noprinturl"
-				href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ .Permalink }}&amp;title={{ .Title | htmlEscape }}&amp;summary={{ .Title | htmlEscape }}&amp;source={{ .Permalink }}"
+		<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ .Permalink }}&amp;title={{ .Title | htmlEscape }}&amp;summary={{ .Title | htmlEscape }}&amp;source={{ .Permalink }}"
+				class="plain"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="{{ i18n "shareTo" }} Linkedin ({{ i18n "inNewTab" }})"
-				aria-label="{{ i18n "shareTo" }} Linkedin ({{ i18n "inNewTab" }})">
-				<i aria-hidden="true" class="centering icon share-to linkedin"></i>
-				<i class="hide">{{ i18n "shareTo" }} Linkedin</i>
+				aria-label="{{ i18n "shareTo" }} Linkedin ({{ i18n "inNewTab" }})"
+				>
+				<i class="centering icon share-to linkedin"></i>
+				<i class="hide">
+					{{ i18n "shareTo" }} Linkedin
+				</i>
 			</a>
 		</li>
-		<li>
-			<a 	class="plain noprinturl"
-				href="https://reddit.com/submit/?url={{ .Permalink }}&amp;resubmit=true&amp;title={{ .Title | htmlEscape }}"
+		<li><a href="https://reddit.com/submit/?url={{ .Permalink }}&amp;resubmit=true&amp;title={{ .Title | htmlEscape }}"
+				class="plain"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="{{ i18n "shareTo" }} Reddit ({{ i18n "inNewTab" }})"
-				aria-label="{{ i18n "shareTo" }} Reddit ({{ i18n "inNewTab" }})">
-				<i aria-hidden="true" class="centering icon share-to reddit"></i>
-				<i class="hide">{{ i18n "shareTo" }} Reddit</i>
+				aria-label="{{ i18n "shareTo" }} Reddit ({{ i18n "inNewTab" }})"
+				>
+				<i class="centering icon share-to reddit"></i>
+				<i class="hide">
+					{{ i18n "shareTo" }} Reddit
+				</i>
 			</a>
 		</li>
-		<li>
-			<a 	class="plain noprinturl"
-				href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title={{ .Title | htmlEscape }}&amp;caption={{ .Title | htmlEscape }}&amp;content={{ .Permalink }}&amp;canonicalUrl={{ .Permalink }}"
+		<li><a href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title={{ .Title | htmlEscape }}&amp;caption={{ .Title | htmlEscape }}&amp;content={{ .Permalink }}&amp;canonicalUrl={{ .Permalink }}"
+				class="plain"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="{{ i18n "shareTo" }} Tumblr ({{ i18n "inNewTab" }})"
-				aria-label="{{ i18n "shareTo" }} Tumblr ({{ i18n "inNewTab" }})">
-				<i aria-hidden="true" class="centering icon share-to tumblr"></i>
-				<i class="hide">{{ i18n "shareTo" }} Tumblr</i>
+				aria-label="{{ i18n "shareTo" }} Tumblr ({{ i18n "inNewTab" }})"
+				>
+				<i class="centering icon share-to tumblr"></i>
+				<i class="hide">
+					{{ i18n "shareTo" }} Tumblr
+				</i>
 			</a>
 		</li>
-		<li>
-			<a 	class="plain noprinturl"
-				href="https://pinterest.com/pin/create/button/?url={{ .Permalink }}&amp;media={{ .Permalink }}&amp;description={{ .Title | htmlEscape }}"
+		<li><a href="https://pinterest.com/pin/create/button/?url={{ .Permalink }}&amp;media={{ .Permalink }}&amp;description={{ .Title | htmlEscape }}"
+				class="plain"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="{{ i18n "shareTo" }} Pinterest ({{ i18n "inNewTab" }})"
-				aria-label="{{ i18n "shareTo" }} Pinterest ({{ i18n "inNewTab" }})">
-				<i aria-hidden="true" class="centering icon share-to pinterest"></i>
-				<i class="hide">{{ i18n "shareTo" }} Pinterest</i>
+				aria-label="{{ i18n "shareTo" }} Pinterest ({{ i18n "inNewTab" }})"
+				>
+				<i class="centering icon share-to pinterest"></i>
+				<i class="hide">
+					{{ i18n "shareTo" }} Pinterest
+				</i>
 			</a>
 		</li>
-		<li>
-			<a 	class="plain noprinturl"
-				href="mailto:?subject={{ .Title | htmlEscape }}&amp;body={{ .Permalink }}"
+		<li><a href="mailto:?subject={{ .Title | htmlEscape }}&amp;body={{ .Permalink }}"
+				class="plain"
 				rel="noopener noreferrer"
 				title="{{ i18n "emailIt" }}"
-				aria-label="{{ i18n "emailIt" }}">
-				<i aria-hidden="true" class="centering icon share-to email"></i>
-				<i class="hide">{{ i18n "emailIt" }}</i>
+				aria-label="{{ i18n "emailIt" }}"
+				>
+				<i class="centering icon share-to email"></i>
+				<i class="hide">
+					{{ i18n "emailIt" }}
+				</i>
 			</a>
 		</li>
-		<li>
-			<a 	class="plain noprinturl"
-				href="javascript:window.print()"
+		<li><a href="javascript:window.print()"
+				class="plain"
 				title="{{ i18n "printIt" }}"
-				aria-label="{{ i18n "printIt" }}">
-				<i aria-hidden="true" class="centering icon share-to print"></i>
-				<i class="hide">{{ i18n "printIt" }}</i>
+				aria-label="{{ i18n "printIt" }}"
+				>
+				<i class="centering icon share-to print"></i>
+				<i class="hide">
+					{{ i18n "printIt" }}
+				</i>
 			</a>
 		</li>
 	</ul>
 </nav>
 </div>
-<hr class="none" style="border-style:dotted;">
+<hr class="none"
+	style="border-style:dotted;">

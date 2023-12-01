@@ -4,10 +4,8 @@
 	aria-label="{{ i18n "tag" 1 }}">
 	{{- range sort .Site.Taxonomies.tags }}
 	<li><a href="{{ .Page.Permalink }}"
-			class="no-underline inverse"
-			aria-label="{{ i18n "tagged" }} {{ .Page.Title }}"
-			>
-			#{{ .Page.Title }}({{ .Count }})
+			class="inverse">
+			{{- .Page.Title -}} ({{- .Count -}})
 		</a>
 	</li>
 	{{- end }}

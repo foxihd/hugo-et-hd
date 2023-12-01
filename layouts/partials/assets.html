@@ -30,7 +30,7 @@
 {{- $brightness := resources.Get "js/override-brightness.js" -}}
 {{- $contrast := resources.Get "js/override-contrast.js" -}}
 {{- $font := resources.Get "js/override-fonts.js" -}}
-{{- $a11y := slice $bionread $brightness $contrast $font | resources.Concat "js/a11y.js" | resources.Fingerprint "sha384" }}
+{{- $a11y := slice $legibility $bionread $brightness $contrast $font | resources.Concat "js/a11y.js" | resources.Fingerprint "sha384" }}
 <script defer src="{{ $a11y.Permalink }}" integrity="{{ $a11y.Data.Integrity }}" crossorigin="anonymous"></script>
 {{/* ------------------------------------------------ Custom Style  */}}
 <style>

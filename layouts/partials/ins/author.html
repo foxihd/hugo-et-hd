@@ -1,34 +1,69 @@
 <hr class="none" style="border-style:dotted;">
 <div id="about">
+{{- with .Site.Params }}
 	<aside>
 		<center style="padding: 1rem 0;">
-			{{- with .Site.Params }}
-			{{- if .Profile.Avatar }}
-			<img class="rounded" title="{{ .Author }}" src="{{ .Avatar }}" >
-			{{- else }}
-			<i class="icon" id="authoricon" >🧑</i>
-			{{- end }}
+		{{- if .Profile.Avatar }}
+			<img src="{{ .Avatar }}"
+				class="rounded"
+				title="{{ .Author }}"
+				>
+		{{- else }}
+			<i id="authoricon"
+				class="icon captain"
+				role="img"
+				aria-label="{{ .Author }}"
+				></i>
+		{{- end }}
 		</center>
 	</aside>
 	<section style="padding-bottom:0" aria-labelledby="authorid">
 		<center>
-			<h2 class="Large nomargin" id="authorid">{{ i18n "about" }} {{ .Author }}</h2>
-			<p class="small" data-bionRead-safe>{{ .Profile.Bio | safeHTML }}</p>
-			{{- end }}
+			<h2 id="authorid"
+				class="Large nomargin">
+				{{ i18n "about" }} {{ .Author }}
+			</h2>
+			<p class="small"
+				data-bionRead-safe>
+				{{ .Profile.Bio | safeHTML }}
+			</p>
+{{- end }}
 			<nav>
-				<ul class="unmark smallskip" id="social" role="presentation">
-				{{- range .Site.Menus.author }}
-					<li><a class="no-underline ssc inverse" href="{{ .URL }}"
-						{{- if .Title }} aria-label="{{ .Title }}" title="{{ .Title }}" {{ end }}>
-						{{- .Pre }}{{ .Name }}{{ if .Post }}{{ .Post }}{{ else }}<span class="hide">{{ .Title }}</span>{{ end -}}
+				<ul id="social" 
+					class="unmark smallskip" 
+					role="presentation"
+					>
+					{{- range .Site.Menus.author }}
+					<li><a href="{{ .URL }}"
+							class="no-underline ssc inverse" 
+							{{- if .Title }}
+								aria-label="{{ .Title }}"
+								title="{{ .Title }}"
+							{{ end }}
+							>
+							{{- .Pre }} 
+							{{- .Name }} 
+							{{- if .Post }} {{ .Post }}
+							{{- else }}
+								<span class="hide"
+									role="presentation">
+									{{- .Title -}}
+								</span>
+							{{ end -}}
 						</a>
 					</li>
-				{{- end }}
+					{{- end }}
 				{{- with .Site.Params.Profile.Email }}
-				<li><a class="no-underline ssc inverse" href="mailto:{{ . }}"
-					aria-label="email" title="email">
-					<i class="icon email"></i>
-					<span class="hide">{{ . }}</span>
+				<li><a href="mailto:{{ . }}"
+						class="no-underline ssc inverse" 
+						aria-label="email"
+						title="email"
+						>
+						<i class="icon email"></i>
+						<span class="hide"
+							role="presentation">
+							{{- . -}}
+						</span>
 					</a>
 				</li>
 				{{- end }}
@@ -37,4 +72,5 @@
 		</center>
 	</section>
 </div>
-<hr class="none" style="border-style:dotted;">
+<hr class="none"
+	style="border-style:dotted;">

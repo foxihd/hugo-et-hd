@@ -178,7 +178,7 @@ details[open] summary#a11y,
 	cursor: pointer;
 }
 #contrast label {
-	border: 1pt solid var(--ink);
+	border: 1px solid var(--ink);
 	padding: 0.5rem;
 	width: 4.8rem;
 	display: inline-block;
@@ -191,7 +191,7 @@ details[open] summary#a11y,
 	border-radius: 1ex 0 0 1ex;
 }
 #contrast label:nth-of-type(2) {
-	border-width: 1pt 0;
+	border-width: 1px 0;
 }
 #contrast label:last-of-type {
 	border-radius: 0 1ex 1ex 0;

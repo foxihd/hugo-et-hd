@@ -1,8 +1,13 @@
 <figure class="fullwidth">
-<picture class="mermaid" {{ with .Get "title"}}title="{{ . }}"{{ end }}>
-{{- .Inner | safeHTML }}
-</picture>
-<figcaption>{{ with .Get "caption"}}{{ . }}{{ end }}</figcaption>
+	<picture class="mermaid"
+		{{- with .Get "title" }}title="{{ . }}"
+		{{- end }}
+		>
+		{{- .Inner | safeHTML -}}
+	</picture>
+	{{- with .Get "caption" }}
+	<figcaption>{{ . }}</figcaption>
+	{{- end }}
 </figure>
 {{- if le (.Page.Scratch.Get "hasMermaid") 0 }}
 {{- .Page.Scratch.Add "hasMermaid" 1 }}

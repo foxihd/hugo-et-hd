@@ -4,10 +4,11 @@
 
 {{- define "main" }}
 <h1>{{ .Title }}</h1>
-<hr class="hide" style="border-style:dotted;">
+<hr class="hide"
+	style="border-style:dotted;">
 {{- if eq ( .Title ) ( "Tags" ) }}
-{{- partial "tms/tags.html" . }}
+	{{- partial "tms/tags.html" . }}
 {{- else }}
-{{- partial "tms/categories.html" . }}
+	{{- partial "tms/categories.html" . }}
 {{- end }}
 {{- end }}

@@ -1,1 +1,1 @@
-<aside {{with .Get "class"}} class="{{.}}"{{end}}{{with .Get "id"}} id="{{.}}"{{end}}>{{ .Inner | safeHTML }}</aside>
+<aside {{with .Get "class" }} class="{{ . }}"{{end}}{{with .Get "id" }} id="{{ . }}"{{end}}>{{ .Inner | safeHTML }}</aside>

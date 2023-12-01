@@ -6,7 +6,7 @@
 }
 .list-year h3,
 .list-year summary,
-.list-item {
+.list-day li > span {
 	font-variant-caps: all-small-caps;
 	letter-spacing: 0.1em;
 }
@@ -24,17 +24,17 @@
 .list-day {
 	line-height: 1.414;
 }
-.list-item {
+.list-day li > span {
 	display: block;
 	position: relative;
 	width: 5rem;
 	left: -5.65rem;
 	top: 1.618rem;
 	text-align: right;
-	color: var(--i3i);
-	font-family: var(--sffamily);
+	color: var(--link);
+	font-family: var(--sf);
 }
-.list-item + a {
+.list-day li > a {
 	font-style: italic;
 	font-size: 1.272rem !important;
 }
@@ -47,9 +47,15 @@ ul#list-tags {
 ul#list-tags a {
 	margin: 0.5ex 0;
 }
+ul#list-tags a::before {
+	content: "#";
+}
 ul#list-categories {
 	font-style: italic;
 	padding-left: 1em;
+}
+ul#list-categories li{
+	padding: 0.2ex 0;
 }
 ul#list-categories li::marker {
 	font: normal 0.8em;

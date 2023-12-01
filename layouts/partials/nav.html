@@ -1,11 +1,32 @@
 {{- $home := absLangURL "" -}}
-<nav class="ssc sans normalsize" aria-label="{{ i18n "mainNav" }}">
+<nav class="ssc sans normalsize"
+	aria-label="{{ i18n "mainNav" }}">
 	{{- with .Site.Menus.main }}
 	{{- range . }}
-	<a href="{{ if .Params.IsBanner }}{{ $home }}{{ else }}{{ .URL }}{{ end }}" class="no-underline ssc {{ if .Params.IsBanner }}reverse{{ else }}inverse{{ end }} {{ .Params.class }}"
-		{{- if .Title }} aria-label="{{ .Title }}" title="{{ .Title }}" {{ end }}
-		{{- if .Params.IsBanner }} id="banner" {{ end -}}>
-		{{- .Pre }}{{ .Name }}{{ if .Post }}{{ .Post }}{{ else }}<span class="hide">{{ .Title }}</span>{{ end -}}
+	<a href="{{ if .Params.IsBanner }}{{ $home }}
+		{{- else }}{{ .URL }}
+		{{- end -}}"
+		class="no-underline ssc 
+			{{- if .Params.IsBanner }} reverse
+			{{- else }} inverse
+			{{- end }}
+			{{ .Params.class }}"
+		{{- if .Title }}
+			aria-label="{{ .Title }}"
+			title="{{ .Title }}"
+		{{- end }}
+		{{- if .Params.IsBanner }} id="banner"
+		{{- end -}}
+		>
+		{{- .Pre }} 
+		{{- .Name }} 
+		{{- if .Post }}{{ .Post }} 
+		{{- else }}
+			<span class="hide"
+				role="presentation">
+				{{- .Title -}}
+			</span>
+		{{- end -}}
 		</a>
 		<br class="hide">
 	{{- end }}

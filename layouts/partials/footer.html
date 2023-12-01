@@ -29,8 +29,9 @@
 							{{- .Name }}
 							{{- if .Post }}{{ .Post }}
 							{{- else }}
-								<span class="hide">
-									{{ .Title }}
+								<span class="hide"
+									role="presentation">
+									{{- .Title -}}
 								</span>
 							{{- end -}}
 						</a>
