@@ -91,7 +91,7 @@ defaultContentLanguageInSubdir = true
 
 	[[languages.id.menu.main]]
 		identifier = 'archive'
-		post = 'arsip'
+		name = 'arsip'
 		pre = 'archive'
 		url = '/id/pos/'
 		weight = 2
@@ -107,7 +107,8 @@ defaultContentLanguageInSubdir = true
 
 	[[languages.id.menu.foot]]
 		identifier = 'en'
-		name = 'en 🇺🇸'
+		pre = 'en '
+		name = '🇺🇸'
 		url = '/en'
 		title = 'Switch to English'
 		[[languages.id.menu.foot.params]]
@@ -188,8 +189,8 @@ defaultContentLanguageInSubdir = true
 
 	[[languages.en.menu.main]]
 		identifier = 'archive'
-		post = 'archive'
 		pre = 'archive'
+		name = 'archive'
 		url = '/en/post/'
 		weight = 2
 		[[languages.en.menu.main.params]]
@@ -254,8 +255,9 @@ defaultContentLanguageInSubdir = true
 
 	[[languages.en.menu.foot]]
 		identifier = 'id'
-		name = 'id 🇮🇩'
+		pre = 'id '
+		name = '🇮🇩'
 		url = '/id'
 		title = 'Beralih ke Bahasa Indonesia'
 		[[languages.en.menu.foot.params]]
-			class = 'button ssc sf scriptsize'
+			class = 'ssc sf'

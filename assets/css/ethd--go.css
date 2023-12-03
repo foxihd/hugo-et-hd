@@ -83,6 +83,7 @@ footer.clear > #toolbar {
 #footinfo center {
 	padding: 0 3pt;
 }
+footer nav > ul,
 body > nav > ul {
 	min-height: 2.55rem;
 	max-height: 2.55rem;
@@ -90,6 +91,7 @@ body > nav > ul {
 	align-items: center;
 	flex-grow: 1;
 }
+body > footer nav > ul,
 body > nav ul {
 	display: flex;
 	justify-content: space-between;
@@ -157,7 +159,7 @@ details[open] .menu-button::after {
 	position: relative;
 	top: 1.414rem;
 }
-li .icon + * {
+li .icon + span {
 	margin-left: 0.5ex;
 }
 summary#a11y {

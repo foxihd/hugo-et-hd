@@ -34,7 +34,7 @@
 					</i> 
 				{{- end }}
 				{{- if .Name }}
-					{{- .Name }}
+					<span>{{- .Name }}</span>
 				{{- else if .Title }}
 					<span class="hide"
 						role="presentation">
@@ -78,12 +78,12 @@
 					{{- end }}
 					>
 					{{- with .Pre }}
-						<i class="icon {{ . }}"
+						<i class="icon {{ . }} fix"
 							aria-hidden="true"> 
 						</i>
 					{{- end }}
 					{{- if .Name }}
-						{{- .Name }}
+						<span>{{- .Name }}</span>
 					{{- else if .Title }}
 						<span class="hide"
 							role="presentation">

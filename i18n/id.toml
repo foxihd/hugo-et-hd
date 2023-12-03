@@ -39,6 +39,8 @@
 	other = "Beranda"
 [backToTop]
 	other = "Kembali ke Atas"
+[top]
+	other = "Ke atas"
 # list.html
 [archive]
 	# one = ""

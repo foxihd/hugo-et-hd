@@ -13,7 +13,8 @@
 		aria-label="{{ i18n "backToTop" }}"
 		title="{{ i18n "backToTop" }}"
 		>
-		⮝
+		<span class="ifwide scriptsize ssc sf">{{ i18n "top" }} </span>
+		&uArr;
 	</a>
 	{{- end }}
 	{{- with .Site.Menus.foot }}
@@ -31,16 +32,16 @@
 						<a href="{{ .URL }}"
 							class="{{ .Params.class }}
 								inverse 
-								scriptsize 
+								footnotesize 
 								no-underline"
 							{{- with .Title }}
 								title="{{ . }}"
 							{{- end }}
 							>
 							{{- with .Pre }}
-								<i class="icon {{ . }}"
-									aria-hidden="true">
-								</i>
+							<span class="ifwide">
+								{{- . -}}
+							</span>
 							{{- end }}
 							{{- if .Name }}
 								{{- .Name }}
@@ -51,9 +52,9 @@
 								</span>
 							{{- end }}
 							{{- with .Post }}
-							<span class="ifwide">
-								{{- . -}}
-							</span>
+								<i class="icon {{ . }}"
+									aria-hidden="true">
+								</i>
 							{{- end }}
 						</a>
 					</li>
