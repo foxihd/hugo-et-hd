@@ -7,7 +7,7 @@
 		{{ i18n "mainNav" }}:
 	</span>
 	{{- with .Site.Menus.main }}
-	<ul class="unmark flex"
+	<ul class="unmark"
 		role="presentation">
 		{{- range . }}
 		<li class="{{ .Params.pos }}">
@@ -30,8 +30,8 @@
 				>
 				{{- with .Pre }}
 					<i class="icon {{ . }}"
-						aria-hidden="true">
-					</i>
+						aria-hidden="true"> 
+					</i> 
 				{{- end }}
 				{{- if .Name }}
 					{{- .Name }}
@@ -65,7 +65,7 @@
 			</span>
 			<div class="menu-button"></div>
 		</summary>
-		<ul class="unmark flex"
+		<ul class="unmark"
 			role="presentation">
 			{{- range . }}
 			<li class="{{ .Params.pos }}">
@@ -79,7 +79,7 @@
 					>
 					{{- with .Pre }}
 						<i class="icon {{ . }}"
-							aria-hidden="true">
+							aria-hidden="true"> 
 						</i>
 					{{- end }}
 					{{- if .Name }}

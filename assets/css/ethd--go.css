@@ -83,15 +83,15 @@ footer.clear > #toolbar {
 #footinfo center {
 	padding: 0 3pt;
 }
-body > nav > ul.flex {
+body > nav > ul {
 	min-height: 2.55rem;
 	max-height: 2.55rem;
 	overflow-y: hidden;
 	align-items: center;
-}
-ul.flex {
-	display: flex;
 	flex-grow: 1;
+}
+body > nav ul {
+	display: flex;
 	justify-content: space-between;
 }
 details#toolbar,
@@ -103,7 +103,7 @@ details#collapse {
 	padding: 0.6rem 0.4rem;
 	margin-top: 0.2rem;
 	height: 0.8rem;
-	display: inline-flex;
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -140,13 +140,13 @@ details[open] .menu-button::after {
 #collapse ul {
 	position: absolute;
 	flex-direction: column;
-	align-items: end;
-	justify-content: start;
+	justify-content: flex-start;
+	align-items: flex-end;
 	gap: 1ex;
 	width: 240px;
 	max-height: calc(100vh - 7.1rem);
-	top: 2.55rem;
-	left: calc(-240px + 1.414rem + 0.8rem);
+	top: calc(2.55rem - 1pt);
+	left: calc(-241px + 2.214rem);
 	border-right: 1px solid var(--ink);
 }
 #collapse ul > li {
@@ -156,6 +156,9 @@ details[open] .menu-button::after {
 #collapse a {
 	position: relative;
 	top: 1.414rem;
+}
+li .icon + * {
+	margin-left: 0.5ex;
 }
 summary#a11y {
 	padding: 0.5rem 0.618rem;
@@ -335,6 +338,8 @@ li:has(input) {
 li:has(input)::marker {
 	/* no firefox support */
 	content: none !important;
+	visibility: hidden;
+	opacity: 0;
 }
 .task + ul > li:has(input[type=checkbox]:checked) {
 	/* no firefox support */
@@ -383,6 +388,8 @@ nav#TableOfContents li::marker,
 nav#TableOfContents a::before,
 .footnotes a::before {
 	content: none !important;
+	visibility: hidden !important;
+	opacity: 0 !important;
 }
 nav#TableOfContents > ul {
 	padding: 0 1.7rem;
