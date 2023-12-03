@@ -37,6 +37,8 @@
 	other = "Pagination"
 [home]
 	other = "Home"
+[backToTop]
+	other = "Back to Top"
 # list.html
 [archive]
 	one = "Archive"

@@ -37,6 +37,8 @@
 	other = "Navigasi Halaman"
 [home]
 	other = "Beranda"
+[backToTop]
+	other = "Kembali ke Atas"
 # list.html
 [archive]
 	# one = ""

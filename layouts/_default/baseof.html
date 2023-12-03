@@ -8,7 +8,7 @@
 </head>
 
 {{- $split:= and (.IsHome) (.Site.Params.Home.Slider) (.Site.Params.Home.Layoutsplit) }}
-<body {{ if $split }}id="split"{{ end }}>
+<body {{ if $split }}id="split"{{ else }}id="top"{{ end }}>
 {{ block "header" . -}}
 {{ partial "header.html" . -}}
 {{- end }}

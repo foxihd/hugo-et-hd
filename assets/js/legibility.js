@@ -7,3 +7,4 @@ toolbar.addEventListener("toggle", function() {
 	};
 });
 let ethd = document.documentElement.style;
+function closeToolbar() {document.getElementById("toolbar").removeAttribute("open");};

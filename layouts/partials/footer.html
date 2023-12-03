@@ -5,6 +5,16 @@
 	{{- if and $nosidebar $nopinned $nofootnote }}class="clear"
 	{{- end -}}
 	>
+	{{- $split:= and (.IsHome) (.Site.Params.Home.Slider) (.Site.Params.Home.Layoutsplit) }}
+	{{- if not .Site.Params.DisableBypassBlock }}
+	<a href="{{ if and $split }}#split
+		{{- else }}#top{{ end -}}"
+		class="inverse footnotesize no-underline"
+		aria-label="{{ i18n "backToTop" }}"
+		title="{{ i18n "backToTop" }}"
+		>
+		⮝
+	</a>
 	{{- end }}
 	{{- with .Site.Menus.foot }}
 		<details open 
