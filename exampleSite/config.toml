@@ -10,6 +10,7 @@ defaultContentLanguageInSubdir = true
 	author = 'John Doe'
 	description = 'Hugo ET-HD exampleSite'
 	sidebar = false
+	# DisableBypassBlock = false    # disable bypass block (jump to article/jump to top), for accessibility purpose please keep this setting enable
 	# WebSafeFonts = true   # use websafe fonts
 	# localfonts = false   # if fonts hosted on localhost (static/css/fonts)
 	# OptInSocialMeta = false    # add meta data for opengraph and twitter
@@ -25,7 +26,6 @@ defaultContentLanguageInSubdir = true
 		# banner = '<img src="" />'   # use custom landing page banner, use safeHTML
 		# bannercentering = true    # centering landing page banner
 		# authorCard = false    # show site author cards on landing page
-		# DisableBypassBlock = false    # disable bypass block (jump to article), for accessibility purpose please keep this setting enable
 
 	[params.feed]
 		summary = false   # display summary
@@ -36,7 +36,7 @@ defaultContentLanguageInSubdir = true
 
 	[params.profile]
 		bio = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-		email = 'johndoe@example.com'
+		# email = 'johndoe@example.com'
 		# avatar = ''    # url, used for author card
 
 	[params.initial] # override legibility controls onload
@@ -82,58 +82,86 @@ defaultContentLanguageInSubdir = true
 		tag = 'label'
 
 	[[languages.id.menu.main]]
-		pre = '<i class="icon ethd"></i>'
+		pre = 'ethd'
 		identifier = 'ethd'
 		weight = 1
-		title = 'etxhd' # please set if name not defined
+		title = 'Beranda' # please set if name not defined
 		[[languages.id.menu.main.params]]
 			isBanner = true # please set the banner once
 
-	[[languages.id.menu.foot]]
-		identifier = 'en'
-		pre = 'en 🇺🇸'
-		url = '/en'
-		weight = 1
-		title = 'Switch to English'
-		[[languages.id.menu.foot.params]]
-			class = 'button ssc sf scriptsize'
-
 	[[languages.id.menu.main]]
-		name = 'arsip'
-		pre = '<i class="icon archive scriptsize"></i> '
 		identifier = 'archive'
-		url = '/id/pos'
+		post = 'arsip'
+		pre = 'archive'
+		url = '/id/pos/'
 		weight = 2
 		[[languages.id.menu.main.params]]
-			class = 'lfill' # Positional class: < lfill | hfill | rfill >
+			pos = 'lfill' # Positional control class: < lfill | hfill | rfill >
 
 	[[languages.id.menu.main]]
-		name = 'garap'
 		identifier = 'fork'
-		pre = '<i class="icon git scriptsize"></i> '
+		pre = 'git'
+		name = 'garap'
 		url = 'https://github.com/foxihd/hugo-et-hd/'
 		weight = 3
 
-	[[languages.id.menu.author]]
-		identifier = 'Karyakarsa'
-		pre = '<i class="icon karyakarsa"></i> '
+	[[languages.id.menu.foot]]
+		identifier = 'en'
+		name = 'en 🇺🇸'
+		url = '/en'
+		title = 'Switch to English'
+		[[languages.id.menu.foot.params]]
+			class = 'ssc sf'
+
+	[[languages.id.menu.other]]
+		identifier = 'demo1'
+		name = 'Demo'
+		pre = 'store'
+		url = '#uh-oh'
+		title = 'Demo'
+	[[languages.id.menu.other]]
+		identifier = 'demo3'
+		name = 'Demo'
+		pre = 'orcid'
+		url = '#uh-oh'
+		title = 'Demo'
+	[[languages.id.menu.other]]
+		identifier = 'demo2'
+		name = 'Demo'
+		pre = 'buymeacoffee'
+		url = '#uh-oh'
+		title = 'Demo'
+
+	[[languages.id.menu.social]]
+		identifier = 'Figma'
+		pre = 'figma'
 		url = '#uh-oh'
 		weight = 1
-		title = 'Karyakarsa'
-
-	[[languages.id.menu.author]]
+		title = 'Figma'
+	[[languages.id.menu.social]]
 		identifier = 'Hashnode'
-		pre = '<i class="icon hashnode"></i> '
+		pre = 'hashnode'
 		url = '#uh-oh'
 		weight = 2
 		title = 'Hashnode'
-
-	[[languages.id.menu.author]]
-		identifier = 'Tokopedia'
-		pre = '<i class="icon tokopedia"></i>'
+	[[languages.id.menu.social]]
+		identifier = 'Email'
+		pre = 'email'
 		url = '#uh-oh'
 		weight = 3
-		title = 'Tokopedia'
+		title = 'E-mail'
+	[[languages.id.menu.social]]
+		identifier = 'Linkedin'
+		pre = 'linkedin'
+		url = '#uh-oh'
+		weight = 4
+		title = 'Linkedin'
+	[[languages.id.menu.social]]
+		identifier = 'Karyakarsa'
+		pre = 'karyakarsa'
+		url = '#uh-oh'
+		weight = 5
+		title = 'Karyakarsa'
 
 	[languages.en]
 		contentDir = 'content/en'
@@ -150,57 +178,84 @@ defaultContentLanguageInSubdir = true
 		[languages.en.params.home]
 			tagline = 'Just another exampleSite'
 
-
-	[[languages.en.menu.foot]]
-		identifier = 'id'
-		pre = 'id 🇮🇩'
-		url = '/id'
-		weight = 1
-		title = 'Beralih ke Bahasa Indonesia'
-		[[languages.en.menu.foot.params]]
-			class = 'button ssc sf scriptsize'
-
 	[[languages.en.menu.main]]
-		pre = '<i class="icon ethd"></i>'
+		pre = 'ethd'
 		identifier = 'ethd'
 		weight = 1
-		title = 'etxhd' # please set if name not defined
+		title = 'Home' # please set if name not defined
 		[[languages.en.menu.main.params]]
 			isBanner = true # please set the banner once
 
 	[[languages.en.menu.main]]
-		name = 'archive'
-		pre = '<i class="icon archive scriptsize"></i> '
 		identifier = 'archive'
-		url = '/en/post'
+		post = 'archive'
+		pre = 'archive'
+		url = '/en/post/'
 		weight = 2
 		[[languages.en.menu.main.params]]
-			class = 'lfill' # Positional class: < lfill | hfill | rfill >
+			pos = 'lfill' # Positional control class: < lfill | hfill | rfill >
 
 	[[languages.en.menu.main]]
-		name = 'fork'
 		identifier = 'fork'
-		pre = '<i class="icon git scriptsize"></i> '
+		pre = 'git'
+		name = 'fork'
 		url = 'https://github.com/foxihd/hugo-et-hd/'
 		weight = 3
 
-	[[languages.en.menu.author]]
-		identifier = 'Substack'
-		pre = '<i class="icon substack"></i> '
+	[[languages.en.menu.social]]
+		identifier = 'Figma'
+		pre = 'figma'
 		url = '#uh-oh'
 		weight = 1
-		title = 'Substack'
-
-	[[languages.en.menu.author]]
+		title = 'Figma'
+	[[languages.en.menu.social]]
 		identifier = 'Hashnode'
-		pre = '<i class="icon hashnode"></i> '
+		pre = 'hashnode'
 		url = '#uh-oh'
 		weight = 2
 		title = 'Hashnode'
-
-	[[languages.en.menu.author]]
-		identifier = 'Creativefabrica'
-		pre = '<i class="icon creativefabrica"></i>'
+	[[languages.en.menu.social]]
+		identifier = 'Email'
+		pre = 'email'
 		url = '#uh-oh'
 		weight = 3
-		title = 'Creative Fabrica'
+		title = 'E-mail'
+	[[languages.en.menu.social]]
+		identifier = 'Linkedin'
+		pre = 'linkedin'
+		url = '#uh-oh'
+		weight = 4
+		title = 'Linkedin'
+	[[languages.en.menu.social]]
+		identifier = 'Karyakarsa'
+		pre = 'karyakarsa'
+		url = '#uh-oh'
+		weight = 5
+		title = 'Karyakarsa'
+
+	[[languages.en.menu.other]]
+		identifier = 'demo1'
+		name = 'Demo'
+		pre = 'store'
+		url = '#uh-oh'
+		title = 'Demo'
+	[[languages.en.menu.other]]
+		identifier = 'demo3'
+		name = 'Demo'
+		pre = 'orcid'
+		url = '#uh-oh'
+		title = 'Demo'
+	[[languages.en.menu.other]]
+		identifier = 'demo2'
+		name = 'Demo'
+		pre = 'buymeacoffee'
+		url = '#uh-oh'
+		title = 'Demo'
+
+	[[languages.en.menu.foot]]
+		identifier = 'id'
+		name = 'id 🇮🇩'
+		url = '/id'
+		title = 'Beralih ke Bahasa Indonesia'
+		[[languages.en.menu.foot.params]]
+			class = 'button ssc sf scriptsize'

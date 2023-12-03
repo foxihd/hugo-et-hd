@@ -250,8 +250,8 @@ h6 {
 }
 /* paragraph */
 p.subtitle {
-	font: italic 1.8rem/1 var(--rm), serif;
-	margin: 0 0 1rem;
+	font: italic 1.618rem/1 var(--rm), serif;
+	margin: 0 0 2rem;
 	display: block;
 }
 p,
@@ -678,8 +678,7 @@ table.fullwidth,
 section.fullwidth > p {
 	width: 100%;
 }
-dt:not(:first-child),
-li:not(:first-child) {
+dt:not(:first-child) {
 	margin-top: 0.25rem;
 }
 div.table-wrapper {

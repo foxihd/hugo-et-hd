@@ -5,35 +5,46 @@
 	{{- if and $nosidebar $nopinned $nofootnote }}class="clear"
 	{{- end -}}
 	>
-	{{- if .Site.Params.sidebar }}{{ partial "ins/sidebar.html" . }}
 	{{- end }}
 	{{- with .Site.Menus.foot }}
-		<details class="unmark"
-			open >
-		<summary id="pinnednav"
-			class="hide">
-			{{- i18n "pinnedNav" -}}
-		</summary>
+		<details open 
+			class="unmark">
+			<summary id="pinnednav"
+				class="hide">
+				{{- i18n "pinnedNav" -}}:
+			</summary>
 			<nav aria-labelledby="pinnednav">
 				<ul class="unmark"
 					role="presentation">
 					{{- range . }}
-					<li><a href="{{ .URL }}"
-							class="no-underline {{ .Params.Class }}" 
+					<li class="{{ .Params.pos }}">
+						<a href="{{ .URL }}"
+							class="{{ .Params.class }}
+								inverse 
+								scriptsize 
+								no-underline"
 							{{- with .Title }}
-								aria-label="{{ . -}}"
-								title="{{ . -}}"
-							{{- end -}}
+								title="{{ . }}"
+							{{- end }}
 							>
-							{{- .Pre }}
-							{{- .Name }}
-							{{- if .Post }}{{ .Post }}
-							{{- else }}
+							{{- with .Pre }}
+								<i class="icon {{ . }}"
+									aria-hidden="true">
+								</i>
+							{{- end }}
+							{{- if .Name }}
+								{{- .Name }}
+							{{- else if .Title }}
 								<span class="hide"
 									role="presentation">
 									{{- .Title -}}
 								</span>
-							{{- end -}}
+							{{- end }}
+							{{- with .Post }}
+							<span class="ifwide">
+								{{- . -}}
+							</span>
+							{{- end }}
 						</a>
 					</li>
 					{{- end }}

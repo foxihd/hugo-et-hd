@@ -19,12 +19,6 @@
 <link rel="stylesheet" type="text/css" href="{{ $fontsMin.Permalink }}">
 {{- end }}
 <!------------------------------------------------------------- a11y -->
-<script defer>
-	const scheme = window.matchMedia("(prefers-color-scheme: dark)");
-	console.log(scheme.matches);
-	function closeToolbar() {document.getElementById("toolbar").removeAttribute("open");};
-	function closeSidebar() {document.getElementById("sidebar").removeAttribute("open");};
-</script>
 {{- $legibility := resources.Get "js/legibility.js" }}
 {{- $bionread := resources.Get "js/bionread.js" -}}
 {{- $brightness := resources.Get "js/override-brightness.js" -}}

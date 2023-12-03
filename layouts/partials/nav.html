@@ -1,34 +1,104 @@
 {{- $home := absLangURL "" -}}
+{{- $IsHome := .IsHome }}
 <nav class="ssc sans normalsize"
 	aria-label="{{ i18n "mainNav" }}">
+	<span class="hide"
+		role="presentation">
+		{{ i18n "mainNav" }}:
+	</span>
 	{{- with .Site.Menus.main }}
-	{{- range . }}
-	<a href="{{ if .Params.IsBanner }}{{ $home }}
-		{{- else }}{{ .URL }}
-		{{- end -}}"
-		class="no-underline ssc 
-			{{- if .Params.IsBanner }} reverse
-			{{- else }} inverse
-			{{- end }}
-			{{ .Params.class }}"
-		{{- if .Title }}
-			aria-label="{{ .Title }}"
-			title="{{ .Title }}"
+	<ul class="unmark flex"
+		role="presentation">
+		{{- range . }}
+		<li class="{{ .Params.pos }}">
+			<a href="
+				{{- if .Params.IsBanner }}{{ $home -}}
+				{{- else }}{{ .URL -}}
+				{{- end -}}"
+				class="{{ .Params.class }} 
+					footnotesize
+					{{- if .Params.IsBanner }} reverse 
+					{{- else }} inverse
+					{{- end }}"
+				{{- with .Title }}
+					title="{{ . }}"
+				{{- end }}
+				{{- if .Params.IsBanner }} id="banner"
+					{{- if $IsHome }}aria-current="page"
+					{{- end }}
+				{{- end -}}
+				>
+				{{- with .Pre }}
+					<i class="icon {{ . }}"
+						aria-hidden="true">
+					</i>
+				{{- end }}
+				{{- if .Name }}
+					{{- .Name }}
+				{{- else if .Title }}
+					<span class="hide"
+						role="presentation">
+						{{- .Title -}}
+					</span>
+				{{- end }}
+				{{- with .Post }}
+				<span class="ifwide">
+					{{- . -}}
+				</span>
+				{{- end }}
+			</a>
+		</li>
 		{{- end }}
-		{{- if .Params.IsBanner }} id="banner"
-		{{- end -}}
+	</ul>
+	{{- end }}
+	{{- with .Site.Menus.other }}
+	<details id="collapse"
+		class="unmark"
+		aria-haspopup="true"
+		aria-expanded="false"
 		>
-		{{- .Pre }} 
-		{{- .Name }} 
-		{{- if .Post }}{{ .Post }} 
-		{{- else }}
+		<summary title="{{ i18n "otherNav" }}"
+			aria-label="{{ i18n "otherNav" }}">
 			<span class="hide"
 				role="presentation">
-				{{- .Title -}}
+				{{ i18n "otherNav" }}:
 			</span>
-		{{- end -}}
-		</a>
-		<br class="hide">
-	{{- end }}
+			<div class="menu-button"></div>
+		</summary>
+		<ul class="unmark flex"
+			role="presentation">
+			{{- range . }}
+			<li class="{{ .Params.pos }}">
+				<a href="{{ .URL }}"
+					class="{{ .Params.class }} 
+						footnotesize
+						reverse"
+					{{- with .Title }}
+						title="{{ . }}"
+					{{- end }}
+					>
+					{{- with .Pre }}
+						<i class="icon {{ . }}"
+							aria-hidden="true">
+						</i>
+					{{- end }}
+					{{- if .Name }}
+						{{- .Name }}
+					{{- else if .Title }}
+						<span class="hide"
+							role="presentation">
+							{{- .Title -}}
+						</span>
+					{{- end }}
+					{{- with .Post }}
+					<span class="ifwide">
+						{{- . -}}
+					</span>
+					{{- end }}
+				</a>
+			</li>
+			{{- end }}
+		</ul>
+	</details>
 	{{- end }}
 </nav>

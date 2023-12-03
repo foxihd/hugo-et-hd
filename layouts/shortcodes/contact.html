@@ -1,29 +1,40 @@
 <nav aria-label="{{ i18n "contactNav" }}">
 	<ul class="unmark small smallskip"
 		role="presentation">
-		{{- range .Site.Menus.author }}
-		<li><a href="{{ .URL }}"
-				class="no-underline ssc inverse" 
-				{{- if .Title }}
-					aria-label="{{ .Title }}"
-					title="{{ .Title }}"
-				{{ end }}
+		{{- range .Site.Menus.social }}
+		<li class="{{ .Params.pos }}">
+			<a href="{{ .URL }}"
+				class="{{ .Params.class }} 
+					small
+					inverse"
+				{{- with .Title }}
+					title="{{ . }}"
+				{{- end }}
 				>
-				{{- .Pre }} 
-				{{- .Name }} 
-				{{- if .Post }} {{ .Post }}
-				{{- else }}
+				{{- with .Pre }}
+					<i class="icon {{ . }}"
+						aria-hidden="true">
+					</i>
+				{{- end }}
+				{{- if .Name }}
+					{{- .Name }}
+				{{- else if .Title }}
 					<span class="hide"
 						role="presentation">
 						{{- .Title -}}
 					</span>
-				{{ end -}}
+				{{- end }}
+				{{- with .Post }}
+				<span class="ifwide">
+					{{- . -}}
+				</span>
+				{{- end }}
 			</a>
 		</li>
 		{{- end }}
 		{{- with .Site.Params.Profile.Email }}
 		<li><a href="mailto:{{ . }}"
-				class="no-underline ssc inverse" 
+				class="small inverse" 
 				aria-label="email"
 				title="email"
 				>
