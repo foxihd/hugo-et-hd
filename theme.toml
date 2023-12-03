@@ -15,7 +15,7 @@ tags = [
 ]
 [authors]
 	name = "Foxx"
-	homepage = "https://foxx.brewm.co"
+	homepage = "https://foxx.ink"
 [original]
 	name = "Tufte"
 	homepage = "https://slashformotion.github.io/hugo-tufte/"

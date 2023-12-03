@@ -26,7 +26,7 @@ Yeah, that couldn't be more stealing.
 ## Feature Highlights
 
 - Improved HTML structure with ARIA attribute.
-- No-Script Friendly[^3].
+- No-Script browser friendly in mind[^3].
 - Even more printable Edward Tufte Style CSS.
 - Automatic color scheme & contrast based on system preferences.
 - Legibility control:
@@ -36,10 +36,10 @@ Yeah, that couldn't be more stealing.
   - Baseline height override.
   - Color scheme override.
   - Contrast override.
-- Automatic attach[^4], manual or use (pseudo)-random internal feed cover.
-- Automatic attach[^5] or manual audio article. 
+- Automatic or manual post cover embedding[^4].
+- Automatic or manual audio article embedding[^5]. 
 - Task list with strike-through input.
-- Slider and split layout landing page option.
+- Slider and split layout landing page options with customizable article feed listing.
 
 # Special Thanks
 
