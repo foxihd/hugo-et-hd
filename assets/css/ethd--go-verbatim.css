@@ -192,6 +192,28 @@ td.lntd:first-child code.hljs {
 }
 @media screen and (-ms-high-contrast: active),
 screen and (prefers-contrast: more) {
+	:root {
+		--y6a: var(--ink);
+		--w8u: var(--ink);
+		--s8i: var(--ink);
+		--n8e: var(--ink);
+		--m4i: var(--ink);
+		--y4i: var(--ink);
+		--f8a: var(--ink);
+		--s4n: var(--ink);
+		--d3u: var(--ink);
+		--r6a: var(--ink);
+		--y4a: var(--ink);
+		--k8i: var(--ink);
+		--y6i: var(--ink);
+		--o5a: var(--ink);
+		--c3u: var(--ink);
+		--s5o: var(--ink);
+		--s5e: var(--ink);
+		--y7i: var(--ink);
+		--i3i: var(--ink);
+		--t9u: var(--ink);
+	}
 	.hljs *,
 	.chroma * {
 		color: var(--ink) !important;

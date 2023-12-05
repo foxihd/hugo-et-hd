@@ -1,13 +1,13 @@
 {{- $home := absLangURL "" -}}
 {{- $IsHome := .IsHome }}
-<nav class="ssc sans normalsize"
+<nav id="navbar"
 	aria-label="{{ i18n "mainNav" }}">
-	<span class="hide"
+	<div class="hide"
 		role="presentation">
 		{{ i18n "mainNav" }}:
-	</span>
+	</div>
 	{{- with .Site.Menus.main }}
-	<ul class="unmark"
+	<ul class="unmark strut fx"
 		role="presentation">
 		{{- range . }}
 		<li class="{{ .Params.pos }}">
@@ -52,18 +52,20 @@
 	</ul>
 	{{- end }}
 	{{- with .Site.Menus.other }}
-	<details id="collapse"
+	<details id="dd"
 		class="unmark"
 		aria-haspopup="true"
 		aria-expanded="false"
 		>
-		<summary title="{{ i18n "otherNav" }}"
-			aria-label="{{ i18n "otherNav" }}">
-			<span class="hide"
-				role="presentation">
+		<summary 
+			title="{{ i18n "otherNav" }}"
+			aria-label="{{ i18n "otherNav" }}"
+			>
+			<span class="hide">
 				{{ i18n "otherNav" }}:
 			</span>
-			<div class="menu-button"></div>
+			<div class="mb"
+				role="presentation"></div>
 		</summary>
 		<ul class="unmark"
 			role="presentation">

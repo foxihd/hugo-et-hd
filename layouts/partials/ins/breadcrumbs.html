@@ -7,7 +7,7 @@
 		{{ i18n "breadcrumb" }}:
 	</summary>
 	<nav aria-labelledby="breadcrumb">
-		<ul class="breadcrumb noprint nopadding ssc sf"
+		<ul class="breadcrumb noprint"
 			role="presentation">
 			{{- if lt hugo.Version 0.109 }}
 				{{ partial "ins/breadcrumbs-lt.html" . -}}

@@ -23,12 +23,13 @@
 }
 .list-day {
 	line-height: 1.414;
+	padding-left: 1rem !important;
 }
 .list-day li > span {
 	display: block;
 	position: relative;
 	width: 5rem;
-	left: -5.65rem;
+	left: -6.4rem;
 	top: 1.618rem;
 	text-align: right;
 	color: var(--link);
@@ -41,23 +42,23 @@
 #list-posts {
 	min-height: 62vh;
 }
-ul#list-tags {
+#list-tags {
 	display: inline;
 }
-ul#list-tags a {
+#list-tags a {
 	margin: 0.5ex 0;
 }
-ul#list-tags a::before {
+#list-tags a::before {
 	content: "#";
 }
-ul#list-categories {
+#list-categories {
 	font-style: italic;
 	padding-left: 1em;
 }
-ul#list-categories li{
+#list-categories li{
 	padding: 0.2ex 0;
 }
-ul#list-categories li::marker {
+#list-categories li::marker {
 	font: normal 0.8em;
 	content: '> ';
 }

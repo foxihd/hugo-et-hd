@@ -116,14 +116,14 @@
 		</a>
 		{{- if $withSummary }}
 			{{- if not $grid }}
-			<aside class="nopadding ssc sf">
+			<aside class="nopadding">
 				<p class="footnotesize">
 					<time datetime="{{ .PublishDate.Format "2006-01-02" }}">
 						{{ $date }}
 					</time>
 				</p>
 				{{- with $tag }}
-				<ul class="unmark tag ssc sf"
+				<ul class="unmark tag"
 					role="presentation">
 					{{- range . }}
 					<li><a href="{{ "tags/" | absURL }}{{ . | urlize }}" 
@@ -156,8 +156,7 @@
 				</p>
 			</section>
 		{{- else }}
-			<div id="alt-{{ $postCounter }}"
-				class="ssc sf">
+			<div id="alt-{{ $postCounter }}">
 			{{- if $tag }}
 				<ul class="unmark tag"
 					role="presentation">
@@ -190,12 +189,12 @@
 	<summary class="hide">
 		{{ i18n "pagination" }}
 	</summary>
-	<nav>
+	<nav id="paginator">
 		<ul class="unmark">
 		{{- if .Paginator.HasPrev }}
 			<li class="rfill">
 				<a href="{{ .Paginator.Prev.URL }}"
-					class="no-underline reverse ssc sf">
+					class="no-underline reverse">
 					{{ i18n "prev" }}
 				</a>
 			</li>
@@ -203,7 +202,7 @@
 		{{- if .Paginator.HasNext }}
 			<li class="lfill">
 				<a href="{{ .Paginator.Next.URL }}"
-					class="no-underline reverse ssc sf">
+					class="no-underline reverse">
 					{{ i18n "next" }}
 				</a>
 			</li>

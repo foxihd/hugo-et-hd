@@ -97,7 +97,8 @@
 			>
 			{{- range . }}
 			<li><a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}'
-					class="plain">
+					class="plain 
+						noprinturl">
 					{{- . -}}
 				</a>
 			</li>

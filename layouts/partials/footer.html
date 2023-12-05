@@ -1,39 +1,28 @@
 {{- $nosidebar := not .Site.Params.Sidebar }}
 {{- $nopinned := not .Site.Menus.foot }}
 {{- $nofootnote := not .Site.Params.Footnote }}
-<footer
+{{- $split := and (.IsHome) (.Site.Params.Home.Slider) (.Site.Params.Home.Layoutsplit) }}
+{{- $bypassBlock := not .Site.Params.DisableBypassBlock }}
+<footer id="bar"
 	{{- if and $nosidebar $nopinned $nofootnote }}class="clear"
 	{{- end -}}
 	>
-	{{- $split:= and (.IsHome) (.Site.Params.Home.Slider) (.Site.Params.Home.Layoutsplit) }}
-	{{- if not .Site.Params.DisableBypassBlock }}
-	<a href="{{ if and $split }}#split
-		{{- else }}#top{{ end -}}"
-		class="inverse footnotesize no-underline"
-		aria-label="{{ i18n "backToTop" }}"
-		title="{{ i18n "backToTop" }}"
-		>
-		<span class="ifwide scriptsize ssc sf">{{ i18n "top" }} </span>
-		&uArr;
-	</a>
-	{{- end }}
-	{{- with .Site.Menus.foot }}
-		<details open 
-			class="unmark">
-			<summary id="pinnednav"
+	{{- if and $bypassBlock .Site.Menus.foot }}
+		<details id="pinnednav"  
+			class="unmark"
+			open>
+			<summary
 				class="hide">
 				{{- i18n "pinnedNav" -}}:
 			</summary>
-			<nav aria-labelledby="pinnednav">
-				<ul class="unmark"
+			<nav aria-label="{{ i18n "pinnedNav" }}">
+				<ul class="unmark fx"
 					role="presentation">
-					{{- range . }}
+					{{- range .Site.Menus.foot }}
 					<li class="{{ .Params.pos }}">
 						<a href="{{ .URL }}"
-							class="{{ .Params.class }}
-								inverse 
-								footnotesize 
-								no-underline"
+							class="inverse footnotesize 
+								{{ .Params.class }}"
 							{{- with .Title }}
 								title="{{ . }}"
 							{{- end }}
@@ -59,21 +48,37 @@
 						</a>
 					</li>
 					{{- end }}
+					{{- if $bypassBlock }}
+					<li><a href="{{ if $split }}#feed
+							{{- else }}#top{{ end -}}"
+							class="inverse footnotesize"
+							aria-label="{{ i18n "backToTop" }}"
+							title="{{ i18n "backToTop" }}"
+							id="jump-to"
+							>
+							<span class="ifwide scriptsize">{{ i18n "top" }} </span>
+							&uArr;
+						</a>
+					</li>
+					{{- end }}
 				</ul>
 			</nav>
 		</details>
 	{{- end }}
 	{{- with .Site.Params.Footnote }}
 		<div id="footinfo"
-			class="ldots 
-				{{- if and $nosidebar $nopinned }} lfill
+			class="
+				{{- if and $nosidebar $nopinned $bypassBlock }} lfill
 				{{- else }} hfill
 				{{- end -}}"
 			role="contentinfo"
 			>
 			<hr class="hide"
 				style="border-style:dotted;">
-			<center>{{ . | safeHTML }}</center>
+			<center
+				class="ldots">
+				{{ . | safeHTML }}
+			</center>
 			<hr class="hide"
 				style="border-style:dotted;">
 		</div>
