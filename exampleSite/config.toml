@@ -7,7 +7,6 @@ defaultContentLanguage = 'id'
 defaultContentLanguageInSubdir = true
 
 [params]
-	author = 'John Doe'
 	description = 'Hugo ET-HD exampleSite'
 	sidebar = false
 	# DisableBypassBlock = false    # disable bypass block (jump to article/jump to top), for accessibility purpose please keep this setting enable
@@ -34,7 +33,8 @@ defaultContentLanguageInSubdir = true
 		FlowlinesLimit = 21   # max=42, limit random flow lines used for post cover
 		headline = true    # headline latest post
 
-	[params.profile]
+	[params.author]
+		name = 'John Doe'
 		bio = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 		# email = 'johndoe@example.com'
 		# avatar = ''    # url, used for author card

@@ -1,18 +1,18 @@
 <hr class="none" style="border-style:dotted;">
 <div id="about">
-{{- with .Site.Params }}
+{{- with .Site.Params.Author }}
 	<aside>
 		<center style="padding: 1rem 0;">
-		{{- if .Profile.Avatar }}
+		{{- if .Avatar }}
 			<img src="{{ .Avatar }}"
 				class="rounded"
-				title="{{ .Author }}"
+				title="{{ .Name }}"
 				>
 		{{- else }}
 			<i id="authoricon"
 				class="icon captain"
 				role="img"
-				aria-label="{{ .Author }}"
+				aria-label="{{ .Name }}"
 				></i>
 		{{- end }}
 		</center>
@@ -21,11 +21,11 @@
 		<center>
 			<h2 id="authorid"
 				class="Large nomargin">
-				{{ i18n "about" }} {{ .Author }}
+				{{ i18n "about" }} {{ .Name }}
 			</h2>
 			<p class="small"
 				data-bionRead-safe>
-				{{ .Profile.Bio | safeHTML }}
+				{{ .Bio | safeHTML }}
 			</p>
 {{- end }}
 			<nav>
@@ -53,7 +53,7 @@
 						</a>
 					</li>
 					{{- end }}
-				{{- with .Site.Params.Profile.Email }}
+				{{- with .Site.Params.Author.Email }}
 				<li><a href="mailto:{{ . }}"
 						class="no-underline ssc inverse" 
 						aria-label="email"

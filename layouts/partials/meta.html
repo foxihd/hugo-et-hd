@@ -16,7 +16,7 @@
 	{{- else if and .IsHome .Site.Params.Home.Banner }}{{ $cover := .Site.Params.Home.Banner }}
 	{{- end }}
 <title>{{ $title }}</title>
-<meta name="author" content="{{ if .Params.author }}{{ .Params.author }}{{ else if .Site.Params.author}}{{ .Site.Params.author }}{{ end }}">
+<meta name="author" content="{{ if .Params.author }}{{ .Params.author }}{{ else if .Site.Params.Author.Name }}{{ .Site.Params.Author.Name }}{{ end }}">
 <meta name="description" content="{{ $desc }}" >
 <meta name="keywords" content="
 	{{- if .IsHome }}{{ i18n "home" -}}
@@ -42,7 +42,7 @@
 {{- end }}
 <meta name="twitter:title" content="{{ $title }}" >
 <meta name="twitter:description" content="{{ $desc }}" >
-{{- with .Site.Params.Profile.Twitter }}
+{{- with .Site.Params.Author.Twitter }}
 <meta name="twitter:site" content="{{ . }}" >
 <meta name="twitter:creator" content="{{ . }}" >
 {{- end }}
