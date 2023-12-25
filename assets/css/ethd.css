@@ -377,6 +377,7 @@ a.inverse:link,
 a.inverse:visited {
 	color: var(--ink);
 	text-decoration-color: var(--ink);
+	-webkit-text-decoration-color: var(--ink);
 }
 /* anchor no-underline */
 a.inverse:link,
@@ -439,6 +440,7 @@ button.plain:hover {
 	border-bottom: 0.2rem solid;
 	margin-bottom: -0.2rem !important;
 	text-decoration: none !important;
+	-webkit-text-decoration-color: none !important;
 	animation: idle 2s step-end infinite;
 	-webkit-animation: idle 2s step-end infinite;
 	box-sizing: border-box;
@@ -649,6 +651,8 @@ kbd,
 pre > code {
 	font-family: var(--tt), monospace;
 	letter-spacing: 0.05em;
+	text-size-adjust: auto;
+	-webkit-text-size-adjust: auto;
 	line-height: 1.618;
 	font-kerning: none;
 	font-feature-settings: "kern" 0;
