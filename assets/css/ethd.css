@@ -250,7 +250,7 @@ h6 {
 }
 /* paragraph */
 p.subtitle {
-	font: italic 1.618rem/1 var(--rm), serif;
+	font: italic 1.618rem/1.414 var(--rm), serif;
 	margin: 0 0 2rem;
 	display: block;
 }
@@ -405,6 +405,10 @@ a.button:visited:hover,
 a.reverse:hover {
 	background-color: #ff0;
 	color: black;
+}
+button:disabled {
+	background-color: var(--mid) !important;
+	color: var(--ink) !important;
 }
 /* reverse & inverse */
 a.button:link,

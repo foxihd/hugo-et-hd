@@ -67,20 +67,15 @@
 	{{- end }}
 	{{- with .Site.Params.Footnote }}
 		<div id="footinfo"
-			class="
+			class="ldots 
 				{{- if and $nosidebar $nopinned $bypassBlock }} lfill
 				{{- else }} hfill
 				{{- end -}}"
 			role="contentinfo"
 			>
-			<hr class="hide"
-				style="border-style:dotted;">
-			<center
-				class="ldots">
+			<center>
 				{{ . | safeHTML }}
 			</center>
-			<hr class="hide"
-				style="border-style:dotted;">
 		</div>
 	{{- end }}
 	{{ partial "ins/toolbar.html" . }}

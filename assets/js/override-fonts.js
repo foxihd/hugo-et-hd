@@ -1,8 +1,4 @@
-var fontState = document.getElementById("fontState");
-var fontSwitch = document.getElementById("fontSwitch");
-fontSwitch.checked = false;
-fontSwitch.disabled = false;
-fontSwitch.oninput = function useOpenDyslexic() {
+function useOpenDyslexic() {
 	if (fontSwitch.checked == true) {
 		ethd.setProperty('--rm', 'OpenDyslexic');
 		ethd.setProperty('--sf', 'OpenDyslexic');
@@ -11,19 +7,30 @@ fontSwitch.oninput = function useOpenDyslexic() {
 		ethd.setProperty('--rm', 'crimson');
 		ethd.setProperty('--sf', 'Rosario');
 		fontState.innerHTML = "";
-	}
+	};
 };
-var fontSizeRange = document.getElementById("fontSizeRange");
-var fontSizeState = document.getElementById("fontSizeState");
-fontSizeRange.disabled = false;
-fontSizeRange.oninput = function setFontSize() {
-		fontSizeState.innerHTML = Math.floor(fontSizeRange.value * 100);
-		ethd.setProperty('--fontScale', fontSizeRange.value);
+
+if (localStorage.font == "OpenDyslexic") {
+	fontSwitch.setAttribute('checked', 'checked');
+	useOpenDyslexic();
 };
-var baselineStretchRange = document.getElementById("baselineStretchRange");
-var baselineStretchState = document.getElementById("baselineStretchState");
-baselineStretchRange.disabled = false;
-baselineStretchRange.oninput = function setStretch() {
-		baselineStretchState.innerHTML = Math.floor(baselineStretchRange.value * 100);
-		ethd.setProperty('--baselineStretch', baselineStretchRange.value);
+
+function setFontSize() {
+	fontSizeState.innerHTML = Math.floor(fontSize.value * 100);
+	ethd.setProperty('--fontScale', fontSize.value);
+};
+
+if (localStorage.fontSize !== null) {
+	fontSize.value = localStorage.fontSize;
+	setFontSize();
+};
+
+function setStretch() {
+	baselineStretchState.innerHTML = Math.floor(baselineStretch.value * 100);
+	ethd.setProperty('--baselineStretch', baselineStretch.value);
+};
+
+if (localStorage.stretchSize !== null) {
+	baselineStretch.value = localStorage.stretchSize;
+	setStretch();
 };

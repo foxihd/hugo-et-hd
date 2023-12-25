@@ -1,19 +1,20 @@
 <details
-	id="a11y" 
-	class="unmark" 
-	aria-haspopup="true" 
+	id="a11y"
+	class="unmark"
+	aria-haspopup="true"
 	aria-expanded="false"
 	>
-	<summary title="{{ i18n "legibility" }}">
+	<summary title="{{ i18n "legibility" }}"
+		aria-controls="panelA11y">
 		<i class="icon accessible"></i>
 		<span class="ifwide">{{ i18n "legibility" }}</span>
 	</summary>
-	<div>
-		<div class="tabhead">
-			<i class="icon accessible" style="margin-right: 1ex;"></i>
+	<div id="panelA11y">
+		<div id="tabhead">
+			<i class="icon accessible"></i>
 			<span>
 				<span id="enabled"
-				 style="display: none;">
+					style="display: none;">
 					{{ i18n "legibility" }}
 				</span>
 				<noscript>
@@ -22,10 +23,13 @@
 			</span>
 			<button
 				id="close"
-				onclick="closeA11y()" 
+				onclick="closePanel()"
 				aria-label="{{ i18n "close" }}:{{ i18n "legibility" }}"
 				>
-				&#10006;
+				{{/*  &#10006;  */}}
+				<span class="cb"
+					role="presentation">
+				</span>
 			</button>
 		</div>
 		<fieldset>
@@ -34,28 +38,30 @@
 			</legend>
 			<div class="sw">
 				<input
-					type="checkbox" 
-					id="bionReadSwitch" 
-					aria-label="{{ i18n "bionRead" }}" 
+					type="checkbox"
+					id="bionReadSwitch"
+					aria-label="{{ i18n "bionRead" }}"
+					onclick="bionRead()"
 					disabled>
 					<label for="bionReadSwitch">
-						<span class="icon" id="bionReadState"></span> 
+						<span class="icon" id="bionReadState"></span>
 						<span aria-label="bionread"><b>Bion</b>Read</span>
 					</label>
 			</div>
 			<div class="sw">
 				<input
-					type="checkbox" 
-					id="fontSwitch" 
+					type="checkbox"
+					id="fontSwitch"
 					aria-label="{{ i18n "openDyslexic" }}"
+					onclick="useOpenDyslexic()"
 					disabled>
 					<label for="fontSwitch">
-						<span class="icon" id="fontState"></span> 
+						<span class="icon" id="fontState"></span>
 						OpenDyslexic
 					</label>
 			</div>
 			<div aria-label="{{ i18n "override" }}:{{ i18n "fontScaling" }}">
-				<label for="fontSizeRange">
+				<label for="fontSize">
 					{{ i18n "fontScaling" }}
 				</label>
 				<br>
@@ -65,22 +71,24 @@
 					min="0.8"
 					max="1.2"
 					step="0.1"
-					id="fontSizeRange"
+					id="fontSize"
+					oninput="setFontSize()"
 					disabled>
 				<span id="fontSizeState">100</span>%
 			</div>
 			<div aria-label="{{ i18n "override" }}:{{ i18n "baselineStretch" }}">
-				<label for="baselineStretchRange">
+				<label for="baselineStretch">
 					{{ i18n "baselineStretch" }}
 				</label>
 				<br>
-				<span>☰</span>
-				<input 
-					type="range" 
-					min="0.8" 
-					max="1.2" 
-					step="0.1" 
-					id="baselineStretchRange"
+				<span> ☰ </span>
+				<input
+					type="range"
+					min="0.8"
+					max="1.2"
+					step="0.1"
+					id="baselineStretch"
+					oninput="setStretch()"
 					disabled>
 				<span id="baselineStretchState">100</span>%
 			</div>
@@ -90,13 +98,14 @@
 				{{ i18n "color" }}
 			</legend>
 			<div class="sw">
-				<input 
-					type="checkbox" 
-					id="lightSwitch" 
-					aria-label="{{ i18n "darkMode" }}" 
+				<input
+					type="checkbox"
+					id="lightSwitch"
+					aria-label="{{ i18n "darkMode" }}"
+					onclick="setColor()"
 					disabled>
 					<label for="lightSwitch">
-						<span class="icon" id="lightState"></span> 
+						<span class="icon" id="lightState"></span>
 						{{ i18n "darkMode" }}
 					</label>
 			</div>
@@ -109,10 +118,10 @@
 					aria-orientation="horizontal">
 					<input
 						id="lessContrast"
-						type="radio" 
-						name="contrast" 
-						value="less" 
-						onclick="setContrast()" 
+						type="radio"
+						name="contrast"
+						value="less"
+						onclick="setColor()"
 						disabled>
 						<label for="lessContrast"
 							aria-label="{{ i18n "override" }}:{{ i18n "contrast" }}-{{ i18n "less" }}"
@@ -120,22 +129,22 @@
 							{{ i18n "less" }}
 						</label>
 					<input
-						id="defaultContrast" 
-						type="radio" 
-						name="contrast" 
-						value="default" 
-						onclick="setContrast()">
+						id="defaultContrast"
+						type="radio"
+						name="contrast"
+						value="default"
+						onclick="setColor()">
 						<label for="defaultContrast"
 							aria-label="{{ i18n "override" }}:{{ i18n "contrast" }}-{{ i18n "default" }}"
 							>
 							{{ i18n "default" }}
 						</label>
-					<input 
-						id="moreContrast" 
-						type="radio" 
-						name="contrast" 
-						value="more" 
-						onclick="setContrast()" 
+					<input
+						id="moreContrast"
+						type="radio"
+						name="contrast"
+						value="more"
+						onclick="setColor()"
 						disabled>
 						<label for="moreContrast"
 							aria-label="{{ i18n "override" }}:{{ i18n "contrast" }}-{{ i18n "more" }}"
@@ -145,5 +154,23 @@
 				</span>
 			</div>
 		</fieldset>
+		<center>
+			<button
+				id="save"
+				class="reverse"
+				onclick="save()"
+				disabled
+				>
+				{{ i18n "save" }}
+			</button>
+			<button
+				id="reset"
+				class="reverse"
+				onclick="reset()"
+				disabled
+				>
+				{{ i18n "reset" }}
+			</button>
+		</center>
 	</div>
 </details>

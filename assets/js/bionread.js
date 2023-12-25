@@ -1,19 +1,19 @@
-var bionReadSwitch = document.getElementById("bionReadSwitch");
-var bionReadState = document.getElementById("bionReadState");
-var bionReadRestore = document.querySelector("#content") ;
-var bionReadSnapshot = document.getElementById("bionReadSnapshot") ;
-bionReadSwitch.checked = false;
-bionReadSwitch.disabled = false;
-bionReadSwitch.oninput = function bionRead() {
-  	if (bionReadSwitch.checked == true) {
+function bionRead() {
+	var bionReadRestore = document.querySelector("#content");
+	var bionReadSnapshot = document.getElementById("bionReadSnapshot");
+	if (bionReadSwitch.checked == true) {
 		if (lightSwitch.checked == true) {
 			document.documentElement.style.setProperty('--ink', '#ccc');
 		} else {
 			document.documentElement.style.setProperty('--ink', '#333');
-		}
+		};
+
 		document.documentElement.style.setProperty('--bionic', '0.02em');
+
 		bionReadState.innerHTML = "";
+
 		bionReadSnapshot.innerHTML = bionReadRestore.innerHTML;
+
 		(() => {
 			function i() {
 				let r = [...document.querySelectorAll("[data-bionRead-safe]")];
@@ -28,14 +28,19 @@ bionReadSwitch.oninput = function bionRead() {
 						e.innerHTML = a.join(" ")
 					})
 				})
-			}
+			};
+
 			document.addEventListener("DOMContentLoaded", i());
 		})();
 	} else {
-		setContrast();
+		setColor();
+
 		bionReadState.innerHTML = "";
+
 		bionReadRestore.innerHTML = bionReadSnapshot.innerHTML;
+
 		document.documentElement.style.setProperty('--bionic', '0');
+
 		bionReadSnapshot.innerHTML = "";
-		localStorage.clear();}
+	};
 };

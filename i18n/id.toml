@@ -154,3 +154,7 @@
 	other = "Tutup"
 [override]
 	other = "Ambil alih"
+[save]
+	other = "simpan"
+[reset]
+	other = "reset"

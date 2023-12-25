@@ -154,3 +154,7 @@
 	other = "Close"
 [override]
 	other = "Override"
+[save]
+	other = "save"
+[reset]
+	other = "reset"
