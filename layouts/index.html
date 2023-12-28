@@ -15,10 +15,10 @@
 {{- $feedOnly := not .Site.Params.Home.Slider }}
 
 {{- if and .Site.Params.Home.AuthorCard $feedOnly }}
-<div class="medskip"
+<header class="medskip"
 	style="max-width: 90%;">
 	{{ partial "ins/author.html" . }}
-</div>
+</header>
 {{- end }}
 
 <h2 id="feed"

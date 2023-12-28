@@ -16,6 +16,7 @@
 			{{- partial "nav.html" . }}
 		{{- end }}
 	{{- else -}}
+		{{- if not .Site.Params.Home.AuthorCard }}
 		<header class="noprint 
 			{{- if .Site.Params.Home.Bannercentering }} centering
 			{{- end }}"
@@ -36,6 +37,7 @@
 				{{ .Site.Params.Home.Tagline | safeHTML }}
 			</h2>
 		</header>
+		{{- end }}
 		{{- partial "nav.html" . }}
 	{{- end }}
 {{- else }}
