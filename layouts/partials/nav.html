@@ -15,10 +15,11 @@
 				{{- if .Params.IsBanner }}{{ $home -}}
 				{{- else }}{{ .URL -}}
 				{{- end -}}"
-				class="{{ .Params.class }} 
-					footnotesize
-					{{- if .Params.IsBanner }} reverse 
-					{{- else }} inverse
+				class="footnotesize 
+					{{- if .Params.class }}
+						{{ .Params.class }}
+					{{- else }}
+						inverse 
 					{{- end }}"
 				{{- with .Title }}
 					title="{{ . }}"

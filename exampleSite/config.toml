@@ -83,6 +83,7 @@ defaultContentLanguageInSubdir = true
 
 	[[languages.id.menu.main]]
 		pre = 'ethd'
+		name = 'Hugo ET-HD'
 		identifier = 'ethd'
 		weight = 1
 		title = 'Beranda' # please set if name not defined
@@ -181,6 +182,7 @@ defaultContentLanguageInSubdir = true
 
 	[[languages.en.menu.main]]
 		pre = 'ethd'
+		name = 'Hugo ET-HD'
 		identifier = 'ethd'
 		weight = 1
 		title = 'Home' # please set if name not defined
