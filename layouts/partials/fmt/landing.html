@@ -68,14 +68,16 @@
 		display: block !important;
 	}
 	#split > header {
-		height: calc(100vh - 5.1rem);
 		max-width: 1440px;
 	}
-	#split .slides > * {
-		height: calc(100vh - 6.1rem);
+	#split > #main-panel,
+	#split .slides {
+		height: calc(100vh - 5.6rem);
+	}
+	#split .slides {
+		overflow-y: hidden;
 	}
 	#split > #main-panel {
-		height: calc(100vh - 5.1rem);
 		max-width: 1024px;
 		overflow-y: auto;
 		overflow-x: hidden;

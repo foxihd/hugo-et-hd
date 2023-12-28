@@ -12,8 +12,17 @@
 {{- $grid := .Site.Params.Feed.Grid }}
 {{- $withSummary := .Site.Params.Feed.Summary }}
 {{- $withCover := .Site.Params.Feed.Cover }}
+{{- $feedOnly := not .Site.Params.Home.Slider }}
+
+{{- if and .Site.Params.Home.AuthorCard $feedOnly }}
+<div class="medskip"
+	style="max-width: 90%;">
+	{{ partial "ins/author.html" . }}
+</div>
+{{- end }}
+
 <h2 id="feed"
-	{{- if and $headline (not .Site.Params.Home.Slider) (not $firstPage) }} class="hide" 
+	{{- if and $headline $feedOnly (not $firstPage) }} class="hide" 
 	{{- end -}}
 	>
 	{{- if $firstPage }}{{ i18n "recent" }}
@@ -65,7 +74,7 @@
 				{{- end }}
 				{{- if $withSummary }} no-focus
 				{{- end }}"
-			{{- if and  $firstPage $withCover $withSummary }} tabindex="-1"
+			{{- if and $firstPage $withCover $withSummary }} tabindex="-1"
 			{{- end -}}
 			aria-labelledby="article-{{ $postCounter }}"
 			>
