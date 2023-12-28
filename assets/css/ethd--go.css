@@ -32,15 +32,18 @@ p + h6 { /* if H6 not under new section tag */
 	top: -0.13ex;
 }
 details.unmark summary::marker,
+details.unmark summary::-webkit-details-marker,
 nav#TableOfContents li::marker,
 nav#TableOfContents a::before,
 .footnotes a::before {
-	content: none !important;
+	content: '' !important;
+	display: none !important;
 }
 details[open] > summary::marker,
 details > summary::marker {
 	font-size: 0.88em;
 }
+details.unmark summary,
 ul.delimeter,
 ul.unmark,
 ul.breadcrumb {
