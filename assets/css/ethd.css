@@ -102,7 +102,7 @@ b.k {
 	color: var(--deep);
 	font-weight: 400 !important;
 	letter-spacing: var(--bionic);
-	-webkit-text-stroke:  var(--bionic) var(--deep);
+	-webkit-text-stroke: var(--bionic) var(--deep);
 	vertical-align: baseline;
 	font-synthesis: weight;
 }

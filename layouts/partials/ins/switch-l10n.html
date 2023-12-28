@@ -1,8 +1,8 @@
 {{- if .IsTranslated }}
 <h4>{{ i18n "translations" }}</h4>
 <ul class="unmark" role="presentation">
-  {{- range .Translations }}
-  <li><a href="{{ .Permalink }}" class="plain">{{ .Lang }}: {{ .Title }}</a></li>
-  {{- end }}
+	{{- range .Translations }}
+	<li><a href="{{ .Permalink }}" class="plain">{{ .Lang }}: {{ .Title }}</a></li>
+	{{- end }}
 </ul>
 {{- end }}

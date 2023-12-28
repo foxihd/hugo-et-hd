@@ -108,7 +108,7 @@
 	{{- end }}
 </article>
 
-{{ partial "ins/social.html" . -}}
+{{ partial "ins/social-share.html" . -}}
 
 {{- if .Params.Discussion }}
 <a href="{{ .Params.Discussion }}"
@@ -116,7 +116,7 @@
 	title="{{ .Title }}" 
 	>
 	<div class="reverse">
-		{{ i18n "readDiscussion" }}  &#187;
+		{{ i18n "readDiscussion" }} &#187;
 	</div>
 	<div class="ldots">
 		{{- with .Params.AskReader }}{{ . }}
@@ -132,7 +132,7 @@
 	title="{{ .Title }}"
 	>
 	<div class="reverse">
-		{{ i18n "readNext" }}  &#187;
+		{{ i18n "readNext" }} &#187;
 	</div>
 	<div class="ldots">
 		{{ .Title }}

@@ -6,7 +6,7 @@
 	{{- if .IsHome }}{{ $title = .Site.Title }}{{ end }}
 {{- $desc := .Description }}
 	{{- if .Summary }}{{ $desc = .Summary }}
-	{{- else if  .Params.Subtitle }}{{ $desc = .Params.Subtitle }}
+	{{- else if .Params.Subtitle }}{{ $desc = .Params.Subtitle }}
 	{{- else if and .IsHome .Site.Params.Description }}{{ $desc = .Site.Params.Description }}
 	{{- else if or .IsSection $term }}{{ $desc = $title }}
 	{{- end }}

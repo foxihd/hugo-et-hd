@@ -8,7 +8,7 @@
 	{{- end -}}
 	>
 	{{- if and $bypassBlock .Site.Menus.foot }}
-		<details id="pinnednav"  
+		<details id="pinnednav"
 			class="unmark"
 			open>
 			<summary
@@ -78,5 +78,5 @@
 			</center>
 		</div>
 	{{- end }}
-	{{ partial "ins/toolbar.html" . }}
+	{{ partial "ins/panel-a11y.html" . }}
 </footer>
