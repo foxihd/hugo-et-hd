@@ -43,7 +43,7 @@ if (localStorage.is == "enable") {
 	resetButton.disabled = false;
 	function reset() {
 		localStorage.clear();
-		closePanel();
+		window.location.reload();
 	};
 
 	function save() {
