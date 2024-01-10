@@ -13,13 +13,7 @@
 		<div id="tabhead">
 			<i class="icon accessible"></i>
 			<span>
-				<span id="enabled"
-					style="display: none;">
-					{{ i18n "legibility" }}
-				</span>
-				<noscript>
-					{{ i18n "noScript" }}!
-				</noscript>
+				{{ i18n "legibility" }}
 			</span>
 			<button
 				id="close"
@@ -155,22 +149,28 @@
 			</div>
 		</fieldset>
 		<center>
-			<button
-				id="save"
-				class="reverse"
-				onclick="save()"
-				disabled
-				>
-				{{ i18n "save" }}
-			</button>
-			<button
-				id="reset"
-				class="reverse"
-				onclick="reset()"
-				disabled
-				>
-				{{ i18n "reset" }}
-			</button>
-		</center>
+			<noscript>
+				{{ i18n "noScript" }}!
+			</noscript>
+			<div id="enabled"
+				style="display:none;">
+				<button
+					id="save"
+					class="reverse"
+					onclick="save()"
+					disabled
+					>
+					{{ i18n "save" }}
+				</button>
+				<button
+					id="reset"
+					class="reverse"
+					onclick="reset()"
+					disabled
+					>
+					{{ i18n "reset" }}
+				</button>
+			</div>
+	</center>
 	</div>
 </details>
