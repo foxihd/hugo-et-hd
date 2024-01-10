@@ -39,7 +39,7 @@
 	padding: 1ex 1ex 0;
 }
 .feeditem {
-	display: flow-root;
+	display: flow-root !important;
 }
 .feeditem aside {
 	width: 28%;
@@ -54,8 +54,8 @@
 	width: auto;
 	font-size: 1rem;
 }
-.no-cover article {
-	/* tbd */
+.feed.grid.no-cover article {
+	background-color: var(--shd);
 }
 .featured-img {
 	height: 11rem;

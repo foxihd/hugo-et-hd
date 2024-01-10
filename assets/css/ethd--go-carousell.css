@@ -19,7 +19,6 @@
 	height: 0.7rem;
 }
 .slides::-webkit-scrollbar-thumb {
-	background: var(--ink);
 	border-radius: 1rem;
 }
 .slides::-webkit-scrollbar-track {
