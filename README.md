@@ -11,7 +11,7 @@ While accessibility features require JavaScript to work properly,
 the rendered website is pretty clean, printable and NoScript-friendly.
 Hugo ET-HD is designed to be served with minimal power requirements as sustainability act.
 
-> By using Hugo ET-HD you are responsible to plant one tree at minimum for every 10.000 page views per year. (source: [Website Carbon](https://www.websitecarbon.com/website/ethd-foxx-ink-id/))
+> By using Hugo ET-HD you are responsible to plant one tree at minimum, for every 10.000 monthly page views. (source: [Website Carbon](https://www.websitecarbon.com/website/ethd-foxx-ink-id/))
 
 ## The Origin
 
@@ -25,6 +25,8 @@ Yeah, that couldn't be more stealing.
 
 ## Feature Highlights
 
+![various color scheme and contrast in split layout landing page](https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/images/tn.png)
+
 - Improved HTML structure with WAI-ARIA attribute.
 - No-Script browser friendly in mind[^3].
 - Even more printable Edward Tufte Style CSS.
@@ -37,9 +39,36 @@ Yeah, that couldn't be more stealing.
   - Color scheme override.
   - Contrast override.
 - Automatic or manual post cover embedding[^4].
-- Automatic or manual audio article embedding[^5]. 
+- Automatic or manual audio article embedding[^5].
 - Task list with strike-through input.
 - Slider and split layout landing page options with customizable article feed listing.
+
+### Customizable Home Page
+
+Setup your home page in `config.toml` with these parameters:
+
+```
+[params]
+  [params.home]
+    slider = true #or false
+    layoutSplit = true #or false
+  [params.feed]
+    grid = true #or false
+    cover = true #or false
+    summary = true  #or false
+```
+
+see exampleSite's [config.toml](exampleSite/config.toml) for more.
+
+![customizable landing page](https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/images/landing.png)
+
+![customizable feed](https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/images/feed.png)
+
+### Read Better
+
+BionRead, OpenDyslexic or why don't we both?
+
+![Choose your fighter!](https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/images/read.png)
 
 # Special Thanks
 
@@ -55,7 +84,7 @@ This project could not be made, without a lot efforts of,—thank to:
 - [Msurguy/Flow Lines](https://github.com/msurguy/flow-lines) - for generated feature images.
 - [IcoMoon](https://icomoon.io) - for icon font.
 
-[^1]: `/Humaniora Digital/` is indonesian for *digital humanities*.
+[^1]: `/Humaniora Digital/` is Indonesian for *digital humanities*.
 [^2]: Accesibility is not tested by peer yet, I don't warrant the feature will function as intended.
 [^3]: Legibility control features require JavaScript.
 [^4]: Automatic attach post cover by `cover.*` filename in the same `index.md` folder.
