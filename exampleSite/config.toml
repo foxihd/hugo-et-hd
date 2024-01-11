@@ -8,7 +8,6 @@ defaultContentLanguageInSubdir = true
 
 [params]
 	description = 'Hugo ET-HD exampleSite'
-	sidebar = false
 	# DisableBypassBlock = false    # disable bypass block (jump to article/jump to top), for accessibility purpose please keep this setting enable
 	# WebSafeFonts = true   # use websafe fonts
 	# localfonts = false   # if fonts hosted on localhost (static/css/fonts)
@@ -108,8 +107,8 @@ defaultContentLanguageInSubdir = true
 
 	[[languages.id.menu.foot]]
 		identifier = 'en'
-		pre = 'en '
-		name = '🇺🇸'
+		pre = 'www'
+		name = 'EN'
 		url = '/en'
 		title = 'Switch to English'
 		[[languages.id.menu.foot.params]]
@@ -257,8 +256,8 @@ defaultContentLanguageInSubdir = true
 
 	[[languages.en.menu.foot]]
 		identifier = 'id'
-		pre = 'id '
-		name = '🇮🇩'
+		pre = 'www'
+		name = 'ID'
 		url = '/id'
 		title = 'Beralih ke Bahasa Indonesia'
 		[[languages.en.menu.foot.params]]
