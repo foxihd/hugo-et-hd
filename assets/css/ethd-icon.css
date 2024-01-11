@@ -139,6 +139,10 @@
 .icon.xing:before {content: "\e96b"}
 .icon.xmpp:before {content: "\e96c"}
 .icon.youtube:before {content: "\e96d"}
+.icon.top:before {content: "\e96e"}
+.icon.www:before {content: "\e96f"}
+.icon.feed:before {content: "\e970"}
+.icon.copy:before {content: "\e971"}
 /* Social sharing button */
 #share-to {
 	display: flex;
