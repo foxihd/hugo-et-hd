@@ -33,8 +33,8 @@ p + h6 { /* if H6 not under new section tag */
 }
 details.unmark summary::marker,
 details.unmark summary::-webkit-details-marker,
-nav#TableOfContents li::marker,
-nav#TableOfContents a::before,
+#TableOfContents li::marker,
+#TableOfContents a::before,
 .footnotes a::before {
 	content: '' !important;
 	display: none !important;
@@ -241,17 +241,14 @@ details[open] .mb::after {
 	margin-top: 1rem;
 	font-size: 1.272rem;
 }
-.breadcrumb {
-	padding: 0;
-}
 .breadcrumb li:last-child > a {
 	pointer-events: none;
 }
 .breadcrumb li+li:before {
-	padding: 0.25em;
+	padding: 0.1em;
 	font-size: 0.8em;
 	color: var(--mid);
-	content: "/\00a0";
+	content: "\00a0/\00a0";
 }
 /* footer */
 footer.clear .ifwide {
@@ -285,27 +282,31 @@ footer.clear .ifwide {
 	background-color: #ff0;
 	color: #36c;
 }
-#a11y > div {
+#panelA11y {
 	position: absolute;
 	top: calc(-8px - 2ex - 32.4rem);
 	width: 23rem;
 	background-color: var(--paper);
-	border: 1px solid var(--ink);
 	overflow-y: auto;
-	font-size: 1rem;
 	line-height: 1;
 }
 #tabhead {
-	/* 2rem */
-	color: var(--paper);
-	background-color: var(--ink);
 	height: 2rem;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
+#enabled,
 #tabhead .icon {
-	padding: 0 0.5rem;
+	margin: 0;
+	padding: 0.25rem;
+}
+#tabhead + fieldset {
+	margin-top: 2rem !important;
 }
 #close {
 	height: 1.8rem;
@@ -335,13 +336,13 @@ footer.clear .ifwide {
 	/* 2.4rem x 6 = 14.4rem */
 	padding-top: 0.4em;
 	text-align: center;
-	margin-bottom: 1rem;
+	margin: 0.5rem 0;
 }
 #a11y div.sw {
 	text-align: unset;
 }
 #a11y fieldset input[type=checkbox],
-#a11y fieldset button {
+#panelA11y > fieldset button {
 	float: right;
 	clear: right;
 }
@@ -386,10 +387,6 @@ footer.clear .ifwide {
 #contrast label:last-of-type {
 	border-radius: 0 1ex 1ex 0;
 }
-#a11y div > center {
-	/* 1ex + 2rem */
-	margin-bottom: 1ex;
-}
 /* feed */
 .fading {
 	mask-image: linear-gradient(black 50%, transparent 100%);
@@ -421,8 +418,11 @@ img.rounded {
 	line-height: 1;
 }
 /* single.html */
-nav#TableOfContents > ul {
-	padding: 0 1.7rem;
+#TableOfContents > ul {
+	padding: 0 1rem;
+}
+#TableOfContents a:link {
+	text-decoration: none !important;
 }
 #toc {
 	margin-top: 2.828rem;
@@ -496,6 +496,7 @@ audio > center > div {
 }
 /* task */
 ul.task,
+ul.task > ul,
 .task + ul {
 	list-style: none;
 	padding: 0;

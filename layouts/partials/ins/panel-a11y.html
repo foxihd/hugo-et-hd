@@ -9,8 +9,10 @@
 		<i class="icon accessible"></i>
 		<span class="ifwide">{{ i18n "legibility" }}</span>
 	</summary>
-	<div id="panelA11y">
-		<div id="tabhead">
+	<fieldset id="panelA11y"
+		disabled>
+		<legend
+			id="tabhead">
 			<i class="icon accessible"></i>
 			<span>
 				{{ i18n "legibility" }}
@@ -25,7 +27,7 @@
 					role="presentation">
 				</span>
 			</button>
-		</div>
+		</legend>
 		<fieldset>
 			<legend>
 				{{ i18n "typeface" }}
@@ -36,7 +38,7 @@
 					id="bionReadSwitch"
 					aria-label="{{ i18n "bionRead" }}"
 					onclick="bionRead()"
-					disabled>
+					>
 					<label for="bionReadSwitch">
 						<span class="icon" id="bionReadState"></span>
 						<span aria-label="bionread"><b>Bion</b>Read<sup>experimental</sup></span>
@@ -48,7 +50,7 @@
 					id="fontSwitch"
 					aria-label="{{ i18n "openDyslexic" }}"
 					onclick="useOpenDyslexic()"
-					disabled>
+					>
 					<label for="fontSwitch">
 						<span class="icon" id="fontState"></span>
 						OpenDyslexic
@@ -67,7 +69,7 @@
 					step="0.1"
 					id="fontSize"
 					oninput="setFontSize()"
-					disabled>
+					>
 				<span id="fontSizeState">100</span>%
 			</div>
 			<div aria-label="{{ i18n "override" }}:{{ i18n "baselineStretch" }}">
@@ -83,7 +85,7 @@
 					step="0.1"
 					id="baselineStretch"
 					oninput="setStretch()"
-					disabled>
+					>
 				<span id="baselineStretchState">100</span>%
 			</div>
 		</fieldset>
@@ -97,7 +99,7 @@
 					id="lightSwitch"
 					aria-label="{{ i18n "darkMode" }}"
 					onclick="setColor()"
-					disabled>
+					>
 					<label for="lightSwitch">
 						<span class="icon" id="lightState"></span>
 						{{ i18n "darkMode" }}
@@ -116,7 +118,7 @@
 						name="contrast"
 						value="less"
 						onclick="setColor()"
-						disabled>
+						>
 						<label for="lessContrast"
 							aria-label="{{ i18n "override" }}:{{ i18n "contrast" }}-{{ i18n "less" }}"
 							>
@@ -139,7 +141,7 @@
 						name="contrast"
 						value="more"
 						onclick="setColor()"
-						disabled>
+						>
 						<label for="moreContrast"
 							aria-label="{{ i18n "override" }}:{{ i18n "contrast" }}-{{ i18n "more" }}"
 							>
@@ -152,7 +154,7 @@
 			<noscript>
 				{{ i18n "noScript" }}!
 			</noscript>
-			<div id="enabled"
+			<menu id="enabled"
 				style="display:none;">
 				<button
 					id="save"
@@ -170,7 +172,7 @@
 					>
 					{{ i18n "reset" }}
 				</button>
-			</div>
+			</menu>
 	</center>
-	</div>
+	</fieldset>
 </details>

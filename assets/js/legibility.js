@@ -1,40 +1,35 @@
 const ethd = document.documentElement.style;
-var panel = document.getElementById("a11y");
+var panelButton= document.getElementById("a11y");
+var panelA11ySet = document.getElementById("panelA11y");
+	panelA11ySet.disabled = false;
 var enabled = document.getElementById("enabled");
 	enabled.style.display = "block";
 var bionReadState = document.getElementById("bionReadState");
 var bionReadSwitch = document.getElementById("bionReadSwitch");
 	bionReadSwitch.checked = false;
-	bionReadSwitch.disabled = false;
 var fontState = document.getElementById("fontState");
 var fontSwitch = document.getElementById("fontSwitch");
-	fontSwitch.disabled = false;
 var fontSize = document.getElementById("fontSize");
 var fontSizeState = document.getElementById("fontSizeState");
-	fontSize.disabled = false;
 var baselineStretch = document.getElementById("baselineStretch");
 var baselineStretchState = document.getElementById("baselineStretchState");
-	baselineStretch.disabled = false;
 var lightState = document.getElementById("lightState");
 var lightSwitch = document.getElementById("lightSwitch");
-	lightSwitch.disabled = false;
 var defaultContrast = document.getElementById("defaultContrast");
 var lessContrast = document.getElementById("lessContrast");
-	lessContrast.disabled = false;
 var moreContrast = document.getElementById("moreContrast");
-	moreContrast.disabled = false;
 var saveButton = document.getElementById("save");
 var resetButton = document.getElementById("reset");
 
-panel.ontoggle = function expanded() {
-	if (panel.hasAttribute("open")) {
-		panel.setAttribute("aria-expanded", "true");
+panelButton.ontoggle = function expanded() {
+	if (panelButton.hasAttribute("open")) {
+		panelButton.setAttribute("aria-expanded", "true");
 	} else {
-		panel.setAttribute("aria-expanded", "false");
+		panelButton.setAttribute("aria-expanded", "false");
 	};
 };
 
-function closePanel() {panel.removeAttribute("open");};
+function closePanel() {panelButton.removeAttribute("open");};
 
 localStorage.is = "enable";
 
