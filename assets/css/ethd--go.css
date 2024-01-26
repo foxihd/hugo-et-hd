@@ -421,6 +421,7 @@ img.rounded {
 #TableOfContents > ul {
 	padding: 0 1rem;
 }
+.footnote-ref:link,
 #TableOfContents a:link {
 	text-decoration: none !important;
 }
@@ -449,7 +450,6 @@ table.lntable {
 .footnote-ref:link::before {
 	content: '[';
 	font-size: 1rem;
-	margin-right: -0.25em;
 }
 .footnote-ref:link::after {
 	content: ']';
