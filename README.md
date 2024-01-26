@@ -17,7 +17,7 @@ Hugo ET-HD is designed to be served with minimal power requirements as sustainab
 
 Hugo ET-HD is built upon,—the already awesome [Tufte CSS](https://github.com/edwardtufte/tufte-css), with some tuning to be (now) printable.
 The [Hugo Tufte](https://github.com/slashformotion/hugo-tufte) shortcodes minimally modified with basic WAI-ARIA attributes.
-[Crimson](https://github.com/skosch/Crimson) replaces the primary serif typeface for [Classic Thesis](https://github.com/classicthesis/classicthesis) look and feel.
+[Crimson](https://github.com/skosch/Crimson) replaces the primary serif typeface for MinionPro® look and feel.
 The split layout of landing page style is inspired by [Revue Faire](https://revue-faire.eu/)'s homepage.
 While more simple feed options has [LOW←TECH MAGAZINE](https://solar.lowtechmagazine.com/) influence.
 The chromastyle also inspired by Shikiori color palette.
@@ -31,8 +31,8 @@ Yeah, that couldn't be more stealing.
 - No-Script browser friendly in mind[^3].
 - Even more printable Edward Tufte Style CSS.
 - Automatic color scheme & contrast based on system preferences.
-- Legibility control:
-  - BionRead (experimental) -- Bionic Reading-like JavaScript implementation based on [JS Bionic Reading](https://github.com/markmead/js-bionic-reading).
+- Legibility control
+  - BionRead (experimental) -- Bionic Reading®--alike JavaScript implementation based on [JS Bionic Reading](https://github.com/markmead/js-bionic-reading).
   - [OpenDyslexic](https://opendyslexic.org) Fonts.
   - Font scaling override.
   - Baseline height override.
@@ -66,9 +66,31 @@ see exampleSite's [config.toml](exampleSite/config.toml) for more.
 
 ### Read Better
 
-BionRead, OpenDyslexic or why don't we both?
+BionRead or OpenDyslexic? why don't we both?
 
 ![Choose your fighter!](https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/images/read.png)
+
+### Automatic Cover & Audio embed
+
+Define post cover by simply adding `cover.*`, or attach audio article in multiple format by `audio.*`, put the files in the same `index.md` folder.
+
+```
+content/
+├─ en/
+│  └─ post/
+│      └─ post-1/
+│        ├─ index.md
+│        ├─ cover.jpg
+│        ├─ audio.mp3
+│        └─ audio.ogg
+└─ id/
+   └─ pos/
+      └─ pos-2/
+         ├─ index.md
+         ├─ cover.png
+         ├─ audio.opus
+         └─ audio.wav
+```
 
 # Special Thanks
 
@@ -85,7 +107,7 @@ This project could not be made, without a lot efforts of,—thank to:
 - [IcoMoon](https://icomoon.io) - for icon font.
 
 [^1]: `/Humaniora Digital/` is Indonesian for *digital humanities*.
+    
 [^2]: Accesibility is not tested by peer yet, I don't warrant the feature will function as intended.
+    
 [^3]: Legibility control features require JavaScript.
-[^4]: Automatic attach post cover by `cover.*` filename in the same `index.md` folder.
-[^5]: Automatic attach audio article by `audio.*` filename in the same `index.md` folder.
