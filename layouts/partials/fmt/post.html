@@ -10,11 +10,16 @@
 		aria-labelledby="Title"
 		data-bionRead-safe
 		>
-		<h1 id="Title">{{ .Title }}</h1>
 		{{- $subtitle := .Params.Subtitle }}
 			{{- if .Description }}{{ $subtitle = .Description }}
 			{{- end }}
-		{{- with $subtitle }}<p class="subtitle smallskip">{{ . }}</p>
+		{{- if $subtitle }}
+			<hgroup>
+				<h1 id="Title">{{ .Title }}</h1>
+				<p class="subtitle smallskip">{{ $subtitle }}</p>
+			</hgroup>
+		{{- else }}
+			<h1 id="Title">{{ .Title }}</h1>
 		{{- end }}
 		<p class="it footnotesize">
 			{{- $dateOnly := "2006-01-02" }}
