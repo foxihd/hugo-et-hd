@@ -237,7 +237,10 @@ details[open] .mb::after {
 	transform: rotate(-405deg);
 }
 /* breadcrumb */
-#breadcrumb + nav {
+#copyURL {
+	float: right;
+}
+#copyURL + nav {
 	margin-top: 1rem;
 	font-size: 1.272rem;
 }
@@ -421,6 +424,7 @@ img.rounded {
 #TableOfContents > ul {
 	padding: 0 1rem;
 }
+#copyURL + nav a:link,
 .footnote-ref:link,
 #TableOfContents a:link {
 	text-decoration: none !important;

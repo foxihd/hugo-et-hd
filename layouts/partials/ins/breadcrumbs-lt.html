@@ -2,7 +2,9 @@
 {{ partial "ins/breadcrumbs-lt.html" -}}
 <li><a href="{{ .Permalink }}"
 		class="plain">
-		{{- .Title -}}
+		{{- if eq .Title .Site.Title }}{{ i18n "home" }}
+		{{- else }}{{ .Title }}
+		{{- end -}}
 	</a>
 </li>
 {{- end }}
