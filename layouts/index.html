@@ -25,7 +25,7 @@
 	{{- if and $headline $feedOnly (not $firstPage) }} class="hide" 
 	{{- end -}}
 	>
-	{{- if $firstPage }}{{ i18n "recent" }}
+	{{- if $firstPage }}{{ i18n "recent" | pluralize }}
 	{{- else }}{{ i18n "post_on" }} {{ .Site.Title }}
 	{{- end -}}
 </h2>
@@ -33,9 +33,9 @@
 	role="feed"
 	aria-busy="false"
 	aria-labelledby="feed"
-	class="feed 
-		{{- if $grid }} grid 
-			{{- if not $withCover }} no-cover 
+	class="feed
+		{{- if $grid }} grid
+			{{- if not $withCover }} no-cover
 			{{- end -}}
 		{{- end -}}"
 	>
@@ -51,25 +51,25 @@
 		{{- end }}
 		{{- $summarized := truncate 256 $desc | plainify }}
 	<article
-		{{- if and $headline $firstPage (eq $postCounter 1) }} id="headline" 
+		{{- if and $headline $firstPage (eq $postCounter 1) }} id="headline"
 		{{- end }}
-		class="{{- if not $withSummary }} addhover 
+		class="{{- if not $withSummary }} addhover
 			{{- end -}}
-			{{- if $grid }}	griditem 
-			{{- else if $withSummary }} feeditem 
+			{{- if $grid }}	griditem
+			{{- else if $withSummary }} feeditem
 			{{- end -}}"
-		aria-posinset="{{ $postCounter }}" 
-		aria-setsize="{{ $postPaginator.NumberOfElements }}" 
-		aria-labelledby="article-{{ $postCounter }}" 
+		aria-posinset="{{ $postCounter }}"
+		aria-setsize="{{ $postPaginator.NumberOfElements }}"
+		aria-labelledby="article-{{ $postCounter }}"
 		{{- if $withSummary }}
-			aria-describedby="sum-{{ $postCounter }}" 
+			aria-describedby="sum-{{ $postCounter }}"
 		{{- else }}
-			aria-describedby="alt-{{ $postCounter }}" 
-			data-hover="{{ i18n "minRead" .ReadingTime }} &#187;" 
-		{{- end }} 
+			aria-describedby="alt-{{ $postCounter }}"
+			data-hover="{{ i18n "minRead" .ReadingTime }} &#187;"
+		{{- end }}
 		>
-		<a href="{{ .RelPermalink }}" 
-			class="{{ if $grid }} inverse 
+		<a href="{{ .RelPermalink }}"
+			class="{{ if $grid }} inverse
 				{{- else }} no-color
 				{{- end }}
 				{{- if $withSummary }} no-focus
@@ -82,12 +82,12 @@
 			<div id="headline-text">
 				<h3 id="article-{{ $postCounter }}">
 					{{ .Title }}
-					{{- if .Draft }} ({{ i18n "draft" }}) 
+					{{- if .Draft }} ({{ i18n "draft" }})
 					{{- end -}}.
 				</h3>
-				<p id="sum-{{ $postCounter }}" 
+				<p id="sum-{{ $postCounter }}"
 					class="footnotesize fading">
-					{{- with $summarized }}{{ . }}
+					{{- with $summarized }}{{ . | markdownify}}
 					{{- else }}{{ i18n "noSummary" }}
 					{{- end -}}
 				</p>
@@ -95,7 +95,7 @@
 			{{- else }}
 			<h3 id="article-{{ $postCounter }}">
 				{{ .Title }}
-				{{- if .Draft }} ({{ i18n "draft" }}) 
+				{{- if .Draft }} ({{ i18n "draft" }})
 				{{- end -}}
 			</h3>
 			{{- end }}
@@ -107,8 +107,8 @@
 				{{- $pseudoRandom := index (seq 80 | shuffle) 12 }}
 			<img
 				alt=""
-				aria-hidden="true" 
-				class="featured-img 
+				aria-hidden="true"
+				class="featured-img
 					{{- if and (not $grid) (eq $postCounter 1) }} fullwidth
 					{{- end }}"
 				{{- if .Params.Cover }} src="{{ .Params.Cover }}"
@@ -135,14 +135,14 @@
 				<ul class="unmark tag"
 					role="presentation">
 					{{- range . }}
-					<li><a href="{{ "tags/" | absURL }}{{ . | urlize }}" 
-							class="plain" 
-							tabindex="-1" 
-							aria-label="{{ i18n "tagged" }}: {{ . }}." 
+					<li><a href="{{ "tags/" | absURL }}{{ . | urlize }}"
+							class="plain"
+							tabindex="-1"
+							aria-label="{{ i18n "tagged" }}: {{ . }}."
 							>
 							{{- . -}}
-						</a> 
-					</li> 
+						</a>
+					</li>
 					{{- end }}
 				</ul>
 				{{- end }}
@@ -151,7 +151,7 @@
 			<section class="nopadding">
 				<p id="sum-{{ $postCounter }}"
 					class="footnotesize fading">
-					{{- with $summarized }}{{ . }}
+					{{- with $summarized }}{{ . | markdownify }}
 					{{- else }}{{ i18n "noSummary" }}
 					{{- end -}}
 				</p>
