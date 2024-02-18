@@ -43,8 +43,7 @@ details[open] > summary::marker,
 details > summary::marker {
 	font-size: 0.88em;
 }
-details.unmark summary,
-ul.delimeter,
+ul.delimiter,
 ul.unmark,
 ul.breadcrumb {
 	list-style: none;
@@ -52,19 +51,19 @@ ul.breadcrumb {
 	margin: 0;
 	font-size: inherit;
 }
-ul.delimeter,
-ul.delimeter li,
+ul.delimiter,
+ul.delimiter li,
 ul.unmark li,
 ul.breadcrumb li {
 	display: inline;
 }
-ul.delimeter li:after {
+ul.delimiter li:after {
 	content: ', ';
 }
-ul.delimeter li:last-child:after {
+ul.delimiter li:last-child:after {
 	content: '.';
 }
-ul.delimeter li:first-child:before {
+ul.delimiter li:first-child:before {
 	content: ' ';
 }
 #navbar,

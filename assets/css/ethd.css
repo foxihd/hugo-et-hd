@@ -31,8 +31,7 @@
 			--ink: #000;
 		}
 	}
-	@media (prefers-contrast: less),
-	(-ms-high-contrast: active) {
+	@media (prefers-contrast: less) {
 		:root {
 			--paper: #e7e2e2;
 			--mid: #7d8490;
@@ -56,8 +55,7 @@
 			--ink: #fff;
 		}
 	}
-	@media (prefers-contrast: less),
-	(-ms-high-contrast: active) {
+	@media (prefers-contrast: less) {
 		:root {	
 			--paper: #13253d;
 			--mid: #7d8490;
@@ -657,10 +655,10 @@ pre > code {
 	letter-spacing: 0.05em;
 	text-size-adjust: auto;
 	-webkit-text-size-adjust: auto;
+	-moz-text-size-adjust: auto;
 	line-height: 1.618;
 	font-kerning: none;
 	font-feature-settings: "kern" 0;
-	-webkit-text-size-adjust: 100%;
 	-webkit-font-feature-settings: "kern" 0;
 	-moz-font-feature-settings: "kern" 0;
 }
