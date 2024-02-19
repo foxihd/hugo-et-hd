@@ -1,0 +1,85 @@
+{{- $base := resources.Get "css/ethd.css" -}}
+{{- $hugo := resources.Get "css/ethd--go.css" -}}
+{{- $icon := resources.Get "css/ethd-icon.css" -}}
+{{- $style := slice $base $hugo $icon | resources.Concat "css/ethd-style.css" | minify }}
+{{- if eq hugo.Environment "development" }}
+	<link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
+{{- else }}
+	{{- with $style | fingerprint }}
+		<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+	{{- end }}
+{{- end }}
+
+{{- if .Site.Params.WebSafeFonts }}
+    <style>
+        :root {
+            --rm: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", "Times New Roman", Georgia;
+            --sf: Helvetica, Arial, "Gill Sans", "Gill Sans MT", Calibri;
+            --tt: Consolas, "Liberation Mono", Menlo, Courier;
+        }
+    </style>
+{{- else }}
+    {{- $fonts := resources.Get "css/ethd-fonts.css" -}}
+    {{- if .Site.Params.LocalFonts }}{{ $fonts = resources.Get "css/ethd-fonts-local.css" }}{{ end }}
+        {{- $fontsMin := $fonts | resources.Minify }}
+        <link rel="stylesheet" type="text/css" href="{{ $fontsMin.Permalink }}">
+{{- end }}
+
+{{- define "partials/head/css/init.html" }}
+<style>
+	:root {
+	{{- if site.Params.WebSafeFonts }}
+		--rm: Garamond, Palatino, 'Times New Roman';
+		--rmosf: 'Palatino';
+		--sf: Helvetica, Verdana, Arial;
+		--tt: Courier, Consolas, 'Courier New';
+	{{- end }}
+	{{- with site.Params.Initial }}
+		{{- if .ForceOpenDyslexic }}
+			--rm: 'OpenDyslexic' !important;
+			--sf: 'OpenDyslexic' !important;
+		{{- end }}
+		{{- with .FontScale }}
+			--fontScale: {{ . }};
+		{{- end }}
+		{{- with .BaselineStretch }}
+			--baselineStretch: {{ . }};
+		{{- end }}
+		{{- if eq .Scheme "light" }}
+			{{- if eq .Contrast (or "low" "less") }}
+				--off: #000; --fg: #13253d; --mid: #7d8490; --ac: #36c; --bg: #e7e2e2;
+			{{- else if eq .Contrast (or "high" "more") }}
+				--off: #000; --fg: #000; --mid: gray; --ac: #36c; --bg: #fff;
+			{{- else }}
+				--off: #000; --fg: #111; --mid: gray; --ac: #36c; --bg: #f0f0f0;
+			{{- end }}
+		{{- else if eq .Scheme "dark" }}
+			{{- if eq .Contrast (or "low" "less") }}
+				--off: #fff; --fg: #e7e2e2; --mid: #7d8490; --ac: #ff0; --bg: #13253d;
+			{{- else if eq .Contrast (or "high" "more") }}
+				--off: #fff; --fg: #fff; --mid: gray; --ac: #ff0; --bg: #000;
+			{{- else }}
+				--off: #fff; --fg: #f0f0f0; --mid: gray; --ac: #ff0; --bg: #111;
+			{{- end }}
+		{{- end }}
+	{{- end }}
+	}
+	{{- if site.Params.Post.NoIndent }}
+	* p {
+		text-indent: unset !important;
+	}
+	{{- end }}
+	{{- if site.Params.Post.Justify }}
+	article p {
+		text-align: justify;
+	}
+	{{- end }}
+	{{- with site.Params.Imprint }}
+	@media print {
+		main::after {
+			content: '{{ . }}' !important;
+		}
+	}
+	{{- end -}}
+</style>
+{{- end }}

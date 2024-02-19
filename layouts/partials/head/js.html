@@ -1,0 +1,23 @@
+{{- $legibility := resources.Get "js/legibility.js" }}
+{{- $bionread := resources.Get "js/bionread.js" -}}
+{{- $color := resources.Get "js/override-color.js" -}}
+{{- $font := resources.Get "js/override-fonts.js" -}}
+{{- $a11y := slice $legibility $bionread $color $font | resources.Concat "js/a11y.js" }}
+
+{{- if eq hugo.Environment "development" }}
+	<script defer src="{{ $a11y.Permalink }}"></script>
+{{- else }}
+	{{- $opts := dict "minify" true }}
+	{{- with $a11y | js.Build $opts | fingerprint }}
+		<script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+	{{- end }}
+{{- end }}
+
+{{- with site.Params.Initial }}
+	{{- with .FontScale }}
+		<script>fontSizeRange.value = {{ . }} * 10;</script>
+	{{- end }}
+	{{- with .BaselineStretch }}
+		<script>baselineStretchRange.value = {{ . }} * 10;</script>
+	{{- end }}
+{{- end }}

@@ -1,0 +1,125 @@
+{{ partial "head/meta.html" . }}
+{{ with .OutputFormats.Get "rss" -}}
+	{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/css/init.html" . }}
+{{ partial "head/css/code-listing.html" .}}
+{{ partialCached "head/js.html" . }}
+{{- if .Params.Hljs }}
+	{{ partialCached "head/js/hljs.html" . }}
+{{- end }}
+{{- if or .Params.Math site.Params.Math -}}
+	{{ partialCached "head/js/katex.html" . }}
+{{- else if or .Params.MathJax site.Params.MathJax -}}
+	{{ partialCached "head/js/mathjax.html" . }}
+{{- end }}
+
+{{- define "partials/head/meta.html" }}
+	{{- $term := eq .Kind "term" }}
+	{{- $title := printf "%s | %s" .Title site.Title }}
+		{{- if .IsHome }}{{ $title = site.Title }}{{ end }}
+	{{- $desc := .Description }}
+		{{- if .Summary }}{{ $desc = .Summary }}
+		{{- else if .Params.Subtitle }}{{ $desc = .Params.Subtitle }}
+		{{- else if and .IsHome site.Params.Description }}{{ $desc = site.Params.Description }}
+		{{- else if or .IsSection $term }}{{ $desc = $title }}
+		{{- end }}
+	{{- $getCover := .Resources.GetMatch "cover.*" }}	
+	{{- $cover := .Params.Cover }}
+		{{- if $getCover }}{{ $cover = $getCover.Permalink }}
+		{{- else if and .IsHome site.Params.Home.Banner }}{{ $cover := site.Params.Home.Banner }}
+		{{- end }}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<title>{{ $title }}</title>
+	<meta name="author" content="{{ if .Params.author }}{{ .Params.author }}{{ else if site.Params.Author.Name }}{{ site.Params.Author.Name }}{{ end }}">
+	<meta name="description" content="{{ $desc }}" >
+	<meta name="keywords" content="
+		{{- if .IsHome }}{{ i18n "home" -}}
+		{{- else if .IsSection }}{{ i18n "archive" }}, {{ i18n "category" }}, {{ i18n "tag" }}, {{ i18n "post" -}}
+		{{- else if $term }}{{ .Page.Title -}}
+		{{- else if .Params.keywords }}{{ with .Params.keywords }}{{ delimit . ", " }}{{ end -}}
+		{{- else }}{{ with .Params.tags }}{{ delimit . ", " }}{{ end -}}
+		{{- end -}}" >
+	<link rel="canonical" href="{{ .Permalink }}" >
+	{{- if site.Params.OptInSocialMeta }}
+		<meta property="og:url" content="{{ .Permalink }}" >
+		<meta property="og:locale" content="{{ site.LanguageCode }}" >
+		<meta property="og:site_name" content="{{ site.Title }}" >
+		<meta property="og:title" content="{{ $title }}" >
+		<meta property="og:description" content="{{ $desc }}" >
+		{{- if .IsPage }}
+			<meta property="og:type" content="article" >
+		{{- end -}}
+		{{- with $cover }}
+			<meta property="og:image" content="{{ . }}" >	
+			<meta name="twitter:image" content="{{ . }}" >
+			<meta name="twitter:card" content="summary_large_image" >
+		{{- else }}
+			<meta name="twitter:card" content="summary" >
+		{{- end }}
+		<meta name="twitter:title" content="{{ $title }}" >
+		<meta name="twitter:description" content="{{ $desc }}" >
+		{{- with site.Params.Author.Twitter }}
+			<meta name="twitter:site" content="{{ . }}" >
+			<meta name="twitter:creator" content="{{ . }}" >
+		{{- end }}
+	{{- end }}
+{{- end }}
+
+{{- define "partials/head/css/code-listing.html"}}
+	{{- $needVerbatimSty := findRE (or `class="chroma"` `hljs`) .Content 1 }}
+	{{ if $needVerbatimSty }}
+		{{- $verbatimSty := resources.Get "css/ethd--go-verbatim.css" }}
+		{{- if eq hugo.Environment "development" }}
+			<link rel="stylesheet" type="text/css" href="{{ $verbatimSty.Permalink }}">
+		{{- else }}
+			{{- with $verbatimSty | minify | fingerprint }}
+				<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+			{{- end }}
+		{{- end }}
+	{{- end }}
+{{- end }}
+
+{{- define "partials/head/js/hljs.html" }}
+	{{/*  <script src="/js/highlight.min.js"></script>  */}}
+	<script crossorigin="anonymous"
+		src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"
+		integrity="sha384-4l+9bhb7rakZ18megzl0/DWczL8ojbDl1jIEzBVffeMho9A6xB/lkqt1K0PC8Jin"></script>
+	<script crossorigin="anonymous"
+		src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"
+		integrity="sha384-+ch8x/dgaV//v6Sa8m4v5+7KScnpCuxHqilN8njQ013CEKg3Fbd8Q3oN9tfpouLh"
+		onload="hljs.highlightAll(); hljs.initLineNumbersOnLoad();"></script>
+	{{- if .Params.Hljslang -}}
+		<script crossorigin="anonymous"
+			src="https://cdn.jsdelivr.net/npm/highlightjs-lang.js@1.1.0/dist/highlightjs-lang.min.js"
+			integrity="sha384-75WGRpKMq3Y83/0jMJ4YeuDd3z48ZvyiFJCYsGoGuE3s8D1P3AiXa6CLxc1wO//W"
+			onload="hljs.initLangOnLoad();"></script>
+	{{- end -}}
+{{- end }}
+
+{{- define "partials/head/js/katex.html" }}
+	<link rel="stylesheet" crossorigin="anonymous"
+		href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+		integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0">
+	<script defer crossorigin="anonymous"
+		src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+		integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"></script>
+	<script defer crossorigin="anonymous"
+		src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+		integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+		onload="renderMathInElement(document.body);"></script>
+	<script defer src="/js/katex.js"></script>
+{{- end }}
+
+{{- define "partials/head/js/mathjax.html" }}
+	<script crossorigin="anonymous"
+		src="https://polyfill.io/v3/polyfill.min.js?features=es6"
+		integrity="sha384-WSLBwI+Q8tqRHaC+f1sjS/FVv5cWp7VAfrGB17HLfZlXhbp5F/RPVP7bYVHtiAWE"></script>
+	<script defer src="/js/mathjax.js"></script>
+	<script async crossorigin="anonymous" id="MathJax-script" 
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+		integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei"></script>
+{{- end -}}

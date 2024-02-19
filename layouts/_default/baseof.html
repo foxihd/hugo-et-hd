@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 <head>
-{{ partial "meta.html" . -}}
-{{ partial "assets.html" . -}}
+{{ partial "head.html" . -}}
 {{ block "head" . -}}
 {{- end }}
 </head>
@@ -26,7 +25,7 @@
 {{- end }}
 
 {{ block "footer" . -}}
-{{ partial "footer.html" . -}}
+{{ partialCached "footer.html" . -}}
 {{- end }}
 
 </body>
