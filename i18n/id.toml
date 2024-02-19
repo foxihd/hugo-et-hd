@@ -41,6 +41,10 @@
 	other = "Kembali ke Atas"
 [top]
 	other = "Ke atas"
+[copyURL]
+	other = "Salin URL"
+[copied]
+	other = "Tersalin!"
 # list.html
 [archive]
 	# one = ""

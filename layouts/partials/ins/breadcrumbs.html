@@ -9,14 +9,19 @@
 	</summary>
 	<button id="copyURL"
 		class="plain"
-		onclick="copyURL()"
+		onclick="function copyURL() {
+			navigator.clipboard.writeText(window.location.href);
+			alert('{{ i18n "copied" }}');
+			};"
+		aria-label="{{ i18n "copyURL" }}"
 		>
 		<i class="icon copy"></i>
-	</button>
-	<nav aria-labelledby="breadcrumb">
+		<i class="hide">{{ i18n "copyURL" }}</i>
+		</button>
+		<nav aria-labelledby="breadcrumb">
 		<ul class="breadcrumb noprint"
 			role="presentation">
-			{{- if lt hugo.Version 0.109 }}
+				{{- if lt hugo.Version 0.109 }}
 				{{ partial "ins/breadcrumbs-lt.html" . -}}
 				<li><a href="{{ .Permalink }}"
 						class="plain"
@@ -48,8 +53,3 @@
 		</ul>
 	</nav>
 </details>
-
-<script>
-	{{/* This Clipboard API is only works under secure contexts (HTTPS connections) */}}
-	function copyURL() {navigator.clipboard.writeText(window.location.href);}
-</script>

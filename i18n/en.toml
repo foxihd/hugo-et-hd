@@ -41,6 +41,10 @@
 	other = "Back to Top"
 [top]
 	other = "Top"
+[copyURL]
+	other = "Copy current URL"
+[copied]
+	other = "Copied!"
 # list.html
 [archive]
 	one = "Archive"
