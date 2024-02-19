@@ -24,10 +24,13 @@
 		<p class="it footnotesize">
 			{{- $dateOnly := "2006-01-02" }}
 			{{- $datePublished := .PublishDate | time.Format ":date_long" }}
-				{{- if lt hugo.Version 0.87 }}{{ $datePublished = .PublishDate.Format ( i18n "date_post" ) }}
+				{{ $minVersion := index ( split hugo.Version "." ) 2 }}
+				{{- if lt $minVersion 87 }}
+					{{ $datePublished = .PublishDate.Format ( i18n "date_post" ) }}
 				{{- end }}
 			{{- $dateModified := .Lastmod | time.Format ":date_long" }}
-				{{- if lt hugo.Version 0.87 }}{{ $dateModified = .Lastmod.Format ( i18n "date_post" ) }}
+				{{- if lt $minVersion 87 }}
+					{{ $dateModified = .Lastmod.Format ( i18n "date_post" ) }}
 				{{- end }}
 			{{- if ne .PublishDate .Lastmod }}
 				{{- i18n "published" }} 
