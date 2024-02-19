@@ -33,7 +33,7 @@
 				{{- range .Ancestors.Reverse }}
 				<li><a href="{{ .Permalink }}"
 						class="plain">
-						{{- if eq .Title .Site.Title }}{{ i18n "home" }}
+						{{- if or (eq .Title "") (eq .Title .Site.Title) }}{{ i18n "home" }}
 						{{- else }}{{ .Title }}
 						{{- end -}}
 					</a>
@@ -57,7 +57,7 @@
 	{{ partial "ins/breadcrumbs-lt.html" -}}
 	<li><a href="{{ .Permalink }}"
 			class="plain">
-			{{- if eq .Title .Site.Title }}{{ i18n "home" }}
+			{{- if or (eq .Title "") (eq .Title .Site.Title) }}{{ i18n "home" }}
 			{{- else }}{{ .Title }}
 			{{- end -}}
 		</a>
