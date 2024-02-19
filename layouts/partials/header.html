@@ -38,9 +38,9 @@
 			</h2>
 		</header>
 		{{- end }}
-		{{- partial "nav.html" . }}
+		{{- partialCached "nav.html" . }}
 	{{- end }}
 {{- else }}
-	{{- partial "nav.html" . }}
+	{{- partialCached "nav.html" . }}
 	{{- partial "ins/breadcrumbs.html" . -}}
 {{- end }}

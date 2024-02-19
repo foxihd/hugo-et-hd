@@ -22,7 +22,7 @@
 {{- end }}
 </main>
 
-{{- if not $split }}{{ partial "custom/mainfooter.html" . -}}
+{{- if not $split }}{{ partialCached "custom/mainfooter.html" . -}}
 {{- end }}
 
 {{ block "footer" . -}}
