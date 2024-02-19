@@ -285,8 +285,8 @@ footer.clear .ifwide {
 	color: #36c;
 }
 #panelA11y {
-	position: absolute;
-	top: calc(-8px - 2ex - 32.4rem);
+	position: fixed;
+	bottom: 3rem;
 	width: 23rem;
 	background-color: var(--paper);
 	overflow-y: auto;
