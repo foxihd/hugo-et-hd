@@ -2,16 +2,8 @@
 {{- $bionread := resources.Get "js/bionread.js" -}}
 {{- $color := resources.Get "js/override-color.js" -}}
 {{- $font := resources.Get "js/override-fonts.js" -}}
-{{- $a11y := slice $legibility $bionread $color $font | resources.Concat "js/a11y.js" }}
-
-{{- if eq hugo.Environment "development" }}
-	<script defer src="{{ $a11y.Permalink }}"></script>
-{{- else }}
-	{{- $opts := dict "minify" true }}
-	{{- with $a11y | js.Build $opts | fingerprint }}
-		<script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
-	{{- end }}
-{{- end }}
+{{- $a11y := slice $legibility $bionread $color $font | resources.Concat "js/a11y.js" | resources.Fingerprint "sha384" }}
+<script defer src="{{ $a11y.Permalink }}" integrity="{{ $a11y.Data.Integrity }}" crossorigin="anonymous"></script>
 
 {{- with site.Params.Initial }}
 	{{- with .FontScale }}
@@ -21,3 +13,10 @@
 		<script>baselineStretchRange.value = {{ . }} * 10;</script>
 	{{- end }}
 {{- end }}
+
+<script>
+	function copyURL() {
+		navigator.clipboard.writeText(window.location.href);
+		alert('{{ i18n "copied" }}');
+	};
+</script>

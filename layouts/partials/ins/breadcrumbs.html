@@ -9,10 +9,7 @@
 	</summary>
 	<button id="copyURL"
 		class="plain"
-		onclick="function copyURL() {
-			navigator.clipboard.writeText(window.location.href);
-			alert('{{ i18n "copied" }}');
-			};"
+		onclick="copyURL()"
 		aria-label="{{ i18n "copyURL" }}"
 		>
 		<i class="icon copy"></i>
