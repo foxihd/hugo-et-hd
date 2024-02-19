@@ -2,7 +2,7 @@ name = "ET-HD"
 description = "Hugo ETHD is an accessibility-enhanced, micro-typography-focused, minimalist Hugo theme for enabling wider audience."
 homepage = "https://github.com/foxihd/hugo-et-hd/"
 demosite = "https://ethd.foxx.ink"
-min_version = "0.79"
+min_version = "0.109"
 tags = [
 	"accessibility",
 	"blog",
