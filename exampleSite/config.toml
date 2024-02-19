@@ -57,8 +57,8 @@ defaultContentLanguageInSubdir = true
 		tabWidth = 4
 
   [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true # NOT-RECOMMENDED! FOR DEMO PURPOSE ONLY!
+	[markup.goldmark.renderer]
+	  unsafe = true # NOT-RECOMMENDED! FOR DEMO PURPOSE ONLY!
 
 [languages]
 	[languages.id]
@@ -70,7 +70,7 @@ defaultContentLanguageInSubdir = true
 		# title = 'Hugo ET-HD'
 		weight = 1
 		[languages.id.params]
-			footnote = '<i>Joni &copy; 2023</i>'    # display on sticky footer
+			footnote = '<i>Joni &copy; 2024</i>'    # display on sticky footer
 			imprint = 'Didukung oleh Hugo dengan tema Hugo Et-HD.'    # display on print media
 
 		[languages.id.params.home]
@@ -173,7 +173,7 @@ defaultContentLanguageInSubdir = true
 		# title = 'Hugo ET-HD'
 		weight = 2
 		[languages.en.params]
-			footnote = '<i>John &copy; 2023</i>'
+			footnote = '<i>John &copy; 2024</i>'
 			imprint = 'Powered by Hugo with Hugo Et-HD Theme.'
 
 		[languages.en.params.home]
