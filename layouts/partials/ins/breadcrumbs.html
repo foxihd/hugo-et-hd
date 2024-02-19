@@ -21,8 +21,8 @@
 		<nav aria-labelledby="breadcrumb">
 		<ul class="breadcrumb noprint"
 			role="presentation">
-				{{ $minVersion := index ( split hugo.Version "." ) 2 }}
-				{{- if lt $minVersion 109 }}
+			{{ $minVersion := index ( split hugo.Version "." ) 1 }}
+			{{- if lt $minVersion 109 }}
 				{{ partial "ins/breadcrumbs-lt.html" . -}}
 				<li><a href="{{ .Permalink }}"
 						class="plain"

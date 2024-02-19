@@ -43,7 +43,7 @@
 	{{- $postCounter :=add $index 1 }}
 	{{- $tag := .Params.Tags }}
 	{{- $date := .PublishDate.Format ( i18n "date_post" ) }}
-		{{ $minVersion := index ( split hugo.Version "." ) 2 }}
+		{{ $minVersion := index ( split hugo.Version "." ) 1 }}
 		{{- if gt $minVersion 87 }}{{ $date = .PublishDate | time.Format ":date_long" }}
 		{{- end }}
 	{{- $desc := .Description }}

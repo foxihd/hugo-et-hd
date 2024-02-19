@@ -24,7 +24,7 @@
 		<p class="it footnotesize">
 			{{- $dateOnly := "2006-01-02" }}
 			{{- $datePublished := .PublishDate | time.Format ":date_long" }}
-				{{ $minVersion := index ( split hugo.Version "." ) 2 }}
+				{{ $minVersion := index ( split hugo.Version "." ) 1 }}
 				{{- if lt $minVersion 87 }}
 					{{ $datePublished = .PublishDate.Format ( i18n "date_post" ) }}
 				{{- end }}
