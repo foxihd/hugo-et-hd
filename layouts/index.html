@@ -19,6 +19,8 @@
 	style="max-width: 90%;">
 	{{ partial "ins/author.html" . }}
 </header>
+{{ else }}
+	{{ partial "home/greeter.html" . }}
 {{- end }}
 
 <h2 id="feed"
@@ -228,6 +230,33 @@
 	{{- end }}
 {{- end }}
 
+{{- define "partials/home/greeter.html" }}
+	{{- if .IsHome }}
+	{{- $feed := .Paginate ( where .Site.RegularPages "Type" "post" ) }}
+	{{- $firstPage := not $feed.HasPrev }}
+		{{- if $firstPage }}
+			<header
+				role="presentation"
+				id="greeter">
+				{{- $cover := .Params.Cover }}
+				{{- $getcover := .Resources.GetMatch "cover.*" }}
+				{{- if or $getcover $cover }}
+				<img
+					alt="{{ i18n "featuredImg" }} : {{ .Title }}"
+					src="{{ if $cover }}{{ $cover }}
+						{{- else }}{{ $getcover.Permalink }}
+						{{- end -}}" 
+					role="doc-cover" 
+						>
+				{{- end }}
+				<section>
+					{{ .Content }}
+				</section>
+			</header>
+		{{- end }}
+	{{- end }}
+{{- end }}
+
 {{- define "partials/home/landing-page-style.html" }}
 	{{- $page := .page }}
 	{{- $feed := $page.Paginate ( where site.RegularPages "Type" "post" ) }}
@@ -262,6 +291,24 @@
 			}
 			.slides p {
 				font-size: 1.144rem;
+			}
+			#greeter {
+				display: flex;
+				flex-direction: row;
+				padding: 2.8rem 1rem 0 0 !important;
+			}
+			#greeter > img,
+			#greeter > img + section {
+				width: 50%;
+				padding: 1rem;
+				align-self: flex-end;
+			}
+			#greeter p {
+				font-size: var(--small);
+				width: 100%;
+			}
+			#greeter p:last-child {
+				margin-bottom: 0;
 			}
 		</style>
 			{{- if site.Params.Home.Layoutsplit }}
