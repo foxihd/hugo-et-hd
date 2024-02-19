@@ -1,7 +1,191 @@
 {{- define "main" }}
-{{- if eq .Params.type "page" }}
-	{{- partial "fmt/page.html" . }}
-{{- else }}
-	{{- partial "fmt/post.html" . }}
+{{ $post := eq .Params.type "post" }}
+	<article 
+		id="main-article"
+		class="nopadding"
+		aria-labelledby="Title"
+		data-bionRead-safe
+		>
+		<header 
+			aria-labelledby="Title"
+			data-bionRead-safe
+			>
+			{{ partial "article/title.html" . }}
+			{{- if $post }}
+				{{ partial "article/timestamp.html" . }}
+				<p role="doc-credit" 
+					class="it footnotesize">
+					{{- if .Params.author }}{{ .Params.author }}
+					{{- else if site.Params.Author.Name }}{{ site.Params.Author.Name }}
+					{{- end -}}
+				</p>
+			{{- end }}
+			{{ partial "article/cover.html" . }}
+		</header>
+
+		{{ partial "ins/audio.html" . }}
+
+		{{- if and $post .Params.toc }}
+		<br class="smallskip">
+		<div
+			class="noprint normalsize" 
+			role="doc-toc" 
+			aria-labelledby="toc"
+			>
+			<details 
+				class="it" 
+				aria-expanded="true" 
+				open
+				>
+				<summary id="toc"
+					class="normalfont ssc">
+					{{ i18n "titletoc" }}
+				</summary>
+				{{ .TableOfContents }}
+			</details>
+		</div>
+		{{- end }}
+		
+		<section
+			aria-labelledby="Title"
+			id="content"
+			data-bionRead-safe
+			>
+			{{- if or .Params.task .Site.Params.Post.enableCheckbox }}
+				{{ replace .Content "disabled=" "" | safeHTML }}
+			{{- else }}
+				{{ .Content }}
+			{{- end }}
+		</section>
+
+		{{ if $post }}
+			{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+		{{ end }}
+
+	</article>
+
+	{{ partial "ins/social-share.html" . -}}
+
+	{{ if $post }}
+		{{- if .Params.Discussion }}
+			<a href="{{ .Params.Discussion }}"
+				class="plain bottomline" 
+				title="{{ .Title }}" 
+				>
+				<div class="reverse">
+					{{ i18n "readDiscussion" }} &#187;
+				</div>
+				<div class="ldots">
+					{{- with .Params.AskReader }}{{ . }}
+					{{- else }}{{ .Params.Discussion }}
+					{{- end -}}
+				</div>
+			</a>
+		{{- end }}
+
+		{{- with .NextInSection }}
+			<a href="{{ .RelPermalink }}"
+				class="plain bottomline"
+				title="{{ .Title }}"
+				>
+				<div class="reverse">
+					{{ i18n "readNext" }} &#187;
+				</div>
+				<div class="ldots">
+					{{ .Title }}
+				</div>
+			</a>
+		{{- end }}
+
+		{{- if and .Site.Params.Post.Authorcard ( not .Params.author ) }}
+			{{ partial "ins/author.html" . -}}
+		{{- end }}
+	{{ end }}
+
 {{- end }}
+{{- define "partials/article/title.html" }}
+	{{- $subtitle := .Params.Subtitle }}
+	{{- if and (not .Params.Subtitle ) .Description }}
+		{{- $subtitle = .Description }}
+	{{- end }}	
+	{{- if $subtitle }}
+		<hgroup>
+			<h1 id="title">{{ .Title }}</h1>
+			<p role="doc-subtitle"
+				class="subtitle smallskip">
+				{{ $subtitle }}
+			</p>
+		</hgroup>
+	{{- else }}
+		<h1 id="title">{{ .Title }}</h1>
+	{{- end }}
+{{- end }}
+
+{{- define "partials/article/timestamp.html" }}
+	{{- $dateMachine := "2006-01-02T15:04:05-07:00" }}
+	{{- $datePublished := .PublishDate | time.Format ":date_long" }}
+	{{ $minVersion := index ( split hugo.Version "." ) 1 }}
+		{{- if lt $minVersion 87 }}
+			{{- $datePublished = .PublishDate.Format ( i18n "date_long" ) }}
+		{{- end }}
+	{{- $dateModified := .Lastmod | time.Format ":date_long" }}
+		{{- if lt $minVersion 87 }}
+			{{- $dateModified = .Lastmod.Format ( i18n "date_long" ) }}
+		{{- end }}
+	<p role="doc-colophon"
+		class="it footnotesize">
+		{{- if ne .PublishDate .Lastmod }}
+			{{- i18n "published" }} 
+			<time datetime="{{ .PublishDate.Format $dateMachine }}">
+				{{- $datePublished -}}
+			</time>,&nbsp;
+			{{- i18n "modified" }} 
+			<time datetime="{{ .Lastmod.Format $dateMachine }}">
+				{{- $dateModified -}}
+			</time>.
+		{{- else }}
+			<time datetime="{{ .PublishDate.Format $dateMachine }}">
+				{{- $datePublished -}}
+			</time>
+		{{- end -}}
+	</p>
+{{- end }}
+
+{{- define "partials/article/cover.html" }}
+	{{- $cover := .Params.Cover }}
+	{{- $getcover := .Resources.GetMatch "cover.*" }}
+	{{- if or $getcover $cover }}
+	<img
+		alt="{{ i18n "featuredImg" }} : {{ .Title }}" 
+		src="{{ if $cover }}{{ $cover }}
+			{{- else }}{{ $getcover.Permalink }}
+			{{- end -}}" 
+		role="doc-cover" 
+			>
+	{{- end }}
+{{- end }}
+
+{{- define "partials/terms.html" }}
+	{{- $page := .page }}
+	{{- $taxonomy := .taxonomy }}
+	{{- with $page.GetTerms $taxonomy }}
+		{{- $label := (index . 0).Parent.LinkTitle }}
+		<span role="contentinfo"
+			class="small nopadding"
+			id="{{ $label }}"
+			>
+			<span>{{ if eq $taxonomy "tags" }}{{ i18n "tagged" }}:{{ end }}</span>
+			<ul class="delimiter"
+				role="presentation">
+				{{- range . }}
+					<li>
+						<a href="{{ .RelPermalink }}"
+							class="plain noprinturl">
+							{{ .LinkTitle }}
+						</a>
+					</li>
+				{{- end }}
+			</ul>
+		</span>
+	{{- end }}
 {{- end }}
