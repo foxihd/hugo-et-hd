@@ -53,3 +53,16 @@
 		</ul>
 	</nav>
 </details>
+
+{{- define "partials/ins/breadcrumbs-lt.html" }}
+	{{- with .Parent }}
+	{{ partial "ins/breadcrumbs-lt.html" -}}
+	<li><a href="{{ .Permalink }}"
+			class="plain">
+			{{- if eq .Title .Site.Title }}{{ i18n "home" }}
+			{{- else }}{{ .Title }}
+			{{- end -}}
+		</a>
+	</li>
+	{{- end }}
+{{- end }}
