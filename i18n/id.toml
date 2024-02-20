@@ -91,10 +91,10 @@
 	other = 'Baca Diskusi Disini'
 [readNext]
 	other = "Selanjutnya"
-[colophone]
+[colophon]
 	other = 'Kolofon'
-[colophonetext]
-	other = 'Diperesembahkan oleh Hugo dengan tema Hugo Et-HD'
+[colophontext]
+	other = 'Diperesembahkan oleh Hugo dengan tema Hugo ET-HD'
 [date_iso]
 	other = "2006-01-02"
 [date_post]

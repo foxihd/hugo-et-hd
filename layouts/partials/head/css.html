@@ -74,12 +74,14 @@
 		text-align: justify;
 	}
 	{{- end }}
+	{{- $imprint := i18n "colophontext" }}
 	{{- with site.Params.Imprint }}
+		{{ $imprint = . }}
+	{{- end }}
 	@media print {
 		main::after {
-			content: '{{ . }}' !important;
+			content: '{{ $imprint }}' !important;
 		}
 	}
-	{{- end -}}
 </style>
 {{- end }}
