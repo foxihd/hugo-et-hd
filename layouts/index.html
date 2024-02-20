@@ -27,8 +27,8 @@
 	{{- if and $headline $feedOnly (not $firstPage) }} class="hide" 
 	{{- end -}}
 	>
-	{{- if $firstPage }}{{ i18n "recent" | pluralize }}
-	{{- else }}{{ i18n "post_on" }} {{ site.Title }}
+	{{- if $firstPage }}{{ i18n "recent" $postPaginator.NumberOfElements }}
+	{{- else }}{{ i18n "post_on" $postPaginator.NumberOfElements }} {{ site.Title }}
 	{{- end -}}
 </h2>
 <section

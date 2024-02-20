@@ -4,9 +4,11 @@
 [skiplanding]
 	other = "Jump to Article"
 [post_on]
-	other = "Post on"
+	one = "Post on"
+	other = "Posts on"
 [recent]
-	other = "Recent Post"
+	one = "Recent Post"
+	other = "Recent Posts"
 [draft]
 	other = "Draft"
 [next]
@@ -91,9 +93,9 @@
 	other = 'Read Discussion Here'
 [readNext]
 	other = "Read Next"
-[colophone]
-	other = 'Colophone'
-[colophonetext]
+[colophon]
+	other = 'colophon'
+[colophontext]
 	other = 'Powered by Hugo with Hugo Et-HD Theme'
 [date_iso]
 	other = "2006-01-02"
