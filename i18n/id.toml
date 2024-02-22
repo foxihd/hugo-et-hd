@@ -49,10 +49,10 @@
 [archive]
 	# one = ""
 	other = "Arsip"
-[category]
+[categories]
 	# one = ""
 	other = "Kategori"
-[tag]
+[tags]
 	# one = ""
 	other = "Label"
 [post]

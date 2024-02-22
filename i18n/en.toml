@@ -51,10 +51,10 @@
 [archive]
 	one = "Archive"
 	other = "Archives"
-[category]
+[categories]
 	one = "Category"
 	other = "Categories"
-[tag]
+[tags]
 	one = "Tag"
 	other = "Tags"
 [post]

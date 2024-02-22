@@ -20,16 +20,10 @@
 	{{- if $term }} class="ifwide" 
 	{{- end -}}>
 	<section>
-		<h2 class="rm ssc normalfont Large">
-			{{ i18n "category" }}
-		</h2>
-		{{- partial "tms/categories.html" . }}
+		{{- partial "taxonomies.html" (dict "taxonomy" "categories") }}
 	</section>
 	<section>
-		<h2 class="rm ssc normalfont Large">
-			{{ i18n "tag" }}
-		</h2>
-		{{- partial "tms/tags.html" . }}
+		{{- partial "taxonomies.html" (dict "taxonomy" "tags") }}
 	</section>
 </aside>
 <section id="list-posts">

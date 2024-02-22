@@ -3,12 +3,9 @@
 {{- end }}
 
 {{- define "main" }}
-<h1>{{ .Title }}</h1>
-<hr class="hide"
-	style="border-style:dotted;">
 {{- if eq ( .Title ) ( "Tags" ) }}
-	{{- partial "tms/tags.html" . }}
+	{{- partial "taxonomies.html" (dict "taxonomy" "tags") }}
 {{- else }}
-	{{- partial "tms/categories.html" . }}
+	{{- partial "taxonomies.html" (dict "taxonomy" "categories") }}
 {{- end }}
 {{- end }}

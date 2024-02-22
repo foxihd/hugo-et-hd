@@ -1,0 +1,24 @@
+{{- $taxonomy := .taxonomy }}
+{{- $tag := eq $taxonomy "tags"}}
+{{ with index site.Taxonomies $taxonomy }}
+
+<h2 class="rm ssc normalfont Large">
+    {{ i18n $taxonomy (len .) }}
+</h2>
+
+<ul id="list-{{ $taxonomy }}"
+    {{ if $tag }}class="unmark footnotesize"{{ end }}
+    role="presentation"
+    aria-label="{{ i18n $taxonomy (len .) }}">
+        {{ range . }}
+        <li>
+            <a href="{{ .Page.Permalink }}"
+                class="{{ if $tag }}inverse{{ else }}plain{{ end }}"
+                aria-label="{{ i18n $taxonomy 1 }}:{{ .Page.Title }}"
+                >
+                {{ .Page.Title }}{{ if $tag }}({{.Count}}){{ end }}
+            </a>
+        </li>
+    {{ end }}
+</ul>
+{{ end }}
