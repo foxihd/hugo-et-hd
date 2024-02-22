@@ -13,14 +13,15 @@
 {{- $withSummary := site.Params.Feed.Summary }}
 {{- $withCover := site.Params.Feed.Cover }}
 {{- $feedOnly := not site.Params.Home.Slider }}
+{{- $greeter := not site.Params.Home.DisableGreeter }}
 
 {{- if and site.Params.Home.AuthorCard $feedOnly }}
 <header class="medskip"
 	style="max-width: 90%;">
-	{{ partial "ins/author.html" . }}
+	{{ partial "ins/author.html" . -}}
 </header>
-{{ else }}
-	{{ partial "home/greeter.html" . }}
+{{ else if $greeter }}
+	{{ partial "home/greeter.html" . -}}
 {{- end }}
 
 <h2 id="feed"
@@ -307,7 +308,6 @@
 				padding: 1.6rem;
 			}
 			#greeter p {
-				font-size: var(--small);
 				width: 100%;
 			}
 			#greeter p:last-child {
@@ -372,6 +372,12 @@
 						}
 						#split #mainfooter section {
 							max-width: 90%;
+						}
+						#greeter {
+							display: block;
+						}
+						#greeter > * {
+							width: calc(100% - 2rem) !important;
 						}
 					}
 					@media only screen and (max-width: 1024px) {
